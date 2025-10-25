@@ -1,0 +1,932 @@
+{
+  "id": "65923f5b-6f20-4887-9d08-375566efb41e",
+  "appName": "my_agent",
+  "userId": "user",
+  "state": {},
+  "events": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "https://github.com/GavriloviciEduard/fastapi-microservices"
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "user",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "db514643-087e-4c30-a337-6d457140a116",
+      "timestamp": 1761430175.235194
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "thoughtSignature": "CiIB0e2KbxJ8I2QUNGsjWNpf5To6wzQc9nLF260usooYoHvHCnIB0e2KbwnlITQj1zs9WXzs2xX507Xc0SHo0tZfkOMXAkx_dfiXyQyY65rasromKiNqAJYfItUa5iAU4xMPL4OcPlk5grSQQPMMUfwLXmqubbUBxym06UxO6ukCbss-1ZRZHLsOfIhQOWzulpx9w2sJhaQK9AEB0e2Kb8at2CW0QBQAhRnyLcMZFDzKKwGbSa-8veoaSRbJDgYBvxHLYLAOO-1NDGYr_ZIq6FfkAiOlQvqG4bqciwvV3fuX05v2eteJFQIgksh0fT3mOrbKfZRME8h7-aEpXreTiRGeDWUaAznmZr_3TXomvTc5FKeNb9JHxMVuiB_yIJF2f05JXTBcoSEnNeQuSstVxbc32YkehydnPoMgBoqBc0t667sdVGg4l9Vl4w9NCf9IfN5LDu3T1LsJJeBKV-fu0M44IHv3tqNauQpa0UmSbXmGczv3Uucb325R02ZBeNLSh2ll8TKDLjs1mayskORPCsEBAdHtim8ys-cuyuz092weATkUJ8ZV_vlaxN98B0nfy7YUQSctXeApcHcUO7E4uNF6j0zIOq2baYLvbA_neqtLTPWc2XU2Ig0EXQWbE_1ESjhqKI8QeupAoBcmL_U_32Hu1Q1Qj1e3PdltXZD6nZp3AANtx_O9a69c67o0nOPcv8V1Vb3PoMEglicIb6Mg5MN4w_XLvwzwYb3zE1_ZMOR_-mo6i3KyiB3bus2KROhDVJ7rkh6nuM2gp67u5E_m0l1iwQr_AQHR7YpvFW2MrYjaXLdN2XrnETigoEkxZm2_gDikPchrodMv8rP8eYrnz7CNkvUzSsHliRvkPH-oqwZ5FOueb8b47zi1FoVFqzVZOhVHcwGOQ1RCvI0lPxiOHF0kItuvXJrWsp5l85IR1WeI4hzlodV8sH7HHMIFy9neWpPGsIoCaSJGUuNhwbktg3qEzi0OyMm0ib-ZMG-JV6LvrdvAjyC-Cwg-jeI5X3l6v1O80Wf_5gHKdUfzjV1qt42vDqr3xeoFOR1d-vfvBtMkPWorAGMjVE23yJsrOPlGlSN6zOcT7ZDQ-diffOO3DiM8cwqDvIaCpmPFclBB79CxXs0S8gr9AQHR7YpvVNw0CmpxnqhtzM3Nt3u_uc6WBYPMH0eZIYJi1BNRuSPDmgWVVwySx_qfenSQEOVuV3uqhzjOnQPd6x1ujWDBBKUzLABXC91VLjqW4-TbxKhk2xm3DG6yVn0wR-xpgenNqfyBrilLxxsaIas7Rcpk-gUYx_v-j97rbx-4YBHgpEV913m5zO5ILlAwRw9-RdxpwCp8SBz__vFoV6w_T8CcYuNRropAD3_J-bCwR9MB4W4o8p-9OSHKi-xIpe9rfPc3AsksqR-gJJRzyEBqBfxJ6J7RXNXZ1gAhKyGlp4vhv7xQkmOMVpWHv_UjgAjjS-A-X_H7rN5HocgKRAHR7YpvqipQU0MUqL94u7FGq1Q7RK105EVi8GFywJnvqm-R9FtHdEp6Ipw5X4C9ogsOJAKOOF4YB-9SxT4dNVwMtfi7",
+            "functionCall": {
+              "id": "adk-24ccc1ae-5110-44b5-802a-1d95d870e09c",
+              "args": {
+                "owner": "GavriloviciEduard",
+                "path": "/",
+                "repo": "fastapi-microservices"
+              },
+              "name": "github__get_file_contents"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "candidatesTokenCount": 36,
+        "promptTokenCount": 3460,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3460
+          }
+        ],
+        "thoughtsTokenCount": 224,
+        "totalTokenCount": 3720
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "32651eb5-524a-4ece-8760-4898c07c782e",
+      "timestamp": 1761430176.362354
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-24ccc1ae-5110-44b5-802a-1d95d870e09c",
+              "name": "github__get_file_contents",
+              "response": {
+                "result": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "[\n  {\n    \"type\": \"file\",\n    \"size\": 424,\n    \"name\": \"README.md\",\n    \"path\": \"README.md\",\n    \"sha\": \"0261a2e5277945e6cae76c04fa458417d9690dda\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/README.md?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/0261a2e5277945e6cae76c04fa458417d9690dda\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/README.md\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/README.md\"\n  },\n  {\n    \"type\": \"dir\",\n    \"size\": 0,\n    \"name\": \"db-models\",\n    \"path\": \"db-models\",\n    \"sha\": \"af6ace413a8f7b3655cfc35ee7a536a3a1904a42\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/db-models?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/trees/af6ace413a8f7b3655cfc35ee7a536a3a1904a42\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/tree/master/db-models\",\n    \"download_url\": null\n  },\n  {\n    \"type\": \"dir\",\n    \"size\": 0,\n    \"name\": \"db-service\",\n    \"path\": \"db-service\",\n    \"sha\": \"ea19ec0e64371d8db7bcdf9a0b9ae9edda5cf3e3\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/db-service?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/trees/ea19ec0e64371d8db7bcdf9a0b9ae9edda5cf3e3\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/tree/master/db-service\",\n    \"download_url\": null\n  },\n  {\n    \"type\": \"file\",\n    \"size\": 1263,\n    \"name\": \"docker-compose.yml\",\n    \"path\": \"docker-compose.yml\",\n    \"sha\": \"95245278f9dc466fc7f22a1c95e3cf1d76d13766\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/docker-compose.yml?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/95245278f9dc466fc7f22a1c95e3cf1d76d13766\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/docker-compose.yml\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/docker-compose.yml\"\n  },\n  {\n    \"type\": \"file\",\n    \"size\": 181,\n    \"name\": \"nginx_config.conf\",\n    \"path\": \"nginx_config.conf\",\n    \"sha\": \"dd040cf05b1029bab3b2403fbb927d00403fdcc7\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/nginx_config.conf?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/dd040cf05b1029bab3b2403fbb927d00403fdcc7\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/nginx_config.conf\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/nginx_config.conf\"\n  },\n  {\n    \"type\": \"dir\",\n    \"size\": 0,\n    \"name\": \"pokemon-service\",\n    \"path\": \"pokemon-service\",\n    \"sha\": \"c38cf08ec3c94b03b2cd86af582e59eac860f462\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/trees/c38cf08ec3c94b03b2cd86af582e59eac860f462\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/tree/master/pokemon-service\",\n    \"download_url\": null\n  },\n  {\n    \"type\": \"dir\",\n    \"size\": 0,\n    \"name\": \"res\",\n    \"path\": \"res\",\n    \"sha\": \"6788564dea62bfa6c5db6ce199e2293b75d97619\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/res?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/trees/6788564dea62bfa6c5db6ce199e2293b75d97619\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/tree/master/res\",\n    \"download_url\": null\n  },\n  {\n    \"type\": \"dir\",\n    \"size\": 0,\n    \"name\": \"team-service\",\n    \"path\": \"team-service\",\n    \"sha\": \"e23d3fbeeeb9ee8d697edf41272ac2eed7ede924\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/team-service?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/trees/e23d3fbeeeb9ee8d697edf41272ac2eed7ede924\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/tree/master/team-service\",\n    \"download_url\": null\n  }\n]"
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "ed257619-d7ca-4daa-932e-d389b1daac87",
+      "timestamp": 1761430178.768761
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "thoughtSignature": "CiQB0e2KbyrDBDVT17sPU7x8FTN47cSS-7402D2HXsU3RgKZTr8KbQHR7YpvipbDZZlmMp_HPmM3CZ7TNly2WUf0bbKPSiEKuLoqW-sXNOlqKH_-LBaVdnSbqCdzAF0DkPQE6F4A5DQU_S_fQV_uY42xAwzqo1y4RoNUiniftHDyWr0XuNYd9bDo7-AvETrtImzw0D4K8AEB0e2KbypwDynjMp_rBk4EoQiyctR9ZnSSbjr0UvIVdOPDIeLH3XQ6guAEpasR3a9R448z8cLv_V3utTWoGZswrnOfIph1UH69cuCQhytMWLMXnGzLYoJCH8pUsMw3pppwUj-awQ-3h32o-vPm57e7nz7vgS6sDX2gMNqvBADwjQJIST6AnzbBG_9KAmSDyGIIcFEoEb6A6qK2qGuryIDJ0EvDDsvkDNGURwI0FccK6XNen_WfrCl3jtPPGvvoovgwF7QwadRNec_MoUeaJ9pywNCuI2viAqPnisqmjntaG-kjWEY7HB_R7MMuMzto9YsKgQIB0e2Kb2He-DlHB2x-8AsRmRBMJnEYJKEZx_BUunNk4i_z-9s-Ux_lLMhzaoTK7M5imr-pRHm-4et8ibd0TNbDK3qHVr8MGL6LJZIXL1edriswInW-rdsRazCgARLJwv4k6HyKLrQbW5XVpBBLnQ9l9IU30X0OtIAfwxiffsDZrj0tTkp04ibtn2oDUUK2AkGT5t3vk2viH4k30ErRXS8OSdGJpjWQLyX6mY85DIvjOdg6BvztzYjcYu1n_NZuvTBNlEDRwvNPHUkbCtqHhBF_-irI_YK9RWzgG0z7e3w2bbcejB8Je9QOTk83Wn0znjBRsV2KKUyZxkT1C_BmVAciBAreAQHR7YpvhtwvVuIHx8w2F-dFNzpgjJXr69KNVjqb-CuFz0mXsh_BSiYWSMKFjbgb2BBtmuomsKqJKniq7nZK3ZnAaLBG2kKFhupOWyQ1ZxS-dLttu7lou2fdvP0tcBeIKGIvuveWI1Rknav6VdEkYzrEuT2HJKNVeDZT_HL2NPoOZvZ-T-0wVwBjlkJxhTKLIjhINT-nF8NN37r8inXHTIj_bYuYnGA5Pj_DLWYHqiHiZx-hXtNdbElMZYzjtg7zQc41mCTKJjgZAzJnkFkISIMx08_quI61ZF3x9DrfywqRAQHR7Ypv7Fugr31SmVyq_NScYG-wAOswvbp5jf8mW-KAZ9oHg4OJvP42LOQq-faR0AL6d90PkyQXWT1ksGbSade3k4_oLdl5B3QWPXMQjwt771_RzHWB-0DcKVdVj__TZTeDb4LUtgd48tRVzzyl4xvtrcFYWJ7kqqWyHNspu9HfZDgs4JpJrH4-1rJ4GZZpNQo=",
+            "functionCall": {
+              "id": "adk-d822a347-4c87-47f1-b082-5ce555037506",
+              "args": {
+                "repo": "fastapi-microservices",
+                "owner": "GavriloviciEduard",
+                "path": "db-service"
+              },
+              "name": "github__get_file_contents"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2855
+          }
+        ],
+        "cachedContentTokenCount": 2855,
+        "candidatesTokenCount": 40,
+        "promptTokenCount": 5802,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 5802
+          }
+        ],
+        "thoughtsTokenCount": 198,
+        "totalTokenCount": 6040
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "0d193e3d-bd08-4a20-be2a-d55a668525f3",
+      "timestamp": 1761430178.780952
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-d822a347-4c87-47f1-b082-5ce555037506",
+              "name": "github__get_file_contents",
+              "response": {
+                "result": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "[\n  {\n    \"type\": \"file\",\n    \"size\": 119,\n    \"name\": \"Dockerfile\",\n    \"path\": \"db-service/Dockerfile\",\n    \"sha\": \"5f1a296383f326e4f73ea3d0836b38e156926363\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/db-service/Dockerfile?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/5f1a296383f326e4f73ea3d0836b38e156926363\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/db-service/Dockerfile\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/db-service/Dockerfile\"\n  },\n  {\n    \"type\": \"file\",\n    \"size\": 28,\n    \"name\": \"create.sql\",\n    \"path\": \"db-service/create.sql\",\n    \"sha\": \"9a4805f56f489c5d9937c9dc310f177a7cdc2672\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/db-service/create.sql?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/9a4805f56f489c5d9937c9dc310f177a7cdc2672\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/db-service/create.sql\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/db-service/create.sql\"\n  }\n]"
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "bc27c3fb-983d-4098-b874-7268bc49f30a",
+      "timestamp": 1761430186.012921
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "thoughtSignature": "CiIB0e2Kb6gPETGjwopUiJbetM04LiODZHSWbe2egPqEEi_YCmsB0e2Kb_Rj7tO8zL0gGTbGTcCYK0KaHc7SMYq_XEZBRTrxTh3kQY5ztSAMEpMJjU4VUcBnRVA9Q80H9rPlKy9yv_lTiYiD2ipVAsiX9vKIMMCl5ocvCSXzBuHfbrdZ0efcaAg0s5bU4RnMOwr3AQHR7YpvNBG8kENEVpYNH6dhO7bmAeSfvPci44VjXMb2DIovwlu9AUL6IRUGQ29EcH49OtRf4HtHWFGea66RH68t-cnZtkUigEG71BVxmhdKXG44GdhdLnxw5fTBL4ukIxq5y3Q0twwA69JnTdcTbGVqeH91l-qbsDoaPm7HE8AUdF2LIxMXRLNSAIRo65eacsTA7wUiICBtNOKyGCITD6tHtEWrfyj0ivQ0FMlAUe9g3oNRN9ip2IOB70o7TGMyU0499LKeVJr_gzQE9jXpTHQutpWWHxnkZC_F5kwHiQ7orWTbLibo6BYKa2NEIF9jfHVMDL6J6EIKnAEB0e2KbwZ_g8ZBzk2uBiv9ESMANn8-U-lPTvmvvX1qpjX1OYQtAgJzwIwRmNGvdgrQhs5d00hAHqm2jNU90-TwlN7K82B1LJV0xuxWAUz2y6EE7eLu2uPbc1sE6sbUd3lFNxt2cfm0NouzVP3UUESTBcxj7ySKER0hiKZHp9ts6rdSKTEjrb71qb03JWiDjEYO1fquOmoJ1RTH3ic=",
+            "functionCall": {
+              "id": "adk-69636cdf-60a3-45f4-8e39-78baacef6c20",
+              "args": {
+                "repo": "fastapi-microservices",
+                "owner": "GavriloviciEduard",
+                "path": "pokemon-service"
+              },
+              "name": "github__get_file_contents"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 5750
+          }
+        ],
+        "cachedContentTokenCount": 5750,
+        "candidatesTokenCount": 40,
+        "promptTokenCount": 6660,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 6660
+          }
+        ],
+        "thoughtsTokenCount": 99,
+        "totalTokenCount": 6799
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "dc2d9314-bcdd-4077-b801-169dcf05394e",
+      "timestamp": 1761430186.02701
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-69636cdf-60a3-45f4-8e39-78baacef6c20",
+              "name": "github__get_file_contents",
+              "response": {
+                "result": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "[\n  {\n    \"type\": \"file\",\n    \"size\": 54,\n    \"name\": \".dockerignore\",\n    \"path\": \"pokemon-service/.dockerignore\",\n    \"sha\": \"7ed17d38c7e3b845c41568adf41a328e8ac61389\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service/.dockerignore?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/7ed17d38c7e3b845c41568adf41a328e8ac61389\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/pokemon-service/.dockerignore\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/pokemon-service/.dockerignore\"\n  },\n  {\n    \"type\": \"file\",\n    \"size\": 577,\n    \"name\": \"Dockerfile\",\n    \"path\": \"pokemon-service/Dockerfile\",\n    \"sha\": \"35820d2d5a10dbd5899e2c74a65bdcc0873e8e36\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service/Dockerfile?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/35820d2d5a10dbd5899e2c74a65bdcc0873e8e36\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/pokemon-service/Dockerfile\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/pokemon-service/Dockerfile\"\n  },\n  {\n    \"type\": \"dir\",\n    \"size\": 0,\n    \"name\": \"app\",\n    \"path\": \"pokemon-service/app\",\n    \"sha\": \"49a5e07bd1223e4d3257260aeb5e0c08f6eca704\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service/app?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/trees/49a5e07bd1223e4d3257260aeb5e0c08f6eca704\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/tree/master/pokemon-service/app\",\n    \"download_url\": null\n  },\n  {\n    \"type\": \"file\",\n    \"size\": 126,\n    \"name\": \"entrypoint.sh\",\n    \"path\": \"pokemon-service/entrypoint.sh\",\n    \"sha\": \"e0cc62da80097fda5a7e0deb3ddaffe1b38f2380\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service/entrypoint.sh?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/e0cc62da80097fda5a7e0deb3ddaffe1b38f2380\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/pokemon-service/entrypoint.sh\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/pokemon-service/entrypoint.sh\"\n  },\n  {\n    \"type\": \"file\",\n    \"size\": 222,\n    \"name\": \"requirements.txt\",\n    \"path\": \"pokemon-service/requirements.txt\",\n    \"sha\": \"0d8991ccda7af513cdfbf8dc6076fae79eff4c78\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service/requirements.txt?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/0d8991ccda7af513cdfbf8dc6076fae79eff4c78\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/pokemon-service/requirements.txt\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/pokemon-service/requirements.txt\"\n  }\n]"
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "465ebc76-5097-4a58-9505-a2543d91eb35",
+      "timestamp": 1761430191.999772
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "thoughtSignature": "CiIB0e2Kb6b3Dcwn-KtmSHWYr1PIJHRmeg740KnbLunCgcDECnEB0e2KbzpMV_oRTlaw3j-T8eOe5hhapUZr8NL0bNQktv02fi3EqfMOr__MhFSSVsr3NjsZf0VYfgxbf6DXw9oNMrI5H0fjxwzL6v8wvxS_I4_-lWZ0XDl5pSc-Uwvtnw8SUGcMfBQe86VmmIKS67zKOQrwAQHR7YpvYguoH95M7ygrm5N1rIS7_iEc1BmRcMRH7mooILJWsuV1L8NiDSJqJf59vzghZsbGYVBj8BHD5soEptTr65R9452jsOr9ZPvjJcA_AQEhYj_3YWJuf3T2UmYlbiKJXx3yIqEVFIq2xmp6GZSFNXq6wU-TnCVJQj2RR9MUDMY1eiK_krVbIF3IAxtgcPpkJwXMoR0Knlz-zxK_s8rcooPQU2Yb8mG7EDWWnKZo6TrdoeAkOPr_H_7uUKMUk7zAeFZTMUxuU2VaKdIJruOL0mVvsMAJzc66jDfFc9OENJ4ZN2Wo5gv4jP1h-PcS9wo6AdHtim81ycEwiq5VPsyzHv3HmL7vJTqr-7uwU66OH59i2jd-PX2sjNN_kMXxOfwcO2Wdf1uzHFW3dg==",
+            "functionCall": {
+              "id": "adk-c8c65d7c-c79d-4e39-8112-73cdfb191407",
+              "args": {
+                "path": "pokemon-service/app",
+                "owner": "GavriloviciEduard",
+                "repo": "fastapi-microservices"
+              },
+              "name": "github__get_file_contents"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 5810
+          }
+        ],
+        "cachedContentTokenCount": 5810,
+        "candidatesTokenCount": 42,
+        "promptTokenCount": 8227,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 8227
+          }
+        ],
+        "thoughtsTokenCount": 75,
+        "totalTokenCount": 8344
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "ca54e1cd-6ba4-48ef-9f7c-a5699010b3c0",
+      "timestamp": 1761430192.012764
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-c8c65d7c-c79d-4e39-8112-73cdfb191407",
+              "name": "github__get_file_contents",
+              "response": {
+                "result": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "[\n  {\n    \"type\": \"file\",\n    \"size\": 0,\n    \"name\": \"__init__.py\",\n    \"path\": \"pokemon-service/app/__init__.py\",\n    \"sha\": \"e69de29bb2d1d6434b8b29ae775ad8c2e48c5391\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service/app/__init__.py?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/pokemon-service/app/__init__.py\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/pokemon-service/app/__init__.py\"\n  },\n  {\n    \"type\": \"dir\",\n    \"size\": 0,\n    \"name\": \"api\",\n    \"path\": \"pokemon-service/app/api\",\n    \"sha\": \"e114a336fd69add88b6753f0a15942bdb875b07e\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service/app/api?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/trees/e114a336fd69add88b6753f0a15942bdb875b07e\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/tree/master/pokemon-service/app/api\",\n    \"download_url\": null\n  },\n  {\n    \"type\": \"file\",\n    \"size\": 420,\n    \"name\": \"config.py\",\n    \"path\": \"pokemon-service/app/config.py\",\n    \"sha\": \"c94e048c3e333c515fda65ad220eb1086f4a1451\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service/app/config.py?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/c94e048c3e333c515fda65ad220eb1086f4a1451\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/pokemon-service/app/config.py\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/pokemon-service/app/config.py\"\n  },\n  {\n    \"type\": \"file\",\n    \"size\": 417,\n    \"name\": \"db.py\",\n    \"path\": \"pokemon-service/app/db.py\",\n    \"sha\": \"273d3c3f4c8ba615f90ca3cd7c05f9cc2346f514\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service/app/db.py?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/273d3c3f4c8ba615f90ca3cd7c05f9cc2346f514\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/pokemon-service/app/db.py\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/pokemon-service/app/db.py\"\n  },\n  {\n    \"type\": \"file\",\n    \"size\": 605,\n    \"name\": \"main.py\",\n    \"path\": \"pokemon-service/app/main.py\",\n    \"sha\": \"18227d3bfb3eed319ed064b88bb9cadf39b50391\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service/app/main.py?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/18227d3bfb3eed319ed064b88bb9cadf39b50391\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/pokemon-service/app/main.py\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/pokemon-service/app/main.py\"\n  },\n  {\n    \"type\": \"dir\",\n    \"size\": 0,\n    \"name\": \"models\",\n    \"path\": \"pokemon-service/app/models\",\n    \"sha\": \"c57df6db76fe2bc3fdafa42294742d09a44c865b\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service/app/models?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/trees/c57df6db76fe2bc3fdafa42294742d09a44c865b\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/tree/master/pokemon-service/app/models\",\n    \"download_url\": null\n  }\n]"
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "d693482e-8bf8-414a-87f6-72614a300ac4",
+      "timestamp": 1761430198.916319
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "thoughtSignature": "CiIB0e2Kb4VfbA091I3Se7F9hcBfk6hhglLmeMA24c10BwUPCl0B0e2KbyEZ9PWNTGCe1rBiPnKUoCq8eJRK63Td6Bju1BqLQaZzdlTQIwUQK89-PQ2oOLkYqvtUpnD2BSgyYX2eD2N2OHdFcPfnNq0KTSmrVumwUjsw6jnerhGRXIIK7AEB0e2Kb9-joFLUJ1ljApvHwVg5vQN_g6VDXg9BAuUSfPPy3R8PKUCtFNLYAeG27jADDxZu4TXoNxo1eC9rXs4MfpaRuaICL67B9ByXVxAbZ2Lyq8q7bImm4KGiENPCBgNiCfrPyIYCTlrU3vlEBYoPVBQybKwJGyZbOjws30KJMxShrDfBSnR_qYX8UjEpK_6JH2t2PveGFtDWFRP8WFFe6YOGQuH_NeIfHV_H86DpNbtMvNa8YWSw8NeGTF3gGQI0FvHDAr2x04Ph51uKA8-A1EcWvrX94QJeh0MkkAXMPmwECn4R4oMe7E5wUQq1AQHR7Ypv9YPn4j3Q1pxWGAXlxbehpmXEioaxJgtZD3FrRY8h6AwRbvoyTikdPiAYm4KJctLfoLVBynAnD_R7O2GkXGFZSgFeDLtxY4mPMIptYE5TPRGl2MCf-n8tPzbxjUr2hRbQBq_SaFQu8OCysARgSdgdzMi3uCOZDWyOtA3QFUT8MPRvp-xqeIHipJGTDC9AasJCaapXblN7twHNQ3XeJhaTFHs1BXzCpf0xRyhn6opEAKQ=",
+            "functionCall": {
+              "id": "adk-510376aa-c1d6-4020-8ce1-d4d61b5e743a",
+              "args": {
+                "path": "pokemon-service/app/main.py",
+                "owner": "GavriloviciEduard",
+                "repo": "fastapi-microservices"
+              },
+              "name": "github__get_file_contents"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 7813
+          }
+        ],
+        "cachedContentTokenCount": 7813,
+        "candidatesTokenCount": 46,
+        "promptTokenCount": 10084,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10084
+          }
+        ],
+        "thoughtsTokenCount": 107,
+        "totalTokenCount": 10237
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "ac6eb9e9-4105-442e-9816-ba296d32c7c7",
+      "timestamp": 1761430198.929321
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-510376aa-c1d6-4020-8ce1-d4d61b5e743a",
+              "name": "github__get_file_contents",
+              "response": {
+                "result": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\n  \"name\": \"main.py\",\n  \"path\": \"pokemon-service/app/main.py\",\n  \"sha\": \"18227d3bfb3eed319ed064b88bb9cadf39b50391\",\n  \"size\": 605,\n  \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service/app/main.py?ref=master\",\n  \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/pokemon-service/app/main.py\",\n  \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/18227d3bfb3eed319ed064b88bb9cadf39b50391\",\n  \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/pokemon-service/app/main.py\",\n  \"type\": \"file\",\n  \"content\": \"import logging\\n\\nfrom fastapi import FastAPI\\n\\nfrom app.api import pokemon\\nfrom app.db import init_db\\n\\n\\ndef create_application() -> FastAPI:\\n    application = FastAPI(\\n        openapi_url=\\\"/pokemon/openapi.json\\\",\\n        docs_url=\\\"/pokemon/docs\\\")\\n    application.include_router(\\n        pokemon.router,\\n        tags=[\\\"pokemon\\\"])\\n    return application\\n\\n\\napp = create_application()\\nlog = logging.getLogger(\\\"uvicorn\\\")\\n\\n\\n@app.on_event(\\\"startup\\\")\\nasync def startup_event():\\n    log.info(\\\"Starting up...\\\")\\n    init_db(app)\\n\\n\\n@app.on_event(\\\"shutdown\\\")\\nasync def shutdown_event():\\n    log.info(\\\"Shutting down...\\\")\\n\",\n  \"encoding\": \"base64\",\n  \"_links\": {\n    \"self\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service/app/main.py?ref=master\",\n    \"git\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/18227d3bfb3eed319ed064b88bb9cadf39b50391\",\n    \"html\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/pokemon-service/app/main.py\"\n  }\n}"
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "0a766f44-9f2f-42a6-88c4-e1c2d5ee84ef",
+      "timestamp": 1761430206.156277
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "thoughtSignature": "CiIB0e2Kb1Y1nXo1yGXgFXAD22irfNkHfJeu4Xz2yNiHQVflCmsB0e2Kb2XGLHG6sjLM-KbIcJiwq3lkArtb7zi90bPG8ahdNRsv1XKzg1gRV_phW5ZS1m8ZOhgnyO0pktRNV3cIIf7MsH48nEH1N-GcAzjJ9gonIKuDfo9WfDRyJ0kT68NVYj7QifQuiegy4gpAAdHtim_L6EDJnYoNm-W7QMQQUxkI8xelw2XHqKb0XBj16R4XXg-Rxo1K10-yPdWvbfmdr0dWfSAU6yhiw2tiaQq7AQHR7YpvHWu8iyLPh0Yj_5kwLmNiollO7azQigodqn84_BXio4GFWRVI5JxG3ay1-3DlyaeakJHSyRlzR788y8LsETqiFa19QElN3CdE-dwm3fbQOfh7E3lkl_cBwdcn7OtMa1gR8ErtwPIuOfJAa6Ykqnz-3bBLDc1WThThn48gRXqSPRl-kxV8FXwZNgTdXmwMYFhkT4zjsYttnnEDDjR2AJO6tqqMYNpXxQk_BWxLOMoLsGzb9t2PzYIKrgEB0e2Kb-zDfxiDkxPyM3qn8kQNzwSfXxOe74BhilJSiN-gQvGdWuKDGj2gN46NUns3N4OXIePfy_0onfV06cDwju_ZauYH0EeJK6vVh2hb4DqE4rPVA70fVAt3k4q96Qt5HoN3dVcKRNySWZ9pZzyrAN5iuDI2ZHbkmCgZb9i-VZZEslOHdk3_59gdrSq7fqxxp7THrSkiyhyY1mG6vQwpPwwFiccu3yj0st2qtH8KJAHR7Ypvifgh2jiH4_rXWV4EV9hs3mH343cwBAtWg91AFlq-NwpUAdHtim81iR3NJwuSCTdQKGYRogSHWlP_wbIFojO-a50lcUjuENwl3hi5hN6W7C8B5boaaOZZltdQbkeYi1MVH9LlvYTKHUAi57VoAlGIH3Z8xMR1CuIBAdHtim80thYiJu9SzOt4jy3apNPD5ycioOMEbvyGxyL5EfuX4WtxyU4awnzMswdL81HphHuNcjoSmkbbY1fGvh7H20qU3ACh86tx2in9nK7WsPITPwhy7LwUWAehbuv7h8nCJFAKnHH5LKq5ql9Jdjs635GfwfkYSYr-S1J3lwMuI__PY7dkkIWRqroF874wVbMygirVfDu4TlJJMna99yUVsy_bBOyzLdPVq6Sh4m-jK9O6ysJQXNzwivbEkZHm4gPN9-FtvdP9ineSMGH9nSg07eMQ_a7tUw_lUbkhR2yLFArkAQHR7YpvY9j2gINkR5HzESKv7wWO9Cca1yFrd7HduP1P_x1L5M98hCBMhKPV_n7U-sq4WSj2B01mdhD9i6PZdoNcm9ji6-O-2hvvClAIx180RcJeQUpafPHlQkHxj6-Psr6Ym3FGn3eAdC7Gc84bHvjYSJn8IySvO4K9bjzLE21HX4Co3nuA_X3ciPcikk3qHF06k_-r2Xs7R-SAX5MC4UYaAOw7iOp7kIhiZ0yfIG9V9aF48Epr7ZkYpCyft-ShqAvFz5cUe0uO-6GzDsIAKKqHisxNruEIISick3BnJog9dishKwolAdHtim8iIkpfmM4UPSrr4IgeaGiD1ZitZaLPsIiSBe_VVNylBQ==",
+            "functionCall": {
+              "id": "adk-e50e6bef-6461-42c1-bc46-12c63a7b9a7c",
+              "args": {
+                "repo": "fastapi-microservices",
+                "owner": "GavriloviciEduard",
+                "path": "pokemon-service/app/api/pokemon.py"
+              },
+              "name": "github__get_file_contents"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9790
+          }
+        ],
+        "cachedContentTokenCount": 9790,
+        "candidatesTokenCount": 48,
+        "promptTokenCount": 10966,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10966
+          }
+        ],
+        "thoughtsTokenCount": 221,
+        "totalTokenCount": 11235
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "977e6b72-96be-4059-9cfe-570fe35284e8",
+      "timestamp": 1761430206.168621
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-e50e6bef-6461-42c1-bc46-12c63a7b9a7c",
+              "name": "github__get_file_contents",
+              "response": {
+                "result": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\n  \"name\": \"pokemon.py\",\n  \"path\": \"pokemon-service/app/api/pokemon.py\",\n  \"sha\": \"f93a609d734c677abbdf34a54c7fb8aa9239bfa4\",\n  \"size\": 1971,\n  \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service/app/api/pokemon.py?ref=master\",\n  \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/pokemon-service/app/api/pokemon.py\",\n  \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/f93a609d734c677abbdf34a54c7fb8aa9239bfa4\",\n  \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/pokemon-service/app/api/pokemon.py\",\n  \"type\": \"file\",\n  \"content\": \"from typing import List\\nfrom fastapi import APIRouter, status, Path, HTTPException\\nfrom app.api import crud\\nfrom app.models.pydantic import PokemonPayloadSchema, PokemonResponseSchema\\nfrom app.api.interservice import team_exists\\n\\nrouter = APIRouter(prefix=\\\"/pokemon\\\")\\n\\n\\n@router.get(\\\"/{id}/\\\", response_model=PokemonResponseSchema)\\nasync def get_pokemon(id: int = Path(..., gt=0)) -> PokemonResponseSchema:\\n    pokemon = await crud.get(id)\\n    if not pokemon:\\n        raise HTTPException(status_code=404, detail=\\\"Pokemon not found!\\\")\\n    return pokemon\\n\\n\\n@router.get(\\\"/\\\", response_model=List[PokemonResponseSchema])\\nasync def get_all_pokemon() -> List[PokemonResponseSchema]:\\n    return await crud.get_all()\\n\\n\\n@router.post(\\\"/\\\", response_model=PokemonResponseSchema, status_code=status.HTTP_201_CREATED)\\nasync def create_pokemon(payload: PokemonPayloadSchema) -> PokemonResponseSchema:\\n    if not team_exists(payload.team_id):\\n        raise HTTPException(\\n            status_code=404,\\n            detail=f\\\"Team with id:{payload.team_id} not found!\\\")\\n    pokemon_id = await crud.post(payload)\\n    return {\\\"id\\\": pokemon_id,\\n            \\\"name\\\": payload.name,\\n            \\\"type\\\": payload.type,\\n            \\\"team_id\\\": payload.team_id}\\n\\n\\n@router.delete(\\\"/{id}/\\\")\\nasync def delete_pokemon(id: int = Path(..., gt=0)) -> int:\\n    pokemon = await crud.get(id)\\n    if not pokemon:\\n        raise HTTPException(status_code=404, detail=\\\"Pokemon not found!\\\")\\n    await crud.delete(id)\\n    return id\\n\\n\\n@router.put(\\\"/{id}/\\\", response_model=PokemonResponseSchema)\\nasync def update_pokemon(payload: PokemonPayloadSchema, id: int = Path(..., gt=0)) -> PokemonResponseSchema:\\n    if not team_exists(payload.team_id):\\n        raise HTTPException(\\n            status_code=404,\\n            detail=f\\\"Team with id:{payload.team_id} not found!\\\")\\n    pokemon = await crud.put(id, payload)\\n    if not pokemon:\\n        raise HTTPException(status_code=404, detail=\\\"Pokemon not found!\\\")\\n    return pokemon\\n\",\n  \"encoding\": \"base64\",\n  \"_links\": {\n    \"self\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/pokemon-service/app/api/pokemon.py?ref=master\",\n    \"git\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/f93a609d734c677abbdf34a54c7fb8aa9239bfa4\",\n    \"html\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/pokemon-service/app/api/pokemon.py\"\n  }\n}"
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "700686d1-9560-416c-b00b-2a5e55f9872b",
+      "timestamp": 1761430213.838699
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Here are the endpoints found in the `pokemon-service`:\n\n**Pokémon Service Endpoints:**\n*   GET `/pokemon/{id}/`\n*   GET `/pokemon/`\n*   POST `/pokemon/`\n*   DELETE `/pokemon/{id}/`\n*   PUT `/pokemon/{id}/`\n*   GET `/pokemon/openapi.json`\n*   GET `/pokemon/docs`\n\nNow I will check the `team-service`.\n"
+          }
+        ],
+        "role": "model"
+      },
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10810
+          }
+        ],
+        "cachedContentTokenCount": 10810,
+        "candidatesTokenCount": 136,
+        "promptTokenCount": 12397,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 12397
+          }
+        ],
+        "thoughtsTokenCount": 223,
+        "totalTokenCount": 12756
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "4bc60719-8730-4826-af4a-696fad003f5a",
+      "timestamp": 1761430220.717975
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionCall": {
+              "id": "adk-ec4c9ca0-a456-47d2-9af0-4503e0fe6d27",
+              "args": {
+                "repo": "fastapi-microservices",
+                "owner": "GavriloviciEduard",
+                "path": "team-service"
+              },
+              "name": "github__get_file_contents"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10810
+          }
+        ],
+        "cachedContentTokenCount": 10810,
+        "candidatesTokenCount": 136,
+        "promptTokenCount": 12397,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 12397
+          }
+        ],
+        "thoughtsTokenCount": 223,
+        "totalTokenCount": 12756
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "fb3d12c7-0f7a-4417-b689-96325969250e",
+      "timestamp": 1761430221.268864
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-ec4c9ca0-a456-47d2-9af0-4503e0fe6d27",
+              "name": "github__get_file_contents",
+              "response": {
+                "result": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "[\n  {\n    \"type\": \"file\",\n    \"size\": 54,\n    \"name\": \".dockerignore\",\n    \"path\": \"team-service/.dockerignore\",\n    \"sha\": \"7ed17d38c7e3b845c41568adf41a328e8ac61389\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/team-service/.dockerignore?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/7ed17d38c7e3b845c41568adf41a328e8ac61389\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/team-service/.dockerignore\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/team-service/.dockerignore\"\n  },\n  {\n    \"type\": \"file\",\n    \"size\": 577,\n    \"name\": \"Dockerfile\",\n    \"path\": \"team-service/Dockerfile\",\n    \"sha\": \"35820d2d5a10dbd5899e2c74a65bdcc0873e8e36\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/team-service/Dockerfile?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/35820d2d5a10dbd5899e2c74a65bdcc0873e8e36\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/team-service/Dockerfile\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/team-service/Dockerfile\"\n  },\n  {\n    \"type\": \"dir\",\n    \"size\": 0,\n    \"name\": \"app\",\n    \"path\": \"team-service/app\",\n    \"sha\": \"3a490e7f37955e0bf8ced8487c566d045eb13f39\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/team-service/app?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/trees/3a490e7f37955e0bf8ced8487c566d045eb13f39\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/tree/master/team-service/app\",\n    \"download_url\": null\n  },\n  {\n    \"type\": \"file\",\n    \"size\": 126,\n    \"name\": \"entrypoint.sh\",\n    \"path\": \"team-service/entrypoint.sh\",\n    \"sha\": \"e0cc62da80097fda5a7e0deb3ddaffe1b38f2380\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/team-service/entrypoint.sh?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/e0cc62da80097fda5a7e0deb3ddaffe1b38f2380\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/team-service/entrypoint.sh\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/team-service/entrypoint.sh\"\n  },\n  {\n    \"type\": \"file\",\n    \"size\": 208,\n    \"name\": \"requirements.txt\",\n    \"path\": \"team-service/requirements.txt\",\n    \"sha\": \"5e0efa1d098d55f4beb10eb644c0637b7005121a\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/team-service/requirements.txt?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/5e0efa1d098d55f4beb10eb644c0637b7005121a\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/team-service/requirements.txt\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/team-service/requirements.txt\"\n  }\n]"
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "40100076-99a7-4c02-9962-643660f3c106",
+      "timestamp": 1761430221.367091
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "thoughtSignature": "CiIB0e2Kb5UrEZHIYMcL1jGe5-MhMxodwRmwzvMOzYyHSdTFClwB0e2Kb814CH1SHWcBicWADi0y2Qo5o75scPAnTtrlavLuf5T9Gv1FxzY4pgAqppjZ0sp9ak9F8rRJBCYBpKQKMbCJID7B8jnn_ZaZneNF-P32Tvx1aPDxy1GxTgqKAgHR7YpvRzc3GFBLVw1hiT8qWKgscR2aR_umqp0_Hyl2aD8fEIbwV0R8nOS6MiCuErFXFRDXtAgzyThX6ZFOmeflias3TQRWUs1CQ6qyfsbEY2Ua-GCBOCGhmIgFVt79icWgjsggqQVwrpeN3kEHUOU3wGX8De9_lEeUJcNEvFVKsKzEtBrVrM7h7qETu7taDLFlS3Vpuo2-dmpF2XW-eqxccNa5-w_ieajbSYyYN79YkxhhSDP98pm9nUORYsSS87drSsoSKiIH--TN5J5hS9mT5Hp4PkawQVEIyKirNn1GQBHU3hufVgVIKp-YOvs6C6Fm1M66cwCYntU3eyMwvLqZqm2eNmKYW7NgCkUB0e2Kb1L0plTMLPdW23P-x91tBIYdXS0Q9Vejv5J8cjb-0PhTZwelgWYHsWTUc5czmnzC4VoZnWzmwcPXo9V5opVTFT4=",
+            "functionCall": {
+              "id": "adk-c36b7787-2add-4192-bb7b-9fb19a2dc9c7",
+              "args": {
+                "owner": "GavriloviciEduard",
+                "repo": "fastapi-microservices",
+                "path": "team-service/app"
+              },
+              "name": "github__get_file_contents"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "candidatesTokenCount": 42,
+        "promptTokenCount": 13975,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 13975
+          }
+        ],
+        "thoughtsTokenCount": 78,
+        "totalTokenCount": 14095
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "5820f0aa-d292-49b8-ac71-105fb5c1717b",
+      "timestamp": 1761430221.381091
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-c36b7787-2add-4192-bb7b-9fb19a2dc9c7",
+              "name": "github__get_file_contents",
+              "response": {
+                "result": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "[\n  {\n    \"type\": \"file\",\n    \"size\": 0,\n    \"name\": \"__init__.py\",\n    \"path\": \"team-service/app/__init__.py\",\n    \"sha\": \"e69de29bb2d1d6434b8b29ae775ad8c2e48c5391\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/team-service/app/__init__.py?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/team-service/app/__init__.py\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/team-service/app/__init__.py\"\n  },\n  {\n    \"type\": \"dir\",\n    \"size\": 0,\n    \"name\": \"api\",\n    \"path\": \"team-service/app/api\",\n    \"sha\": \"c0d6bd2dcb4459867e276df858d6219093a3f3be\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/team-service/app/api?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/trees/c0d6bd2dcb4459867e276df858d6219093a3f3be\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/tree/master/team-service/app/api\",\n    \"download_url\": null\n  },\n  {\n    \"type\": \"file\",\n    \"size\": 414,\n    \"name\": \"db.py\",\n    \"path\": \"team-service/app/db.py\",\n    \"sha\": \"b518c1c248b6b33a35650bd8f547137a085c9ca7\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/team-service/app/db.py?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/b518c1c248b6b33a35650bd8f547137a085c9ca7\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/team-service/app/db.py\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/team-service/app/db.py\"\n  },\n  {\n    \"type\": \"file\",\n    \"size\": 595,\n    \"name\": \"main.py\",\n    \"path\": \"team-service/app/main.py\",\n    \"sha\": \"1746bd80bb12bee818c214a049abcd5980e71c80\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/team-service/app/main.py?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/1746bd80bb12bee818c214a049abcd5980e71c80\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/team-service/app/main.py\",\n    \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/team-service/app/main.py\"\n  },\n  {\n    \"type\": \"dir\",\n    \"size\": 0,\n    \"name\": \"models\",\n    \"path\": \"team-service/app/models\",\n    \"sha\": \"3f098dc17a28b21b590db2d5f30fd1a638567c7d\",\n    \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/team-service/app/models?ref=master\",\n    \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/trees/3f098dc17a28b21b590db2d5f30fd1a638567c7d\",\n    \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/tree/master/team-service/app/models\",\n    \"download_url\": null\n  }\n]"
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "f14102c5-2a37-43f0-9959-584561a16afc",
+      "timestamp": 1761430227.010834
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "thoughtSignature": "CiIB0e2Kb6979DjJ7HubDXOgUQ8To65pJC_rG3Ydx0I0BWUpCmcB0e2Kb5_-cqUOvw3xVtIZaFXqUuOGfNg6jiY85QuhTB6L8rLXrf-q844YeLfYjJgSXbUWYzrgzBINzFRaY9b0zX-Byrzf-49_cXmvi1B40RVUUA1EeDkrZlCMNgYkLmfeILGhu7L0CrQBAdHtim-YRHkh0QBi6M2cV9QHDKDagzpQ6qwsAL4gUjeBv5qJeoUl0Vw6d52Djbo1_SEVGWDR64E7gQ0ZZeEg765nhMFQqGnVe-o23Zw5yLJshxYIj9uGTwEq5xvFwrl01ivf1MpPsj4ltS7T9ssPa2iUl3WAh2e7ojdjeMUkzcZ98CwnA51TbUhCj7Iv8h3tTEquy3e2yWtCuTvewuI2j-gWHhqu4chbSFRpscJKTc2CW1hsCkgB0e2Kb6Km7ejZkHsYOuISTEpPEUjYjckqsuEhUxiDa0Nsb4ZI0Fzxt9xAU_rKTWVJ5oNgI5b4CAY4R1QQ-RaBWUSnzw1Q-eE=",
+            "functionCall": {
+              "id": "adk-0b67ea66-97c0-4bfc-bc00-bc579b0da225",
+              "args": {
+                "owner": "GavriloviciEduard",
+                "path": "team-service/app/main.py",
+                "repo": "fastapi-microservices"
+              },
+              "name": "github__get_file_contents"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 13848
+          }
+        ],
+        "cachedContentTokenCount": 13848,
+        "candidatesTokenCount": 46,
+        "promptTokenCount": 15548,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 15548
+          }
+        ],
+        "thoughtsTokenCount": 80,
+        "totalTokenCount": 15674
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "a301b7c8-82a5-4dff-996a-785b6c8b6840",
+      "timestamp": 1761430227.023833
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-0b67ea66-97c0-4bfc-bc00-bc579b0da225",
+              "name": "github__get_file_contents",
+              "response": {
+                "result": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\n  \"name\": \"main.py\",\n  \"path\": \"team-service/app/main.py\",\n  \"sha\": \"1746bd80bb12bee818c214a049abcd5980e71c80\",\n  \"size\": 595,\n  \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/team-service/app/main.py?ref=master\",\n  \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/team-service/app/main.py\",\n  \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/1746bd80bb12bee818c214a049abcd5980e71c80\",\n  \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/team-service/app/main.py\",\n  \"type\": \"file\",\n  \"content\": \"import logging\\n\\nfrom fastapi import FastAPI\\n\\nfrom app.api import teams\\nfrom app.db import init_db\\n\\n\\ndef create_application() -> FastAPI:\\n    application = FastAPI(\\n        openapi_url=\\\"/teams/openapi.json\\\",\\n        docs_url=\\\"/teams/docs\\\")\\n    application.include_router(\\n        teams.router,\\n        tags=[\\\"teams\\\"])\\n    return application\\n\\n\\napp = create_application()\\nlog = logging.getLogger(\\\"uvicorn\\\")\\n\\n\\n@app.on_event(\\\"startup\\\")\\nasync def startup_event():\\n    log.info(\\\"Starting up...\\\")\\n    init_db(app)\\n\\n\\n@app.on_event(\\\"shutdown\\\")\\nasync def shutdown_event():\\n    log.info(\\\"Shutting down...\\\")\\n\",\n  \"encoding\": \"base64\",\n  \"_links\": {\n    \"self\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/team-service/app/main.py?ref=master\",\n    \"git\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/1746bd80bb12bee818c214a049abcd5980e71c80\",\n    \"html\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/team-service/app/main.py\"\n  }\n}"
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "2b34282c-287e-4507-a4ef-1845120b8e9e",
+      "timestamp": 1761430233.955827
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "thoughtSignature": "CiIB0e2Kb4yU9LPlYBQFWatUwM7wEH9Amel0VDF1zCbWTZp5CmIB0e2Kb7HZWXKrDwex39h08Yg6OHgspa-xe78jt3bA3LX5SI4ktKSB6RMKU-ca5Yhw5L9_u3HApmN-G1FzKk42D7m0CCb5gGaOEd4nlbrqeNNk_eYpwIMeVlUk4kGGSlu3ywpuAdHtim9gHKyNelK__EHg9RRxjKHfvUPKg3bgEZTrZK0bjPFnA17RxDL8lVIfF0MFkJlQuYn2oElbQHXXis3DDg5J933oAaUgqch-OQozyLx4VzKFFmM4WTvoRSo_rUVVl9rzVcLikKvPlfLLm5gKnAEB0e2Kb3lkXfTATqJsMpxmZWasnX1zEkmO89lsqjMQN7oCeafCJqUiSBvo9DZxH3_-m8K8Ic3jBPvwFNHPMWR79HYOJF2PPQjL3_EcRbN0YJGUJMLLvjZVZmAc77oZ9Iequ76zjomi_Ri2aWL1la8m7KrkmxrCzMM2oMcOaHEQ5pPYh6eg-sXxWYOZtlGezhuToUCpKEuOHJJU4QkKwwEB0e2Kb4d1WgBCoN1Qtq5wUnz0QLqv2Dt2wNzhpkiRCZi3nR5GBIPzYnmaZ-qfj1Ywc-hqIPmA_oSUELUBLh4prdLC0Mnka15GHPJlnYWp5sJDJvXhtDxqHFZWtNJBiQUGNBhXfP7XVbqoXTJX9yFIT_uGurp20HWQiAH1gle3rLSsTNT1ndxJMB7wksIM9pU43b-ienFfZ_xRpHK796QRUD6rV1EnBV-FJO0bL-KKX9E0lqL9C1Z9AjL2fd2tsHvQY8MKJAHR7Ypv3_Fszcg9vBlrNsx8F93eZv7qBBI_i9vTE-UzpBbmlgoxAdHtim-Sp8RvVCk4YKU89CvmePyzII6xerNbY0kCC223UwWPCTBwt8_etGEmMWt2oQrPAQHR7YpvSDCL7VnP9rD5tvA8EFh6pMPaDKDtuoDnMVgImJlvrIriqn6QXTLfIZwc5tjy7_sCj5d4P34kzMPz-O52kQSXcdUXFyk1u6kD7Xf-zwjdqLcDvZOy2XqdRJHjPxsQiMgzx70wRqUZ8b9m8OFJDe2Qke7dkN2DPmB321FSEn73zyr5JjHb21kb0Q6DAdeK0iif7tK9IyyDPp0kHEsgC_q5vZUKlDcvy7kC_zWgbojpGzoy-i_B5U8P_t4KffSAhx0Fn2Th0HowyTUS_QrbAQHR7YpvrkWYSNHT2BdUmqgZcmrcrncMkX3VM46qeYS1uGIsxo7CHxNzMhCTw9GQqLe3zruU-23O0F8fOQS4V2uIQW8dHGqnBaWocLj536AsocEhJ6ukC0QoPQ70c_Jq60Bj51KxrCbFVFpYbPcdEojxTqYvoxw22aBsJvta-0HR5CHfPJ-Q1fI9qY4lIc8EVXp3o0pMMiC-fIP6elSyyPQNVZ4DDUt8lrXd31NAu0I16Ux86KkcUlCDYe2wM3EUAVcaUOokUbgi469MjvBrUoJBDwXNTJtclr9YowpoAdHtim89tVYa2plaTVQbXDfhsZ-HBqUES6PPOL8m7KC5-wkcUtln8dcLFnDKjdA9MRFchhauGWH2AEPH_ihsJPQI5SDNJaBkWWWu8Fp62gmiYGu1_HUjqzNzrS6KmJ7yeJc4D1rYbtA=",
+            "functionCall": {
+              "id": "adk-0368d094-2292-4d05-8468-6d7f8c08a83c",
+              "args": {
+                "repo": "fastapi-microservices",
+                "owner": "GavriloviciEduard",
+                "path": "team-service/app/api/teams.py"
+              },
+              "name": "github__get_file_contents"
+            }
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 14850
+          }
+        ],
+        "cachedContentTokenCount": 14850,
+        "candidatesTokenCount": 48,
+        "promptTokenCount": 16403,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 16403
+          }
+        ],
+        "thoughtsTokenCount": 232,
+        "totalTokenCount": 16683
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "longRunningToolIds": [],
+      "id": "cfdfd681-cc93-4e5d-afef-1f071f9cf1b3",
+      "timestamp": 1761430233.969827
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "functionResponse": {
+              "id": "adk-0368d094-2292-4d05-8468-6d7f8c08a83c",
+              "name": "github__get_file_contents",
+              "response": {
+                "result": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "{\n  \"name\": \"teams.py\",\n  \"path\": \"team-service/app/api/teams.py\",\n  \"sha\": \"77421b53b774e13a9401bf6da55ba4c4684c9afb\",\n  \"size\": 1408,\n  \"url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/team-service/app/api/teams.py?ref=master\",\n  \"html_url\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/team-service/app/api/teams.py\",\n  \"git_url\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/77421b53b774e13a9401bf6da55ba4c4684c9afb\",\n  \"download_url\": \"https://raw.githubusercontent.com/GavriloviciEduard/fastapi-microservices/master/team-service/app/api/teams.py\",\n  \"type\": \"file\",\n  \"content\": \"from typing import List\\nfrom fastapi import APIRouter, status, Path, HTTPException\\nfrom app.api import crud\\nfrom models.team import TeamSchema\\nfrom app.models.pydantic import TeamPayloadSchema, TeamResponseSchema\\n\\nrouter = APIRouter(prefix=\\\"/teams\\\")\\n\\n\\n@router.get(\\\"/{id}/\\\", response_model=TeamSchema)\\nasync def get_team(id: int = Path(..., gt=0)) -> TeamSchema:\\n    team = await crud.get(id)\\n    if not team:\\n        raise HTTPException(status_code=404, detail=\\\"Team not found!\\\")\\n    return team\\n\\n\\n@router.get(\\\"/\\\", response_model=List[TeamSchema])\\nasync def get_all_teams() -> List[TeamSchema]:\\n    return await crud.get_all()\\n\\n\\n@router.post(\\\"/\\\", response_model=TeamResponseSchema, status_code=status.HTTP_201_CREATED)\\nasync def create_team(payload: TeamPayloadSchema) -> TeamResponseSchema:\\n    team_id = await crud.post(payload)\\n    return {\\\"id\\\": team_id, \\\"name\\\": payload.name}\\n\\n\\n@router.delete(\\\"/{id}/\\\")\\nasync def delete_team(id: int = Path(..., gt=0)) -> int:\\n    team = await crud.get(id)\\n    if not team:\\n        raise HTTPException(status_code=404, detail=\\\"Team not found!\\\")\\n    await crud.delete(id)\\n    return id\\n\\n\\n@router.put(\\\"/{id}/\\\", response_model=TeamSchema)\\nasync def update_team(payload: TeamPayloadSchema, id: int = Path(..., gt=0)) -> TeamSchema:\\n    team = await crud.put(id, payload)\\n    if not team:\\n        raise HTTPException(status_code=404, detail=\\\"Team not found!\\\")\\n    return team\\n\",\n  \"encoding\": \"base64\",\n  \"_links\": {\n    \"self\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/contents/team-service/app/api/teams.py?ref=master\",\n    \"git\": \"https://api.github.com/repos/GavriloviciEduard/fastapi-microservices/git/blobs/77421b53b774e13a9401bf6da55ba4c4684c9afb\",\n    \"html\": \"https://github.com/GavriloviciEduard/fastapi-microservices/blob/master/team-service/app/api/teams.py\"\n  }\n}"
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "528dfa13-34c8-4afa-95d0-af8dd9053896",
+      "timestamp": 1761430241.906248
+    },
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "I have explored the repository and found the following HTTP endpoints:\n\n**Pokemon Service Endpoints:**\n*   GET `/pokemon/{id}/` - Retrieve a single Pokémon by ID.\n*   GET `/pokemon/` - Retrieve a list of all Pokémon.\n*   POST `/pokemon/` - Create a new Pokémon.\n*   DELETE `/pokemon/{id}/` - Delete a Pokémon by ID.\n*   PUT `/pokemon/{id}/` - Update an existing Pokémon by ID.\n*   GET `/pokemon/openapi.json` - OpenAPI specification for the Pokémon service.\n*   GET `/pokemon/docs` - Swagger UI documentation for the Pokémon service.\n\n**Team Service Endpoints:**\n*   GET `/teams/{id}/` - Retrieve a single team by ID.\n*   GET `/teams/` - Retrieve a list of all teams.\n*   POST `/teams/` - Create a new team.\n*   DELETE `/teams/{id}/` - Delete a team by ID.\n*   PUT `/teams/{id}/` - Update an existing team by ID.\n*   GET `/teams/openapi.json` - OpenAPI specification for the Team service.\n*   GET `/teams/docs` - Swagger UI documentation for the Team service."
+          }
+        ],
+        "role": "model"
+      },
+      "usageMetadata": {
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 15865
+          }
+        ],
+        "cachedContentTokenCount": 15865,
+        "candidatesTokenCount": 265,
+        "promptTokenCount": 17707,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 17707
+          }
+        ],
+        "thoughtsTokenCount": 218,
+        "totalTokenCount": 18190
+      },
+      "invocationId": "e-aaa52c54-de3e-426c-97be-47807259dca0",
+      "author": "root_agent",
+      "actions": {
+        "stateDelta": {},
+        "artifactDelta": {},
+        "requestedAuthConfigs": {},
+        "requestedToolConfirmations": {}
+      },
+      "id": "0676022f-8211-4073-a705-62235d7b8261",
+      "timestamp": 1761430249.664028
+    }
+  ],
+  "lastUpdateTime": 1761430249.664028
+}
