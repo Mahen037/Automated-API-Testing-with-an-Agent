@@ -56,3 +56,16 @@ Playwright project scaffolding (`package.json`, `tsconfig.json`, and
 3. (Optional) Override the service host via `PLAYWRIGHT_BASE_URL` or edit the
    inline `BASE_URL` constants inside the generated specs.
 4. Run `npx playwright test` (the config points to `.api-tests/tests/`).
+
+## Playwright MCP Execution
+
+The `test_execution_agent` communicates with a running Playwright MCP HTTP
+server (default `http://localhost:9222/mcp`) to list and execute the generated
+specs remotely.
+
+1. Launch the server separately, e.g. `npx @playwright/mcp --port 9222`.
+2. (Optional) Override the endpoint via `PLAYWRIGHT_MCP_HTTP_URL` and timeout via
+   `PLAYWRIGHT_MCP_HTTP_TIMEOUT`.
+3. Invoke the agent; it calls `playwright_list_tools` to discover capabilities
+   and `run_playwright_tests` to trigger execution. Results are returned in the
+   agent response.

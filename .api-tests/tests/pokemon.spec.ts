@@ -3,7 +3,7 @@ import { test, expect, APIResponse } from '@playwright/test';
 
 test.describe('Pokemon Service API', () => {
 
-  const BASE_URL = 'http://localhost:8000'; // Assuming the service runs locally
+  const BASE_URL = 'http://localhost:8001'; // Assuming the service runs locally
 
   // Helper function to create a pokemon for tests that require an existing pokemon
   async function createPokemon(request: any, name: string, type: string, team_id: number): Promise<any> {

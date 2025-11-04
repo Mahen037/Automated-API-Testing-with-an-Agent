@@ -3,7 +3,7 @@ import { test, expect, APIResponse } from '@playwright/test';
 
 test.describe('Team Service API', () => {
 
-  const BASE_URL = 'http://localhost:8000'; // Assuming the service runs locally
+  const BASE_URL = 'http://localhost:8002'; // Assuming the service runs locally
 
   // Helper function to create a team for tests that require an existing team
   async function createTeam(request: any, name: string): Promise<any> {

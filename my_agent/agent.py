@@ -13,8 +13,16 @@ from .routes_storage import (
     store_playwright_tests,
     store_routes_snapshot,
 )
+from .playwright_mcp_http import (
+    playwright_list_tools,
+    run_playwright_tests,
+)
 
-from .prompts import PLAYWRIGHT_TEST_GENERATION_PROMPT, ROUTE_EXTRACTION_PROMPT
+from .prompts import (
+    PLAYWRIGHT_TEST_EXECUTION_PROMPT,
+    PLAYWRIGHT_TEST_GENERATION_PROMPT,
+    ROUTE_EXTRACTION_PROMPT,
+)
 load_dotenv()  # Make variables from .env available for MCP configuration.
 
 _RATE_LIMIT_SECONDS = float(os.getenv("GEMINI_MIN_REQUEST_INTERVAL", "7.0"))
@@ -63,13 +71,29 @@ test_generation_agent = Agent(
     ],
 )
 
-
-root_agent = SequentialAgent(
-    name='root_agent',
+root_agent = Agent(
+    model='gemini-2.5-flash',
+    name='test_execution_agent',
     description=(
         """
-        Orchestrates endpoint extraction and Playwright test generation for GitHub repositories.
+        Executes generated Playwright tests via the Playwright MCP HTTP server and reports results.
         """
     ),
-    sub_agents=[endpoint_agent, test_generation_agent]
+    instruction=(PLAYWRIGHT_TEST_EXECUTION_PROMPT),
+    before_model_callback=[enforce_gemini_rate_limit],
+    tools=[
+        playwright_list_tools,
+        run_playwright_tests,
+    ],
 )
+
+
+# root_agent = SequentialAgent(
+#     name='root_agent',
+#     description=(
+#         """
+#         Orchestrates endpoint extraction, Playwright test generation, and remote execution for GitHub repositories.
+#         """
+#     ),
+#     sub_agents=[endpoint_agent, test_generation_agent, test_execution_agent]
+# )
