@@ -1,0 +1,26 @@
+{
+  "repo": "https://github.com/GavriloviciEduard/fastapi-microservices",
+  "commit": "77421b53b774e13a9401bf6da55ba4c4684c9afb",
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/teams/{id}/"
+    },
+    {
+      "method": "GET",
+      "path": "/teams/"
+    },
+    {
+      "path": "/teams/",
+      "method": "POST"
+    },
+    {
+      "method": "DELETE",
+      "path": "/teams/{id}/"
+    },
+    {
+      "path": "/teams/{id}/",
+      "method": "PUT"
+    }
+  ]
+}

@@ -25,3 +25,23 @@ The agent uses `gemini-2.5-flash` by default. A lightweight throttler enforces
 at least seven seconds between calls so the free-tier quota is not exceeded.
 Override the interval by setting `GEMINI_MIN_REQUEST_INTERVAL` in your
 environment (value in seconds).
+
+## Route Snapshots
+
+When the agent finishes enumerating endpoints, it calls the
+`store_routes_snapshot` tool. The tool writes the payload to
+`.api-tests/routes/routes.json` (creating folders as needed). Override the file
+name by passing the optional `filename` argument. The JSON includes `repo`,
+`commit`, and `routes`, making it easy for automated test pipelines to pick up.
+
+## Playwright Test Generation
+
+The `test_generation_agent` consumes stored route snapshots and authors Playwright
+tests compatible with the Playwright MCP runner.
+
+1. Query available snapshots with `list_route_snapshots`, then load the desired
+   file via `load_route_snapshot`.
+2. Draft Playwright `@playwright/test` suites that exercise the HTTP endpoints
+   (positive and negative checks as appropriate).
+3. Persist each suite with `store_playwright_tests`, providing a filename that
+   ends in `.spec.ts`. The tool saves the file to `.api-tests/tests/`.
