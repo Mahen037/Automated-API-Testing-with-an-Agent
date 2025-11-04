@@ -71,5 +71,5 @@ root_agent = SequentialAgent(
         Orchestrates endpoint extraction and Playwright test generation for GitHub repositories.
         """
     ),
-    agents=[endpoint_agent, test_generation_agent]
+    sub_agents=[endpoint_agent, test_generation_agent]
 )

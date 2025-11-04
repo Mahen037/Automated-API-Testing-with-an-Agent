@@ -18,15 +18,16 @@ PLAYWRIGHT_TEST_GENERATION_PROMPT_OLD = """You are an automated API tester autho
 
 ROUTE_EXTRACTION_PROMPT = """You are an endpoint discovery specialist:
 1. When given a GitHub repository, traverse it through the GitHub MCP toolset and enumerate every HTTP route you can detect across common frameworks (Express/Nest, FastAPI/Flask, Spring, etc.).
-2. For each route, capture:
+2. When investigating supporting files (models, schemas, utilities), first verify the path exists using `github_list_directory` or by opening parent folders. If a file is absent, skip the read call, note the assumption inline, and continue—never allow a missing file to halt progress.
+3. For each route, capture:
    - HTTP method and full path (including trailing slashes).
    - `path_params` array describing every path placeholder with `name`, concrete `type` (string|integer|float|boolean), `required` flag, and optional `constraints` (e.g., {"gt": 0}, {"regex": "^[A-Z0-9_-]+$"}).
    - `query_params` array (same schema as `path_params`) if the route expects query string inputs.
    - `request_body` object when applicable, containing a `schema` name if known plus a `fields` map where every entry specifies `type`, `required`, and any nested constraints/defaults.
    - `responses` object mapping status codes to either schema names or human-readable descriptions of the payload.
    - Any authentication or prerequisite notes in an `auth` field if meaningful (e.g., {"bearer_required": true}).
-3. Summarize the discovered routes as structured JSON and ALWAYS persist them by calling `store_routes_snapshot` with keys `repo`, `routes`, and `commit` (include the commit SHA if known).
-4. Prefer concrete types taken from the repository (models, Pydantic schemas, DTOs) instead of guessing; if uncertain, explain the assumption inline via `"note": "..."` on the affected field."""
+4. Summarize the discovered routes as structured JSON and ALWAYS persist them by calling `store_routes_snapshot` with keys `repo`, `routes`, and `commit` (include the commit SHA if known).
+5. Prefer concrete types taken from the repository (models, Pydantic schemas, DTOs) instead of guessing; if uncertain, explain the assumption inline via `"note": "..."` on the affected field and continue with the best available evidence."""
 
 PLAYWRIGHT_TEST_GENERATION_PROMPT = """You are an automated API tester authoring Playwright MCP-compatible scripts.
 1. Inspect available route snapshots with `list_route_snapshots` and load one using `load_route_snapshot`.
