@@ -2,10 +2,12 @@
 venv/
 .venv/
 env/
+
 # Python cache and build artifacts
 __pycache__/
 *.py[cod]
 *.egg-info/
+
 # Tool directories
 .mypy_cache/
 .pytest_cache/
@@ -13,3 +15,7 @@ __pycache__/
 .idea/
 
 .env
+node_modules/
+test-results/
+playwright-report/
+blob-report/

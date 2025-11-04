@@ -45,3 +45,14 @@ tests compatible with the Playwright MCP runner.
    (positive and negative checks as appropriate).
 3. Persist each suite with `store_playwright_tests`, providing a filename that
    ends in `.spec.ts`. The tool saves the file to `.api-tests/tests/`.
+
+## Running Generated Tests
+
+Playwright project scaffolding (`package.json`, `tsconfig.json`, and
+`playwright.config.ts`) lives at the repository root. To execute generated tests:
+
+1. Ensure Node.js ≥ 18 is installed locally.
+2. Install dependencies once with `npm install`.
+3. (Optional) Override the service host via `PLAYWRIGHT_BASE_URL` or edit the
+   inline `BASE_URL` constants inside the generated specs.
+4. Run `npx playwright test` (the config points to `.api-tests/tests/`).
