@@ -1,160 +1,211 @@
+import { test, expect, APIRequestContext } from '@playwright/test';
 
-import { test, expect, APIResponse } from '@playwright/test';
+// Define the base URL for the API
+const BASE_URL = 'http://localhost:8080';
 
-test.describe('Pokemon Service API', () => {
-
-  const BASE_URL = 'http://localhost:8000'; // Assuming the service runs locally
-
-  // Helper function to create a pokemon for tests that require an existing pokemon
-  async function createPokemon(request: any, name: string, type: string, team_id: number): Promise<any> {
-    const response = await request.post(`${BASE_URL}/pokemon/`, {
-      data: { name, type, team_id }
+// Helper function to create a team for testing purposes
+async function createTeam(request: APIRequestContext, name: string) {
+    const response = await request.post(`${BASE_URL}/teams/`, {
+        data: { name },
     });
     expect(response.status()).toBe(201);
     return response.json();
-  }
+}
 
-  // Helper function to create a team if needed for valid team_id, but here just assuming team_id 1 exists
-  // For now, we'll assume team_id 1 always exists for positive test cases.
-  // And 999 for negative team_id cases.
-
-  test('GET /pokemon/{id}/ - should return a pokemon by ID', async ({ request }) => {
-    // Assuming a pokemon with ID 1 exists for this positive test case.
-    // In a real scenario, you might create one first or retrieve an existing one.
-    const pokemonId = 1;
-    const response = await request.get(`${BASE_URL}/pokemon/${pokemonId}/`);
+// Helper function to delete a team
+async function deleteTeam(request: APIRequestContext, id: number) {
+    const response = await request.delete(`${BASE_URL}/teams/${id}/`);
     expect(response.status()).toBe(200);
-    const pokemon = await response.json();
-    expect(pokemon).toHaveProperty('id', pokemonId);
-    expect(pokemon).toHaveProperty('name');
-    expect(pokemon).toHaveProperty('type');
-    expect(pokemon).toHaveProperty('team_id');
-    // Further schema validation could be added here if a detailed schema is provided
-  });
+    return response.json();
+}
 
-  test('GET /pokemon/{id}/ - should return 404 for non-existent pokemon', async ({ request }) => {
-    const nonExistentPokemonId = 999;
-    const response = await request.get(`${BASE_URL}/pokemon/${nonExistentPokemonId}/`);
-    expect(response.status()).toBe(404);
-    expect(await response.json()).toEqual({ detail: 'Pokemon not found!' });
-  });
+test.describe('Pokemon Service API Tests', () => {
+    let teamId: number;
 
-  test('GET /pokemon/ - should return all pokemon', async ({ request }) => {
-    const response = await request.get(`${BASE_URL}/pokemon/`);
-    expect(response.status()).toBe(200);
-    const pokemonList = await response.json();
-    expect(Array.isArray(pokemonList)).toBe(true);
-    // Optionally check if the list contains objects conforming to PokemonResponseSchema
-    if (pokemonList.length > 0) {
-      expect(pokemonList[0]).toHaveProperty('id');
-      expect(pokemonList[0]).toHaveProperty('name');
-      expect(pokemonList[0]).toHaveProperty('type');
-      expect(pokemonList[0]).toHaveProperty('team_id');
-    }
-  });
-
-  test('POST /pokemon/ - should create a new pokemon', async ({ request }) => {
-    const newPokemon = {
-      name: 'Pikachu',
-      type: 'Electric',
-      team_id: 1 // Assuming team_id 1 exists
-    };
-    const response = await request.post(`${BASE_URL}/pokemon/`, {
-      data: newPokemon
+    test.beforeAll(async ({ request }) => {
+        // Create a team before all tests that require a valid team_id
+        const team = await createTeam(request, 'Test Team for Pokemon Service');
+        teamId = team.id;
+        expect(teamId).toBeDefined();
     });
-    expect(response.status()).toBe(201);
-    const createdPokemon = await response.json();
-    expect(createdPokemon).toHaveProperty('id');
-    expect(createdPokemon).toHaveProperty('name', newPokemon.name);
-    expect(createdPokemon).toHaveProperty('type', newPokemon.type);
-    expect(createdPokemon).toHaveProperty('team_id', newPokemon.team_id);
-  });
 
-  test('POST /pokemon/ - should return 404 if team_id does not exist', async ({ request }) => {
-    const newPokemonWithInvalidTeam = {
-      name: 'Charmander',
-      type: 'Fire',
-      team_id: 999 // Assuming team_id 999 does not exist
-    };
-    const response = await request.post(`${BASE_URL}/pokemon/`, {
-      data: newPokemonWithInvalidTeam
+    test.afterAll(async ({ request }) => {
+        // Clean up the created team after all tests
+        if (teamId) {
+            await deleteTeam(request, teamId);
+        }
     });
-    expect(response.status()).toBe(404);
-    expect(await response.json()).toEqual({ detail: `Team with id:${newPokemonWithInvalidTeam.team_id} not found!` });
-  });
 
-  test('PUT /pokemon/{id}/ - should update an existing pokemon', async ({ request }) => {
-    // First, create a pokemon to update
-    const created = await createPokemon(request, 'Bulbasaur', 'Grass', 1);
-    const pokemonIdToUpdate = created.id;
-
-    const updatedPokemonData = {
-      name: 'Bulbasaur-Updated',
-      type: 'Grass/Poison',
-      team_id: 1
-    };
-    const response = await request.put(`${BASE_URL}/pokemon/${pokemonIdToUpdate}/`, {
-      data: updatedPokemonData
+    test('GET /pokemon/ should return all pokemon', async ({ request }) => {
+        const response = await request.get(`${BASE_URL}/pokemon/`);
+        expect(response.status()).toBe(200);
+        const pokemonList = await response.json();
+        expect(Array.isArray(pokemonList)).toBeTruthy();
     });
-    expect(response.status()).toBe(200);
-    const updatedPokemon = await response.json();
-    expect(updatedPokemon).toHaveProperty('id', pokemonIdToUpdate);
-    expect(updatedPokemon).toHaveProperty('name', updatedPokemonData.name);
-    expect(updatedPokemon).toHaveProperty('type', updatedPokemonData.type);
-    expect(updatedPokemon).toHaveProperty('team_id', updatedPokemonData.team_id);
-  });
 
-  test('PUT /pokemon/{id}/ - should return 404 for non-existent pokemon during update', async ({ request }) => {
-    const nonExistentPokemonId = 999;
-    const updatedPokemonData = {
-      name: 'Missingno',
-      type: 'Glitch',
-      team_id: 1
-    };
-    const response = await request.put(`${BASE_URL}/pokemon/${nonExistentPokemonId}/`, {
-      data: updatedPokemonData
+    test('POST /pokemon/ should create a new pokemon', async ({ request }) => {
+        const newPokemon = {
+            name: 'Pikachu',
+            type: 'Electric',
+            team_id: teamId, // Use the dynamically created teamId
+        };
+        const response = await request.post(`${BASE_URL}/pokemon/`, {
+            data: newPokemon,
+        });
+        expect(response.status()).toBe(201);
+        const createdPokemon = await response.json();
+        expect(createdPokemon).toMatchObject({
+            id: expect.any(Number),
+            name: newPokemon.name,
+            type: newPokemon.type,
+            team_id: newPokemon.team_id,
+        });
+
+        // Clean up the created pokemon
+        await request.delete(`${BASE_URL}/pokemon/${createdPokemon.id}/`);
     });
-    expect(response.status()).toBe(404);
-    expect(await response.json()).toEqual({ detail: 'Pokemon not found!' });
-  });
 
-  test('PUT /pokemon/{id}/ - should return 404 if team_id does not exist during update', async ({ request }) => {
-    // First, create a pokemon to attempt to update with an invalid team_id
-    const created = await createPokemon(request, 'Squirtle', 'Water', 1);
-    const pokemonIdToUpdate = created.id;
-
-    const updatedPokemonData = {
-      name: 'Squirtle-Updated',
-      type: 'Water',
-      team_id: 999 // Invalid team_id
-    };
-    const response = await request.put(`${BASE_URL}/pokemon/${pokemonIdToUpdate}/`, {
-      data: updatedPokemonData
+    test('POST /pokemon/ should return 404 if team_id does not exist', async ({ request }) => {
+        const newPokemon = {
+            name: 'Charmander',
+            type: 'Fire',
+            team_id: 99999, // Non-existent team_id
+        };
+        const response = await request.post(`${BASE_URL}/pokemon/`, {
+            data: newPokemon,
+        });
+        expect(response.status()).toBe(404);
+        expect(await response.json()).toEqual({ detail: `Team with id:${newPokemon.team_id} not found!` });
     });
-    expect(response.status()).toBe(404);
-    expect(await response.json()).toEqual({ detail: `Team with id:${updatedPokemonData.team_id} not found!` });
-  });
 
+    test('GET /pokemon/{id}/ should return a specific pokemon', async ({ request }) => {
+        // First create a pokemon to retrieve
+        const newPokemon = {
+            name: 'Squirtle',
+            type: 'Water',
+            team_id: teamId,
+        };
+        const createResponse = await request.post(`${BASE_URL}/pokemon/`, {
+            data: newPokemon,
+        });
+        expect(createResponse.status()).toBe(201);
+        const createdPokemon = await createResponse.json();
 
-  test('DELETE /pokemon/{id}/ - should delete an existing pokemon', async ({ request }) => {
-    // First, create a pokemon to delete
-    const created = await createPokemon(request, 'Charmander', 'Fire', 1);
-    const pokemonIdToDelete = created.id;
+        const getResponse = await request.get(`${BASE_URL}/pokemon/${createdPokemon.id}/`);
+        expect(getResponse.status()).toBe(200);
+        const retrievedPokemon = await getResponse.json();
+        expect(retrievedPokemon).toMatchObject(createdPokemon);
 
-    const response = await request.delete(`${BASE_URL}/pokemon/${pokemonIdToDelete}/`);
-    expect(response.status()).toBe(200);
-    expect(await response.json()).toBe(pokemonIdToDelete);
+        // Clean up
+        await request.delete(`${BASE_URL}/pokemon/${createdPokemon.id}/`);
+    });
 
-    // Verify it's actually deleted
-    const getResponse = await request.get(`${BASE_URL}/pokemon/${pokemonIdToDelete}/`);
-    expect(getResponse.status()).toBe(404);
-  });
+    test('GET /pokemon/{id}/ should return 404 for a non-existent pokemon', async ({ request }) => {
+        const response = await request.get(`${BASE_URL}/pokemon/99999/`); // Non-existent ID
+        expect(response.status()).toBe(404);
+        expect(await response.json()).toEqual({ detail: 'Pokemon not found!' });
+    });
 
-  test('DELETE /pokemon/{id}/ - should return 404 for non-existent pokemon', async ({ request }) => {
-    const nonExistentPokemonId = 999;
-    const response = await request.delete(`${BASE_URL}/pokemon/${nonExistentPokemonId}/`);
-    expect(response.status()).toBe(404);
-    expect(await response.json()).toEqual({ detail: 'Pokemon not found!' });
-  });
+    test('PUT /pokemon/{id}/ should update an existing pokemon', async ({ request }) => {
+        // First create a pokemon to update
+        const originalPokemon = {
+            name: 'Bulbasaur',
+            type: 'Grass',
+            team_id: teamId,
+        };
+        const createResponse = await request.post(`${BASE_URL}/pokemon/`, {
+            data: originalPokemon,
+        });
+        expect(createResponse.status()).toBe(201);
+        const createdPokemon = await createResponse.json();
 
+        const updatedPokemonData = {
+            name: 'Ivysaur',
+            type: 'Poison',
+            team_id: teamId,
+        };
+        const updateResponse = await request.put(`${BASE_URL}/pokemon/${createdPokemon.id}/`, {
+            data: updatedPokemonData,
+        });
+        expect(updateResponse.status()).toBe(200);
+        const updatedPokemon = await updateResponse.json();
+        expect(updatedPokemon).toMatchObject({
+            id: createdPokemon.id,
+            name: updatedPokemonData.name,
+            type: updatedPokemonData.type,
+            team_id: updatedPokemonData.team_id,
+        });
+
+        // Clean up
+        await request.delete(`${BASE_URL}/pokemon/${createdPokemon.id}/`);
+    });
+
+    test('PUT /pokemon/{id}/ should return 404 for updating a non-existent pokemon', async ({ request }) => {
+        const updatedPokemonData = {
+            name: 'Missingno',
+            type: 'Bird',
+            team_id: teamId,
+        };
+        const response = await request.put(`${BASE_URL}/pokemon/99999/`, { // Non-existent ID
+            data: updatedPokemonData,
+        });
+        expect(response.status()).toBe(404);
+        expect(await response.json()).toEqual({ detail: 'Pokemon not found!' });
+    });
+
+    test('PUT /pokemon/{id}/ should return 404 if team_id does not exist for an existing pokemon', async ({ request }) => {
+        // First create a pokemon
+        const originalPokemon = {
+            name: 'Jigglypuff',
+            type: 'Normal',
+            team_id: teamId,
+        };
+        const createResponse = await request.post(`${BASE_URL}/pokemon/`, {
+            data: originalPokemon,
+        });
+        expect(createResponse.status()).toBe(201);
+        const createdPokemon = await createResponse.json();
+
+        const updatedPokemonData = {
+            name: 'Wigglytuff',
+            type: 'Fairy',
+            team_id: 99999, // Non-existent team_id
+        };
+        const updateResponse = await request.put(`${BASE_URL}/pokemon/${createdPokemon.id}/`, {
+            data: updatedPokemonData,
+        });
+        expect(updateResponse.status()).toBe(404);
+        expect(await updateResponse.json()).toEqual({ detail: `Team with id:${updatedPokemonData.team_id} not found!` });
+
+        // Clean up
+        await request.delete(`${BASE_URL}/pokemon/${createdPokemon.id}/`);
+    });
+
+    test('DELETE /pokemon/{id}/ should delete an existing pokemon', async ({ request }) => {
+        // First create a pokemon to delete
+        const newPokemon = {
+            name: 'Snorlax',
+            type: 'Normal',
+            team_id: teamId,
+        };
+        const createResponse = await request.post(`${BASE_URL}/pokemon/`, {
+            data: newPokemon,
+        });
+        expect(createResponse.status()).toBe(201);
+        const createdPokemon = await createResponse.json();
+
+        const deleteResponse = await request.delete(`${BASE_URL}/pokemon/${createdPokemon.id}/`);
+        expect(deleteResponse.status()).toBe(200);
+        expect(await deleteResponse.json()).toBe(createdPokemon.id); // Expecting the ID of the deleted pokemon
+
+        // Verify it's actually deleted
+        const getResponse = await request.get(`${BASE_URL}/pokemon/${createdPokemon.id}/`);
+        expect(getResponse.status()).toBe(404);
+    });
+
+    test('DELETE /pokemon/{id}/ should return 404 for a non-existent pokemon', async ({ request }) => {
+        const response = await request.delete(`${BASE_URL}/pokemon/99999/`); // Non-existent ID
+        expect(response.status()).toBe(404);
+        expect(await response.json()).toEqual({ detail: 'Pokemon not found!' });
+    });
 });

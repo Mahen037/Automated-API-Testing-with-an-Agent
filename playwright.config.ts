@@ -2,6 +2,7 @@ import type { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
   testDir: '.api-tests/tests',
+  testMatch: ['**/*.spec.ts'],
   fullyParallel: false,
   timeout: 60 * 1000,
   use: {
@@ -10,9 +11,14 @@ const config: PlaywrightTestConfig = {
       'Content-Type': 'application/json',
     },
   },
-  reporter: [['list'], ['html', { open: 'never' }]],
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 2 : undefined,
+  reporter: [
+    ['list'], 
+    ['html', { open: 'never',  outputFolder: ".api-tests/reports" }], 
+    ['json', { outputFile: ".api-tests/reports/report.json" }]
+  ],
+  outputDir: '.api-tests/reports',
+  retries: 2,
+  workers: 4,
 };
 
 export default config;

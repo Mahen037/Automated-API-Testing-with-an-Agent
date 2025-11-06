@@ -1,110 +1,122 @@
+import { test, expect, APIRequestContext } from '@playwright/test';
 
-import { test, expect, APIResponse } from '@playwright/test';
+// Define the base URL for the API
+const BASE_URL = 'http://localhost:8080';
 
-test.describe('Team Service API', () => {
-
-  const BASE_URL = 'http://localhost:8000'; // Assuming the service runs locally
-
-  // Helper function to create a team for tests that require an existing team
-  async function createTeam(request: any, name: string): Promise<any> {
-    const response = await request.post(`${BASE_URL}/teams/`, {
-      data: { name }
+test.describe('Team Service API Tests', () => {
+    test('GET /teams/ should return all teams', async ({ request }) => {
+        const response = await request.get(`${BASE_URL}/teams/`);
+        expect(response.status()).toBe(200);
+        const teamList = await response.json();
+        expect(Array.isArray(teamList)).toBeTruthy();
     });
-    expect(response.status()).toBe(201);
-    return response.json();
-  }
 
-  test('GET /teams/{id}/ - should return a team by ID', async ({ request }) => {
-    // Assuming a team with ID 1 exists for this positive test case.
-    const teamId = 1;
-    const response = await request.get(`${BASE_URL}/teams/${teamId}/`);
-    expect(response.status()).toBe(200);
-    const team = await response.json();
-    expect(team).toHaveProperty('id', teamId);
-    expect(team).toHaveProperty('name');
-    // Further schema validation could be added here
-  });
+    test('POST /teams/ should create a new team', async ({ request }) => {
+        const newTeam = {
+            name: 'Valor',
+        };
+        const response = await request.post(`${BASE_URL}/teams/`, {
+            data: newTeam,
+        });
+        expect(response.status()).toBe(201);
+        const createdTeam = await response.json();
+        expect(createdTeam).toMatchObject({
+            id: expect.any(Number),
+            name: newTeam.name,
+        });
 
-  test('GET /teams/{id}/ - should return 404 for non-existent team', async ({ request }) => {
-    const nonExistentTeamId = 999;
-    const response = await request.get(`${BASE_URL}/teams/${nonExistentTeamId}/`);
-    expect(response.status()).toBe(404);
-    expect(await response.json()).toEqual({ detail: 'Team not found!' });
-  });
-
-  test('GET /teams/ - should return all teams', async ({ request }) => {
-    const response = await request.get(`${BASE_URL}/teams/`);
-    expect(response.status()).toBe(200);
-    const teamList = await response.json();
-    expect(Array.isArray(teamList)).toBe(true);
-    // Optionally check if the list contains objects conforming to TeamSchema
-    if (teamList.length > 0) {
-      expect(teamList[0]).toHaveProperty('id');
-      expect(teamList[0]).toHaveProperty('name');
-    }
-  });
-
-  test('POST /teams/ - should create a new team', async ({ request }) => {
-    const newTeam = {
-      name: 'Team Rocket'
-    };
-    const response = await request.post(`${BASE_URL}/teams/`, {
-      data: newTeam
+        // Clean up the created team
+        await request.delete(`${BASE_URL}/teams/${createdTeam.id}/`);
     });
-    expect(response.status()).toBe(201);
-    const createdTeam = await response.json();
-    expect(createdTeam).toHaveProperty('id');
-    expect(createdTeam).toHaveProperty('name', newTeam.name);
-  });
 
-  test('PUT /teams/{id}/ - should update an existing team', async ({ request }) => {
-    // First, create a team to update
-    const created = await createTeam(request, 'Team Aqua');
-    const teamIdToUpdate = created.id;
+    test('GET /teams/{id}/ should return a specific team', async ({ request }) => {
+        // First create a team to retrieve
+        const newTeam = {
+            name: 'Mystic',
+        };
+        const createResponse = await request.post(`${BASE_URL}/teams/`, {
+            data: newTeam,
+        });
+        expect(createResponse.status()).toBe(201);
+        const createdTeam = await createResponse.json();
 
-    const updatedTeamData = {
-      name: 'Team Magma'
-    };
-    const response = await request.put(`${BASE_URL}/teams/${teamIdToUpdate}/`, {
-      data: updatedTeamData
+        const getResponse = await request.get(`${BASE_URL}/teams/${createdTeam.id}/`);
+        expect(getResponse.status()).toBe(200);
+        const retrievedTeam = await getResponse.json();
+        expect(retrievedTeam).toMatchObject(createdTeam);
+
+        // Clean up
+        await request.delete(`${BASE_URL}/teams/${createdTeam.id}/`);
     });
-    expect(response.status()).toBe(200);
-    const updatedTeam = await response.json();
-    expect(updatedTeam).toHaveProperty('id', teamIdToUpdate);
-    expect(updatedTeam).toHaveProperty('name', updatedTeamData.name);
-  });
 
-  test('PUT /teams/{id}/ - should return 404 for non-existent team during update', async ({ request }) => {
-    const nonExistentTeamId = 999;
-    const updatedTeamData = {
-      name: 'NonExistent Team'
-    };
-    const response = await request.put(`${BASE_URL}/teams/${nonExistentTeamId}/`, {
-      data: updatedTeamData
+    test('GET /teams/{id}/ should return 404 for a non-existent team', async ({ request }) => {
+        const response = await request.get(`${BASE_URL}/teams/99999/`); // Non-existent ID
+        expect(response.status()).toBe(404);
+        expect(await response.json()).toEqual({ detail: 'Team not found!' });
     });
-    expect(response.status()).toBe(404);
-    expect(await response.json()).toEqual({ detail: 'Team not found!' });
-  });
 
-  test('DELETE /teams/{id}/ - should delete an existing team', async ({ request }) => {
-    // First, create a team to delete
-    const created = await createTeam(request, 'Team Galactic');
-    const teamIdToDelete = created.id;
+    test('PUT /teams/{id}/ should update an existing team', async ({ request }) => {
+        // First create a team to update
+        const originalTeam = {
+            name: 'Instinct',
+        };
+        const createResponse = await request.post(`${BASE_URL}/teams/`, {
+            data: originalTeam,
+        });
+        expect(createResponse.status()).toBe(201);
+        const createdTeam = await createResponse.json();
 
-    const response = await request.delete(`${BASE_URL}/teams/${teamIdToDelete}/`);
-    expect(response.status()).toBe(200);
-    expect(await response.json()).toBe(teamIdToDelete);
+        const updatedTeamData = {
+            name: 'Harmony',
+        };
+        const updateResponse = await request.put(`${BASE_URL}/teams/${createdTeam.id}/`, {
+            data: updatedTeamData,
+        });
+        expect(updateResponse.status()).toBe(200);
+        const updatedTeam = await updateResponse.json();
+        expect(updatedTeam).toMatchObject({
+            id: createdTeam.id,
+            name: updatedTeamData.name,
+        });
 
-    // Verify it's actually deleted
-    const getResponse = await request.get(`${BASE_URL}/teams/${teamIdToDelete}/`);
-    expect(getResponse.status()).toBe(404);
-  });
+        // Clean up
+        await request.delete(`${BASE_URL}/teams/${createdTeam.id}/`);
+    });
 
-  test('DELETE /teams/{id}/ - should return 404 for non-existent team', async ({ request }) => {
-    const nonExistentTeamId = 999;
-    const response = await request.delete(`${BASE_URL}/teams/${nonExistentTeamId}/`);
-    expect(response.status()).toBe(404);
-    expect(await response.json()).toEqual({ detail: 'Team not found!' });
-  });
+    test('PUT /teams/{id}/ should return 404 for updating a non-existent team', async ({ request }) => {
+        const updatedTeamData = {
+            name: 'Phantom',
+        };
+        const response = await request.put(`${BASE_URL}/teams/99999/`, { // Non-existent ID
+            data: updatedTeamData,
+        });
+        expect(response.status()).toBe(404);
+        expect(await response.json()).toEqual({ detail: 'Team not found!' });
+    });
 
+    test('DELETE /teams/{id}/ should delete an existing team', async ({ request }) => {
+        // First create a team to delete
+        const newTeam = {
+            name: 'Rocket',
+        };
+        const createResponse = await request.post(`${BASE_URL}/teams/`, {
+            data: newTeam,
+        });
+        expect(createResponse.status()).toBe(201);
+        const createdTeam = await createResponse.json();
+
+        const deleteResponse = await request.delete(`${BASE_URL}/teams/${createdTeam.id}/`);
+        expect(deleteResponse.status()).toBe(200);
+        expect(await deleteResponse.json()).toBe(createdTeam.id); // Expecting the ID of the deleted team
+
+        // Verify it's actually deleted
+        const getResponse = await request.get(`${BASE_URL}/teams/${createdTeam.id}/`);
+        expect(getResponse.status()).toBe(404);
+    });
+
+    test('DELETE /teams/{id}/ should return 404 for a non-existent team', async ({ request }) => {
+        const response = await request.delete(`${BASE_URL}/teams/99999/`); // Non-existent ID
+        expect(response.status()).toBe(404);
+        expect(await response.json()).toEqual({ detail: 'Team not found!' });
+    });
 });
