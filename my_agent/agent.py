@@ -13,11 +13,7 @@ from .routes_storage import (
     store_playwright_tests,
     store_routes_snapshot,
 )
-from .playwright_mcp_http import (
-    playwright_list_tools,
-    run_playwright_tests,
-)
-
+from .playwright_mcp import create_playwright_mcp_toolset, run_playwright_tests
 from .prompts import (
     PLAYWRIGHT_TEST_EXECUTION_PROMPT,
     PLAYWRIGHT_TEST_GENERATION_PROMPT,
@@ -38,6 +34,7 @@ async def enforce_gemini_rate_limit(*_, **__):
     _last_request_time = time.monotonic()
 
 github_toolset = create_github_mcp_toolset()
+playwright_toolset = create_playwright_mcp_toolset()
 
 endpoint_agent = Agent(
     model='gemini-2.5-flash',
@@ -81,10 +78,7 @@ root_agent = Agent(
     ),
     instruction=(PLAYWRIGHT_TEST_EXECUTION_PROMPT),
     before_model_callback=[enforce_gemini_rate_limit],
-    tools=[
-        playwright_list_tools,
-        run_playwright_tests,
-    ],
+    tools=[run_playwright_tests],
 )
 
 
