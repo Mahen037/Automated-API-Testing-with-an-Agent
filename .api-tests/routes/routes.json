@@ -1,0 +1,385 @@
+{
+  "repo": "https://github.com/GavriloviciEduard/fastapi-microservices",
+  "commit": "a275614af90fd93c063b6c432e2ce9692ddf70d3",
+  "routes": [
+    {
+      "base_url": "http://localhost:8080/pokemon",
+      "path_params": [
+        {
+          "required": true,
+          "constraints": {
+            "gt": 0
+          },
+          "type": "integer",
+          "name": "id"
+        }
+      ],
+      "responses": {
+        "404": {
+          "description": "Pokemon not found!"
+        },
+        "200": {
+          "fields": [
+            {
+              "required": true,
+              "type": "integer",
+              "name": "id"
+            },
+            {
+              "type": "string",
+              "required": true,
+              "name": "name"
+            },
+            {
+              "required": true,
+              "name": "type",
+              "type": "string"
+            },
+            {
+              "type": "integer",
+              "required": true,
+              "name": "team_id"
+            }
+          ],
+          "schema": "PokemonResponseSchema"
+        }
+      },
+      "http_method": "GET",
+      "path": "/{id}/"
+    },
+    {
+      "path": "/",
+      "responses": {
+        "200": {
+          "fields": [
+            {
+              "required": true,
+              "type": "integer",
+              "name": "id"
+            },
+            {
+              "required": true,
+              "type": "string",
+              "name": "name"
+            },
+            {
+              "required": true,
+              "name": "type",
+              "type": "string"
+            },
+            {
+              "required": true,
+              "name": "team_id",
+              "type": "integer"
+            }
+          ],
+          "schema": "List[PokemonResponseSchema]"
+        }
+      },
+      "http_method": "GET",
+      "base_url": "http://localhost:8080/pokemon"
+    },
+    {
+      "responses": {
+        "404": {
+          "description": "Team with id:{team_id} not found!"
+        },
+        "201": {
+          "fields": [
+            {
+              "name": "id",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "type": "string",
+              "name": "name",
+              "required": true
+            },
+            {
+              "type": "string",
+              "name": "type",
+              "required": true
+            },
+            {
+              "required": true,
+              "name": "team_id",
+              "type": "integer"
+            }
+          ],
+          "schema": "PokemonResponseSchema"
+        }
+      },
+      "http_method": "POST",
+      "base_url": "http://localhost:8080/pokemon",
+      "request_body": {
+        "fields": [
+          {
+            "required": true,
+            "type": "string",
+            "name": "name"
+          },
+          {
+            "type": "string",
+            "required": true,
+            "name": "type"
+          },
+          {
+            "required": true,
+            "type": "integer",
+            "name": "team_id"
+          }
+        ],
+        "schema": "PokemonPayloadSchema"
+      },
+      "path": "/"
+    },
+    {
+      "path_params": [
+        {
+          "constraints": {
+            "gt": 0
+          },
+          "type": "integer",
+          "name": "id",
+          "required": true
+        }
+      ],
+      "path": "/{id}/",
+      "http_method": "DELETE",
+      "base_url": "http://localhost:8080/pokemon",
+      "responses": {
+        "200": {
+          "description": "The deleted pokemon ID",
+          "schema": "integer"
+        },
+        "404": {
+          "description": "Pokemon not found!"
+        }
+      }
+    },
+    {
+      "path": "/{id}/",
+      "http_method": "PUT",
+      "base_url": "http://localhost:8080/pokemon",
+      "path_params": [
+        {
+          "required": true,
+          "type": "integer",
+          "name": "id",
+          "constraints": {
+            "gt": 0
+          }
+        }
+      ],
+      "request_body": {
+        "schema": "PokemonPayloadSchema",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "required": true
+          },
+          {
+            "required": true,
+            "name": "team_id",
+            "type": "integer"
+          }
+        ]
+      },
+      "responses": {
+        "404": {
+          "description": "Team with id:{team_id} not found! or Pokemon not found!"
+        },
+        "200": {
+          "fields": [
+            {
+              "required": true,
+              "name": "id",
+              "type": "integer"
+            },
+            {
+              "name": "name",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "type": "string",
+              "required": true,
+              "name": "type"
+            },
+            {
+              "type": "integer",
+              "required": true,
+              "name": "team_id"
+            }
+          ],
+          "schema": "PokemonResponseSchema"
+        }
+      }
+    },
+    {
+      "path_params": [
+        {
+          "constraints": {
+            "gt": 0
+          },
+          "required": true,
+          "type": "integer",
+          "name": "id"
+        }
+      ],
+      "path": "/{id}/",
+      "http_method": "GET",
+      "base_url": "http://localhost:8080/teams",
+      "responses": {
+        "404": {
+          "description": "Team not found!"
+        },
+        "200": {
+          "schema": "TeamSchema",
+          "fields": [
+            {
+              "required": true,
+              "type": "integer",
+              "name": "id"
+            },
+            {
+              "type": "string",
+              "required": true,
+              "name": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "base_url": "http://localhost:8080/teams",
+      "path": "/",
+      "http_method": "GET",
+      "responses": {
+        "200": {
+          "schema": "List[TeamSchema]",
+          "fields": [
+            {
+              "name": "id",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "type": "string",
+              "required": true,
+              "name": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/",
+      "request_body": {
+        "fields": [
+          {
+            "type": "string",
+            "required": true,
+            "name": "name"
+          }
+        ],
+        "schema": "TeamPayloadSchema"
+      },
+      "base_url": "http://localhost:8080/teams",
+      "http_method": "POST",
+      "responses": {
+        "201": {
+          "fields": [
+            {
+              "name": "id",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": "name",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "schema": "TeamResponseSchema"
+        }
+      }
+    },
+    {
+      "http_method": "DELETE",
+      "path": "/{id}/",
+      "base_url": "http://localhost:8080/teams",
+      "path_params": [
+        {
+          "required": true,
+          "type": "integer",
+          "name": "id",
+          "constraints": {
+            "gt": 0
+          }
+        }
+      ],
+      "responses": {
+        "404": {
+          "description": "Team not found!"
+        },
+        "200": {
+          "schema": "integer",
+          "description": "The deleted team ID"
+        }
+      }
+    },
+    {
+      "path_params": [
+        {
+          "name": "id",
+          "type": "integer",
+          "required": true,
+          "constraints": {
+            "gt": 0
+          }
+        }
+      ],
+      "responses": {
+        "404": {
+          "description": "Team not found!"
+        },
+        "200": {
+          "fields": [
+            {
+              "required": true,
+              "type": "integer",
+              "name": "id"
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "schema": "TeamSchema"
+        }
+      },
+      "path": "/{id}/",
+      "base_url": "http://localhost:8080/teams",
+      "request_body": {
+        "fields": [
+          {
+            "name": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "schema": "TeamPayloadSchema"
+      },
+      "http_method": "PUT"
+    }
+  ]
+}

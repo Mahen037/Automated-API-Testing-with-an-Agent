@@ -16,9 +16,9 @@ const config: PlaywrightTestConfig = {
     ['html', { open: 'never',  outputFolder: ".api-tests/reports" }], 
     ['json', { outputFile: ".api-tests/reports/report.json" }]
   ],
-  outputDir: '.api-tests/results',
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 2 : undefined,
+  outputDir: '.api-tests/reports',
+  retries: 2,
+  workers: 4,
 };
 
 export default config;

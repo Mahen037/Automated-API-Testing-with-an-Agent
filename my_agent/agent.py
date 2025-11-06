@@ -68,7 +68,7 @@ test_generation_agent = Agent(
     ],
 )
 
-root_agent = Agent(
+test_execution_agent = Agent(
     model='gemini-2.5-flash',
     name='test_execution_agent',
     description=(
@@ -82,12 +82,12 @@ root_agent = Agent(
 )
 
 
-# root_agent = SequentialAgent(
-#     name='root_agent',
-#     description=(
-#         """
-#         Orchestrates endpoint extraction, Playwright test generation, and remote execution for GitHub repositories.
-#         """
-#     ),
-#     sub_agents=[endpoint_agent, test_generation_agent, test_execution_agent]
-# )
+root_agent = SequentialAgent(
+    name='root_agent',
+    description=(
+        """
+        Orchestrates endpoint extraction, Playwright test generation, and remote execution for GitHub repositories.
+        """
+    ),
+    sub_agents=[endpoint_agent, test_generation_agent, test_execution_agent]
+)
