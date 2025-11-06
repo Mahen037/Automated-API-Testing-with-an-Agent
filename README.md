@@ -1,5 +1,5 @@
 # 🤖 A.T.L.A.S
-### API Testing Leveraging Agentic System
+### API Testing Leveraging an Agentic System
 
 ## 📘 Overview
 **Repository-agnostic** starter for discovering API endpoints, generating Playwright tests, and executing them with rich reports—works across frameworks (FastAPI/Flask, Express/Nest, Spring, Rails, etc.).
@@ -7,8 +7,6 @@
 ---
 
 ## 🧱 Architecture
-
-
 ```mermaid
 flowchart TD
     %% Agents (top-down main flow)
