@@ -1,71 +1,111 @@
-# GitHub MCP Integration
+# Internal Docs
 
-This project connects the Google ADK agent to the GitHub MCP server so the agent
-can browse repositories, open pull requests, and discuss code.
+This directory wraps the Google ADK agent logic (prompts, MCP wiring, and tooling) that powers automated route discovery and Playwright test generation/execution. Use this README for day-to-day development details; the project-level README covers demos and high-level context.
 
-## Prerequisites
+## Directory Layout
 
-1. Create a GitHub personal access token with the `repo` scope and store it in
-   the `.env` file as `GITHUB_TOKEN=<your-token>`.
-2. (Optional) Restrict the server to a specific owner or repository by adding:
-   - `GITHUB_MCP_OWNER=<org-or-user>`
-   - `GITHUB_MCP_REPOSITORY=<owner/repo>`
-3. If you need to pass extra environment variables to the server, prefix them
-   with `GITHUB_MCP_ENV_`, e.g. `GITHUB_MCP_ENV_MCP_SERVER_GITHUB_BRANCH=main`.
-4. Ensure Node.js is available so the agent can execute
-   `npx -y @modelcontextprotocol/server-github`. The first run downloads the
-   server package from npm.
+```
+my_agent/
+├── agent.py              # root SequentialAgent orchestration
+├── mcp/                  # MCP toolset builders (GitHub & Playwright)
+├── prompts/              # YAML prompts + parser
+├── tools.py              # Local storage helpers + Playwright CLI runner
+└── __init__.py
+```
 
-After setting the environment variables, start the agent as usual. The GitHub
-MCP tools will be added automatically when the agent imports `my_agent.agent`.
+Generated artifacts live outside this folder:
 
-## Gemini Rate Limiting
+- `.api-tests/routes/` – saved route snapshots (JSON)
+- `.api-tests/tests/` – generated Playwright `*.spec.ts`
+- `.api-tests/reports/` – latest Playwright HTML/JSON reports
 
-The agent uses `gemini-2.5-flash` by default. A lightweight throttler enforces
-at least seven seconds between calls so the free-tier quota is not exceeded.
-Override the interval by setting `GEMINI_MIN_REQUEST_INTERVAL` in your
-environment (value in seconds).
+## Python Environment Setup
 
-## Route Snapshots
+1. Create a virtual environment (example using venv):
+   ```bash
+   python -m venv venv
+   ```
+2. Activate it:
+   - Windows: `venv\Scripts\activate`
+   - macOS/Linux: `source venv/bin/activate`
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. (Optional) Freeze updates:
+   ```bash
+   pip freeze > requirements.txt
+   ```
 
-When the agent finishes enumerating endpoints, it calls the
-`store_routes_snapshot` tool. The tool writes the payload to
-`.api-tests/routes/routes.json` (creating folders as needed). Override the file
-name by passing the optional `filename` argument. The JSON includes `repo`,
-`commit`, and `routes`, making it easy for automated test pipelines to pick up.
+## Node/Playwright Setup
 
-## Playwright Test Generation
+1. Ensure Node.js ≥ 18 is installed.
+2. Install npm dependencies once:
+   ```bash
+   npm install
+   ```
+3. Install Playwright browsers (first run):
+   ```bash
+   npx playwright install
+   ```
 
-The `test_generation_agent` consumes stored route snapshots and authors Playwright
-tests compatible with the Playwright MCP runner.
+## Environment Variables (.env)
 
-1. Query available snapshots with `list_route_snapshots`, then load the desired
-   file via `load_route_snapshot`.
-2. Draft Playwright `@playwright/test` suites that exercise the HTTP endpoints
-   (positive and negative checks as appropriate).
-3. Persist each suite with `store_playwright_tests`, providing a filename that
-   ends in `.spec.ts`. The tool saves the file to `.api-tests/tests/`.
+Create `my_agent/.env` (or project root `.env`) and load it via `dotenv`. Only the keys referenced by the codebase are listed here.
 
-## Running Generated Tests
+### Required
 
-Playwright project scaffolding (`package.json`, `tsconfig.json`, and
-`playwright.config.ts`) lives at the repository root. To execute generated tests:
+```
+GOOGLE_GENAI_USE_VERTEXAI=0
+GOOGLE_API_KEY=<google-api-key>
+GITHUB_TOKEN=<github-api-key>
+```
 
-1. Ensure Node.js ≥ 18 is installed locally.
-2. Install dependencies once with `npm install`.
-3. (Optional) Override the service host via `PLAYWRIGHT_BASE_URL` or edit the
-   inline `BASE_URL` constants inside the generated specs.
-4. Run `npx playwright test` (the config points to `.api-tests/tests/`).
+## Running MCP Servers
 
-## Playwright MCP Execution
+### GitHub
 
-The `test_execution_agent` communicates with a running Playwright MCP HTTP
-server (default `http://localhost:9222/mcp`) to list and execute the generated
-specs remotely.
+The agent launches the GitHub MCP server on demand using the STDIO transport:
 
-1. Launch the server separately, e.g. `npx @playwright/mcp --port 9222`.
-2. (Optional) Override the endpoint via `PLAYWRIGHT_MCP_HTTP_URL` and timeout via
-   `PLAYWRIGHT_MCP_HTTP_TIMEOUT`.
-3. Invoke the agent; it calls `playwright_list_tools` to discover capabilities
-   and `run_playwright_tests` to trigger execution. Results are returned in the
-   agent response.
+```
+npx -y @modelcontextprotocol/server-github
+```
+
+### Playwright
+
+The agent launches the Playwright MCP server on demand using the STDIO transport:
+
+```
+npx -y @executeautomation/playwright-mcp-server
+```
+
+## Directory Conventions
+
+- **Prompts**: defined per YAML file under `my_agent/prompts/`. Use `prompt_parser.py` to load them.
+- **Tools**: all file I/O and CLI helpers live in `tools.py`, so agents can import a single module for route storage and test execution.
+- **Artifacts**: the `.api-tests/` tree is safe to wipe/regenerate; it’s produced by the agents.
+
+## Common Commands
+
+- Run the SequentialAgent via ADK Web:
+  ```bash
+  adk web --no-reload
+  ```
+  Paste the repo of interest into the chat, and let the agent run.
+
+- Run Playwright specs manually:
+  ```bash
+  npx playwright test
+  ```
+- Inspect latest Playwright report manually:
+  ```bash
+  npx playwright show-report .api-tests\reports
+  ```
+
+## Troubleshooting Tips
+
+- **Missing GitHub routes**: ensure `GITHUB_TOKEN` has access to the target repo; check MCP server logs.
+- **Playwright MCP 406 errors**: the HTTP client must send `Accept: application/json, text/event-stream` and reuse cookies/session.
+- **Specs hard-coding localhost**: override `PLAYWRIGHT_BASE_URL` or edit spec constants before running against remote services.
+
+Keep this README up to date whenever folder structure, environment names, or setup steps change. External documentation should reference this file for in-depth developer guidance.

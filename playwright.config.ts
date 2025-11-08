@@ -14,7 +14,7 @@ const config: PlaywrightTestConfig = {
   reporter: [
     ['list'], 
     ['html', { open: 'never',  outputFolder: ".api-tests/reports" }], 
-    ['json', { outputFile: ".api-tests/reports/report.json" }]
+    ['json', { outputFile: ".api-tests/reports/index.json" }]
   ],
   outputDir: '.api-tests/reports',
   retries: 2,
