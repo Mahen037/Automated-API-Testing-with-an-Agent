@@ -99,9 +99,9 @@ flowchart TD
 - Return a structured summary (status, exit_code, report paths, discovered spec files)
 
 ## 🎥 Current Demo
-<video src="demo.mp4" width="720" controls>
-  Your browser does not support the video tag.
-</video>
+
+https://github.com/user-attachments/assets/86bdfb39-0f1e-4d4f-9357-e6b8ae3c212d
+
 
 ## TL;DR
 - **Discover** endpoints (code + Docker + README) → JSON snapshot of services, base URLs, and routes  
