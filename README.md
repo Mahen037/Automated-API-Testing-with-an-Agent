@@ -57,19 +57,22 @@ flowchart TD
 ## 📁 Layout 
 ```bash
 .
-├─ .api-tests/
-│  ├─ tests/                 # generated *.spec.ts files
-│  ├─ reports/
-│  │  ├─ playwright-report/  # HTML report (index.html)
-│  │  └─ test-results/       # JSON/JUnit, artifacts
-│  └─ logs/                  # execution logs
-├─ tools/
-│  ├─ discovery_agent.py
-│  ├─ generation_agent.py
-│  └─ execution_agent.py
+├─ my_agent/                 # Google ADK orchestration + prompts/MCP wrappers
+│  ├─ agent.py
+│  ├─ mcp/
+│  ├─ prompts/
+│  └─ tools.py
+├─ .api-tests/               # auto-generated artifacts
+│  ├─ routes/                # persisted route snapshots (*.json)
+│  ├─ tests/                 # generated Playwright *.spec.ts
+│  └─ reports/               # HTML/JSON output from test runs
+├─ package.json              # npm deps (Playwright)
+├─ package-lock.json
 ├─ playwright.config.ts
-├─ package.json
-└─ README.md
+├─ requirements.txt          # Python deps for the agents
+├─ tsconfig.json
+├─ README.md                 # this file
+└─ venv/ (optional)          # local Python virtual environment
 ```
 
 ## ⚙️ Prerequisites
@@ -96,7 +99,7 @@ flowchart TD
 - Return a structured summary (status, exit_code, report paths, discovered spec files)
 
 ## 🎥 Current Demo
-<video src="current_demo.mp4" width="720" controls>
+<video src="demo.mp4" width="720" controls>
   Your browser does not support the video tag.
 </video>
 
