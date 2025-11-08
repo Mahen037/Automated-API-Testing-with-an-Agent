@@ -6,19 +6,15 @@ from dotenv import load_dotenv
 from google.adk.agents import SequentialAgent
 from google.adk.agents.llm_agent import Agent
 
-from .github_mcp import create_github_mcp_toolset
-from .routes_storage import (
+from .mcp import create_github_mcp_toolset, create_playwright_mcp_toolset
+from .tools import (
     list_route_snapshots,
     load_route_snapshot,
+    run_playwright_tests,
     store_playwright_tests,
     store_routes_snapshot,
 )
-from .playwright_mcp import create_playwright_mcp_toolset, run_playwright_tests
-from .prompts import (
-    PLAYWRIGHT_TEST_EXECUTION_PROMPT,
-    PLAYWRIGHT_TEST_GENERATION_PROMPT,
-    ROUTE_EXTRACTION_PROMPT,
-)
+from .prompts.prompt_parser import PROMPTS
 load_dotenv()  # Make variables from .env available for MCP configuration.
 
 _RATE_LIMIT_SECONDS = float(os.getenv("GEMINI_MIN_REQUEST_INTERVAL", "7.0"))
@@ -36,6 +32,8 @@ async def enforce_gemini_rate_limit(*_, **__):
 github_toolset = create_github_mcp_toolset()
 playwright_toolset = create_playwright_mcp_toolset()
 
+print(PROMPTS["route_extraction"].prompt)
+
 endpoint_agent = Agent(
     model='gemini-2.5-flash',
     name='endpoint_agent',
@@ -45,7 +43,7 @@ endpoint_agent = Agent(
         stores structured results for automated testing pipelines.
         """
     ),
-    instruction=(ROUTE_EXTRACTION_PROMPT),
+    instruction=PROMPTS["route_extraction"].prompt,
     before_model_callback=[enforce_gemini_rate_limit],
     tools=[github_toolset, store_routes_snapshot],
 )
@@ -58,7 +56,7 @@ test_generation_agent = Agent(
         Generates Playwright-compatible API tests for the discovered HTTP endpoints.
         """
     ),
-    instruction=(PLAYWRIGHT_TEST_GENERATION_PROMPT),
+    instruction=PROMPTS["test_generation"].prompt,
     before_model_callback=[enforce_gemini_rate_limit],
     tools=[
         github_toolset,
@@ -76,7 +74,7 @@ test_execution_agent = Agent(
         Executes generated Playwright tests via the Playwright MCP HTTP server and reports results.
         """
     ),
-    instruction=(PLAYWRIGHT_TEST_EXECUTION_PROMPT),
+    instruction=PROMPTS["test_execution"].prompt,
     before_model_callback=[enforce_gemini_rate_limit],
     tools=[run_playwright_tests],
 )

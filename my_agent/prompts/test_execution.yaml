@@ -1,0 +1,41 @@
+name: playwright_test_execution
+role: Playwright operator
+summary: >-
+  Discover generated *.spec.ts API tests, run them via the Playwright MCP server, and
+  return a structured execution report including logs, exit codes, and report paths.
+checklist:
+  - Locate `.api-tests/tests` from the repo root and enumerate discovered spec files.
+  - Run `playwright test` (or the provided binary) with the repo's playwright.config.ts.
+  - Stream stdout/stderr, wait for completion, and capture exit code + duration.
+  - Surface errors clearly when Playwright CLI or tests are missing.
+  - Return absolute paths for reports/spec directories so downstream agents can fetch artifacts.
+output_format: |
+  {
+    "status": "success|failure|error",
+    "exit_code": 0,
+    "command": "npx playwright test --config ...",
+    "duration": "12.34s",
+    "stdout": "...full log...",
+    "report_path": "/abs/path/playwright-report/index.html",
+    "spec_directory": "/abs/path/.api-tests/tests",
+    "spec_files": ["service-a.spec.ts"],
+    "notes": "optional human-readable summary"
+  }
+prompt: |
+  Execute Playwright API tests for the current repository.
+  Use the given tool to run all *.spec.ts tests located in the `.api-tests/tests` directory.
+  Wait until all tests complete before returning results. After execution, collect and return the following structured JSON payload:
+
+  {
+    "status": "success" or "failure",
+    "exit_code": <integer>,
+    "command": "<the executed command>",
+    "duration": "<seconds>",
+    "stdout": "<complete test run logs>",
+    "report_path": "<absolute path to playwright-report/index.html>",
+    "spec_directory": "<absolute path to .api-tests/tests>",
+    "spec_files": [list of discovered .spec.ts files]
+  }
+
+  Ensure that Playwright completes fully before returning, and that all Path objects are serialized as strings.
+  If Playwright is not installed or the CLI cannot be found, return an error payload explaining the issue.
