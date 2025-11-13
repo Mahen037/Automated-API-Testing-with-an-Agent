@@ -32,8 +32,6 @@ async def enforce_gemini_rate_limit(*_, **__):
 github_toolset = create_github_mcp_toolset()
 playwright_toolset = create_playwright_mcp_toolset()
 
-print(PROMPTS["route_extraction"].prompt)
-
 endpoint_agent = Agent(
     model='gemini-2.5-flash',
     name='endpoint_agent',
@@ -43,7 +41,7 @@ endpoint_agent = Agent(
         stores structured results for automated testing pipelines.
         """
     ),
-    instruction=PROMPTS["route_extraction"].prompt,
+    instruction=PROMPTS["route_extraction"].prompt + "\n\n Reference the output format when structuring the response:\n\n" + PROMPTS["route_extraction"].output_format,
     before_model_callback=[enforce_gemini_rate_limit],
     tools=[github_toolset, store_routes_snapshot],
 )
@@ -56,7 +54,7 @@ test_generation_agent = Agent(
         Generates Playwright-compatible API tests for the discovered HTTP endpoints.
         """
     ),
-    instruction=PROMPTS["test_generation"].prompt,
+    instruction=PROMPTS["test_generation"].prompt + "\n\n Reference the output format when structuring the response:\n\n" + PROMPTS["test_generation"].output_format,
     before_model_callback=[enforce_gemini_rate_limit],
     tools=[
         github_toolset,
@@ -74,7 +72,7 @@ test_execution_agent = Agent(
         Executes generated Playwright tests via the Playwright MCP HTTP server and reports results.
         """
     ),
-    instruction=PROMPTS["test_execution"].prompt,
+    instruction=PROMPTS["test_execution"].prompt + "\n\n Reference the output format when structuring the response:\n\n" + PROMPTS["test_execution"].output_format,
     before_model_callback=[enforce_gemini_rate_limit],
     tools=[run_playwright_tests],
 )

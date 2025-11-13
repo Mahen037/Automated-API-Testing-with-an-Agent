@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 1
+      "actualWorkers": 2
     },
     "preserveOutput": "always",
     "reporter": [
@@ -44,7 +44,7 @@
         "repeatEach": 1,
         "retries": 2,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 2
         },
         "id": "",
         "name": "",
@@ -65,20 +65,20 @@
   },
   "suites": [
     {
-      "title": "fastapi-microservices.spec.ts",
-      "file": "fastapi-microservices.spec.ts",
+      "title": "pokemon-service.spec.ts",
+      "file": "pokemon-service.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
           "title": "Pokemon Service API Tests",
-          "file": "fastapi-microservices.spec.ts",
-          "line": 6,
+          "file": "pokemon-service.spec.ts",
+          "line": 39,
           "column": 6,
           "specs": [
             {
-              "title": "GET /pokemon/{id}/ - should retrieve a specific pokemon",
+              "title": "GET /pokemon/{id}/ - should retrieve a single pokemon by ID",
               "ok": true,
               "tags": [],
               "tests": [
@@ -93,12 +93,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 94,
+                      "duration": 217,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-08T21:02:56.836Z",
+                      "startTime": "2025-11-13T01:56:55.513Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -106,13 +106,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "22eac692e86c7be8b0ce-f80fef34a9a7ad826b08",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 36,
+              "id": "da31bf3364aa9ea7eca5-c8825ea14a7726fbd2c8",
+              "file": "pokemon-service.spec.ts",
+              "line": 55,
               "column": 9
             },
             {
-              "title": "GET /pokemon/{id}/ - should return 404 for a non-existent pokemon",
+              "title": "GET /pokemon/{id}/ - should return 404 for a non-existent pokemon ID",
               "ok": true,
               "tags": [],
               "tests": [
@@ -127,12 +127,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6,
+                      "duration": 64,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.041Z",
+                      "startTime": "2025-11-13T01:56:55.828Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -140,9 +140,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "22eac692e86c7be8b0ce-c094cac0b7688769c79d",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 57,
+              "id": "da31bf3364aa9ea7eca5-5f78d80635babaf9e202",
+              "file": "pokemon-service.spec.ts",
+              "line": 73,
               "column": 9
             },
             {
@@ -161,12 +161,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 134,
+                      "duration": 344,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.058Z",
+                      "startTime": "2025-11-13T01:56:55.905Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -174,9 +174,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "22eac692e86c7be8b0ce-5c198791f84716cb76ea",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 64,
+              "id": "da31bf3364aa9ea7eca5-c02b9945d88a8f7acf52",
+              "file": "pokemon-service.spec.ts",
+              "line": 80,
               "column": 9
             },
             {
@@ -195,12 +195,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 55,
+                      "duration": 151,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.207Z",
+                      "startTime": "2025-11-13T01:56:56.262Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -208,13 +208,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "22eac692e86c7be8b0ce-df5dce64bb838091f5de",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 91,
+              "id": "da31bf3364aa9ea7eca5-6717b68a100ddf655548",
+              "file": "pokemon-service.spec.ts",
+              "line": 98,
               "column": 9
             },
             {
-              "title": "POST /pokemon/ - should return 404 if team_id does not exist",
+              "title": "POST /pokemon/ - should return 404 for a non-existent team_id",
               "ok": true,
               "tags": [],
               "tests": [
@@ -229,12 +229,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 52,
+                      "duration": 101,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.270Z",
+                      "startTime": "2025-11-13T01:56:56.426Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -242,13 +242,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "22eac692e86c7be8b0ce-6e1ad9a7ff66649405b4",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 104,
+              "id": "da31bf3364aa9ea7eca5-fe11ddb20ae10c73be68",
+              "file": "pokemon-service.spec.ts",
+              "line": 119,
               "column": 9
             },
             {
-              "title": "POST /pokemon/ - should return 422 for invalid payload",
+              "title": "POST /pokemon/ - should return 422 for missing required fields",
               "ok": true,
               "tags": [],
               "tests": [
@@ -263,12 +263,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9,
+                      "duration": 53,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.332Z",
+                      "startTime": "2025-11-13T01:56:56.546Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -276,9 +276,77 @@
                   "status": "expected"
                 }
               ],
-              "id": "22eac692e86c7be8b0ce-a71a5cb734bfe386329d",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 113,
+              "id": "da31bf3364aa9ea7eca5-dafb25527b78b7c75614",
+              "file": "pokemon-service.spec.ts",
+              "line": 132,
+              "column": 9
+            },
+            {
+              "title": "DELETE /pokemon/{id}/ - should delete a pokemon by ID",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 194,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T01:56:56.612Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "da31bf3364aa9ea7eca5-995fdf88fb00b0a39fdd",
+              "file": "pokemon-service.spec.ts",
+              "line": 148,
+              "column": 9
+            },
+            {
+              "title": "DELETE /pokemon/{id}/ - should return 404 for a non-existent pokemon ID",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 51,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T01:56:56.821Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "da31bf3364aa9ea7eca5-ea6826251e3d6c5a698e",
+              "file": "pokemon-service.spec.ts",
+              "line": 161,
               "column": 9
             },
             {
@@ -297,12 +365,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 114,
+                      "duration": 259,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.352Z",
+                      "startTime": "2025-11-13T01:56:56.883Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -310,13 +378,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "22eac692e86c7be8b0ce-9a26e4e27ccd86c0b232",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 122,
+              "id": "da31bf3364aa9ea7eca5-3f3660072ecf04ee5ade",
+              "file": "pokemon-service.spec.ts",
+              "line": 168,
               "column": 9
             },
             {
-              "title": "PUT /pokemon/{id}/ - should return 404 for updating a non-existent pokemon",
+              "title": "PUT /pokemon/{id}/ - should return 404 for a non-existent pokemon ID",
               "ok": true,
               "tags": [],
               "tests": [
@@ -330,13 +398,166 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 113,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T01:56:57.153Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "da31bf3364aa9ea7eca5-303afb1078368840209b",
+              "file": "pokemon-service.spec.ts",
+              "line": 194,
+              "column": 9
+            },
+            {
+              "title": "PUT /pokemon/{id}/ - should return 404 for a non-existent team_id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 245,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T01:56:57.276Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "da31bf3364aa9ea7eca5-4d23a5d5008fd3fc3a2c",
+              "file": "pokemon-service.spec.ts",
+              "line": 207,
+              "column": 9
+            },
+            {
+              "title": "PUT /pokemon/{id}/ - should return 422 for missing required fields",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 201,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T01:56:57.532Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "da31bf3364aa9ea7eca5-12a6314b8535a5a59a81",
+              "file": "pokemon-service.spec.ts",
+              "line": 226,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "team-service.spec.ts",
+      "file": "team-service.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Team Service API Tests",
+          "file": "team-service.spec.ts",
+          "line": 21,
+          "column": 6,
+          "specs": [
+            {
+              "title": "GET /teams/{id}/ - should retrieve a single team by ID",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 162,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T01:56:55.507Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-35571e8f8f62244556e1",
+              "file": "team-service.spec.ts",
+              "line": 23,
+              "column": 9
+            },
+            {
+              "title": "GET /teams/{id}/ - should return 404 for a non-existent team ID",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
                       "duration": 55,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.476Z",
+                      "startTime": "2025-11-13T01:56:55.695Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -344,289 +565,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "22eac692e86c7be8b0ce-bd1377e8d86225ac963e",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 143,
-              "column": 9
-            },
-            {
-              "title": "PUT /pokemon/{id}/ - should return 404 if team_id for update does not exist",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 116,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.540Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "22eac692e86c7be8b0ce-72faa0d4dc58ce56b571",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 152,
-              "column": 9
-            },
-            {
-              "title": "PUT /pokemon/{id}/ - should return 422 for invalid payload during update",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 57,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.667Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "22eac692e86c7be8b0ce-b3f419d4c2d741e9a193",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 171,
-              "column": 9
-            },
-            {
-              "title": "DELETE /pokemon/{id}/ - should delete an existing pokemon",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 62,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.732Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "22eac692e86c7be8b0ce-c3703745aa5267bdfcc3",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 190,
-              "column": 9
-            },
-            {
-              "title": "DELETE /pokemon/{id}/ - should return 404 for deleting a non-existent pokemon",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.811Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "22eac692e86c7be8b0ce-b0cbabb6d3105b0671dc",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 207,
-              "column": 9
-            }
-          ]
-        },
-        {
-          "title": "Team Service API Tests",
-          "file": "fastapi-microservices.spec.ts",
-          "line": 215,
-          "column": 6,
-          "specs": [
-            {
-              "title": "POST /teams/ - should create a new team",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.836Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "22eac692e86c7be8b0ce-b45aaeadef47a6cfa164",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 232,
-              "column": 9
-            },
-            {
-              "title": "POST /teams/ - should return 422 for invalid payload",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 14,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.852Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "22eac692e86c7be8b0ce-8ab5ddb13472018c8633",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 243,
-              "column": 9
-            },
-            {
-              "title": "GET /teams/{id}/ - should retrieve a specific team",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 13,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.878Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "22eac692e86c7be8b0ce-4f9e1976ac8396c49265",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 252,
-              "column": 9
-            },
-            {
-              "title": "GET /teams/{id}/ - should return 404 for a non-existent team",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.906Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "22eac692e86c7be8b0ce-d213da40a4a775c58267",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 271,
+              "id": "eaf358b89f316e1fed07-f44ff90fa14e903809b2",
+              "file": "team-service.spec.ts",
+              "line": 39,
               "column": 9
             },
             {
@@ -642,15 +583,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 19,
+                      "duration": 258,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.913Z",
+                      "startTime": "2025-11-13T01:56:55.765Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -658,9 +599,145 @@
                   "status": "expected"
                 }
               ],
-              "id": "22eac692e86c7be8b0ce-5aa516d61af36b290cd8",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 278,
+              "id": "eaf358b89f316e1fed07-bd1a13a4728a2add055e",
+              "file": "team-service.spec.ts",
+              "line": 46,
+              "column": 9
+            },
+            {
+              "title": "POST /teams/ - should create a new team",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 100,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T01:56:56.036Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-8abc8b45b5075f03399f",
+              "file": "team-service.spec.ts",
+              "line": 64,
+              "column": 9
+            },
+            {
+              "title": "POST /teams/ - should return 422 for missing required fields",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 52,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T01:56:56.149Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-0a2fdf8358fb8abff8ee",
+              "file": "team-service.spec.ts",
+              "line": 81,
+              "column": 9
+            },
+            {
+              "title": "DELETE /teams/{id}/ - should delete a team by ID",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 151,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T01:56:56.214Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-09397e01e6a52dd4c15e",
+              "file": "team-service.spec.ts",
+              "line": 95,
+              "column": 9
+            },
+            {
+              "title": "DELETE /teams/{id}/ - should return 404 for a non-existent team ID",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 51,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T01:56:56.377Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-357418e1173c06f5a601",
+              "file": "team-service.spec.ts",
+              "line": 108,
               "column": 9
             },
             {
@@ -676,15 +753,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 11,
+                      "duration": 155,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.936Z",
+                      "startTime": "2025-11-13T01:56:56.442Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -692,13 +769,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "22eac692e86c7be8b0ce-126406666f30cc90bdce",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 305,
+              "id": "eaf358b89f316e1fed07-fbee1182741d81d5e76c",
+              "file": "team-service.spec.ts",
+              "line": 115,
               "column": 9
             },
             {
-              "title": "PUT /teams/{id}/ - should return 404 for updating a non-existent team",
+              "title": "PUT /teams/{id}/ - should return 404 for a non-existent team ID",
               "ok": true,
               "tags": [],
               "tests": [
@@ -710,15 +787,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 4,
+                      "duration": 56,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.952Z",
+                      "startTime": "2025-11-13T01:56:56.610Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -726,13 +803,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "22eac692e86c7be8b0ce-6988a2ef65b0e87c559e",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 325,
+              "id": "eaf358b89f316e1fed07-250640fc43f47b642271",
+              "file": "team-service.spec.ts",
+              "line": 136,
               "column": 9
             },
             {
-              "title": "PUT /teams/{id}/ - should return 422 for invalid payload during update",
+              "title": "PUT /teams/{id}/ - should return 422 for missing required fields",
               "ok": true,
               "tags": [],
               "tests": [
@@ -744,15 +821,15 @@
                   "projectName": "",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 8,
+                      "duration": 141,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.963Z",
+                      "startTime": "2025-11-13T01:56:56.680Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -760,77 +837,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "22eac692e86c7be8b0ce-4d9f6e7fe8ceb81b4f31",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 334,
-              "column": 9
-            },
-            {
-              "title": "DELETE /teams/{id}/ - should delete an existing team",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 12,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.976Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "22eac692e86c7be8b0ce-ac6a68c0c94efcdc1455",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 353,
-              "column": 9
-            },
-            {
-              "title": "DELETE /teams/{id}/ - should return 404 for deleting a non-existent team",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-11-08T21:02:57.996Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "22eac692e86c7be8b0ce-8e0ac8422e763fd143e9",
-              "file": "fastapi-microservices.spec.ts",
-              "line": 370,
+              "id": "eaf358b89f316e1fed07-19f9784c747996bc2be7",
+              "file": "team-service.spec.ts",
+              "line": 147,
               "column": 9
             }
           ]
@@ -840,8 +849,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-11-08T21:02:55.579Z",
-    "duration": 2456.17,
+    "startTime": "2025-11-13T01:56:54.153Z",
+    "duration": 3638.593,
     "expected": 22,
     "skipped": 0,
     "unexpected": 0,
