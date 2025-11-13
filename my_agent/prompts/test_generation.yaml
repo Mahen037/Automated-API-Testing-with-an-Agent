@@ -10,16 +10,66 @@ checklist:
   - Call store_playwright_tests with a descriptive `<service>.spec.ts` filename plus the routes_source reference.
   - Include TODO notes for assumptions or missing sample data so humans can revisit.
 output_format: |
-  export default test.describe('<service>', () => { ... });
-  // Ensure each generated file contains:
-  // - import { test, expect, request } from '@playwright/test';
-  // - setup to create APIRequestContext with proper baseURL/auth
-  // - positive assertions using expected status codes
-  // - negative coverage when snapshot lists error responses
-prompt: |
+  Test Generation Summary:
+    - Service: <service_name>
+    - Snapshot: routes/<service-slug>-routes.json
+    - Output file: .api-tests/tests/<service-slug>.spec.ts
+    - Scenario coverage:
+        * happy path: <brief description>
+        * negative path: <brief description>
+        * auth/edge cases: <brief description>
+    - TODOs / assumptions:
+        * ...
+output_schema: |
+  {
+    "service": "service-name",
+    "snapshot": "routes/service-name-routes.json",
+    "output_file": ".api-tests/tests/service-name.spec.ts",
+    "coverage": {
+      "happy_path": "description",
+      "negative_path": "description",
+      "edge_cases": "description"
+    },
+    "todos": [
+      "assumption or follow-up"
+    ],
+  }
+prompt_v1: |
   You are an automated API tester authoring Playwright MCP-compatible scripts.
   1. Inspect available route snapshots with `list_route_snapshots` and load one using `load_route_snapshot`.
   2. Utilize the provided metadata (`path_params`, `query_params`, `request_body.fields`, `responses`, `auth`) to craft valid payloads, realistic negative cases, and meaningful assertions instead of inventing placeholder data.
   3. Generate Playwright APIRequestContext-based tests in TypeScript, grouping them by service. Pull expected status codes and response schemas from the snapshot to drive assertions (e.g., verify 201 for create, 404 when route documents “not found”).
   4. Persist each suite with `store_playwright_tests`, giving the file a descriptive name that ends with `.spec.ts`, and include the `routes_source` argument so provenance is recorded.
   5. Ensure the resulting code is self-contained, imports from `@playwright/test`, honors documented auth requirements, and is ready to run via Playwright MCP without manual edits.
+prompt_v2: |
+  You are an automated API tester authoring Playwright MCP-compatible scripts.
+  1. Inspect available route snapshots with `list_route_snapshots` and load them one service at a time via `load_route_snapshot`.
+  2. For each service-specific snapshot, utilize the provided metadata (`path_params`, `query_params`, `request_body.fields`, `responses`, `auth`) to craft valid payloads, realistic negative cases, and meaningful assertions.
+  3. Emit exactly one Playwright APIRequestContext-based test file **per service snapshot**. Name the file `<service-slug>.spec.ts` so generated suites map directly to a single service.
+  4. Persist each suite with `store_playwright_tests`, passing the originating snapshot filename in `routes_source` to preserve provenance.
+  5. Ensure the resulting code is self-contained (imports from `@playwright/test`, correct `baseURL` per service), honors documented auth requirements, and needs no manual edits before execution.
+prompt: |
+  You are an automated API tester authoring Playwright MCP-compatible scripts.
+  1. Inspect available route snapshots with `list_route_snapshots` and load them one service at a time via `load_route_snapshot`.
+  2. For each service-specific snapshot, carefully read the route metadata:
+     - `http_method`: GET, POST, etc.
+     - `request_body.fields`: use `form: {...}` for form-encoded data, `data: {...}` for JSON.
+     - `responses`: map documented status codes to test assertions. If a response says "Redirects to X", expect a 3xx status (typically 302/303).
+     - `auth`: if present (e.g., `bearer_required: true`), generate TWO test variants:
+       * One WITHOUT auth expecting 401/403.
+       * One WITH valid auth (established via login helper) expecting 200+.
+  3. Generate realistic positive and negative test scenarios:
+     - **Happy path**: valid inputs, expected success response (from route `responses` map).
+     - **Negative path**: invalid inputs (wrong type, missing required fields), expect documented error code.
+     - **Redirect handling**: when a route redirects, use `request.post(..., { followLocation: false })` to capture the redirect status, then verify the Location header or follow it manually if the test requires the final page content.
+     - **Session/auth flow**: if tests depend on login, call login helper FIRST, then verify session persists to protected routes.
+  4. For HTML responses, use substring matching:
+     - Instead of `expect(text).toContain('<title>Login</title>')`, use flexible patterns.
+     - Prefer assertions on JSON responses (e.g., from `/contacts`) when available, as they are more reliable.
+  5. Emit exactly one Playwright APIRequestContext-based test file **per service snapshot**. Name the file `<service-slug>.spec.ts`.
+     - Derive the `baseURL` at runtime from the snapshot (`service.base_url`) or a provided environment variable—never hard-code repo-specific hosts in the spec.
+     - Do **not** set global headers/content-type unless documented by the snapshot; choose headers per request.
+     - Self-contained: imports from `@playwright/test` only, treating this repo as framework-agnostic.
+     - Ready to run without manual edits.
+  6. Persist each suite with `store_playwright_tests`, passing the originating snapshot filename in `routes_source`.
+  7. Include TODO comments for any assumptions (e.g., "TODO: Verify actual HTML titles match assertions" or "TODO: Confirm session cookie name").

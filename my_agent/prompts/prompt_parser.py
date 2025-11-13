@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Optional, Any
 
 import yaml
 
@@ -16,6 +16,8 @@ class Prompt:
     """Represents a parsed prompt entry."""
     name: str
     prompt: str
+    output_format: Optional[str] = None
+    output_schema: Optional[Dict[str, Any]] = None
 
 
 def _load_prompt_from_yaml(filename: str, *, prompt_key: str = "prompt") -> Prompt:
@@ -24,7 +26,18 @@ def _load_prompt_from_yaml(filename: str, *, prompt_key: str = "prompt") -> Prom
     if not data or prompt_key not in data:
         raise ValueError(f"Prompt file '{filename}' missing '{prompt_key}' key.")
     name = data.get("name", Path(filename).stem)
-    return Prompt(name=name, prompt=data[prompt_key])
+    output_format = data.get("output_format")
+    schema_raw = data.get("output_schema")
+    schema_parsed = None
+    if isinstance(schema_raw, (dict, list)):
+        schema_parsed = schema_raw
+    elif isinstance(schema_raw, str) and schema_raw.strip():
+        try:
+            schema_parsed = yaml.safe_load(schema_raw)
+        except yaml.YAMLError:
+            schema_parsed = None
+
+    return Prompt(name=name, prompt=data[prompt_key], output_format=output_format, output_schema=schema_parsed)
 
 
 PROMPTS: Dict[str, Prompt] = {
