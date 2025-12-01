@@ -33,7 +33,7 @@ github_toolset = create_github_mcp_toolset()
 playwright_toolset = create_playwright_mcp_toolset()
 
 endpoint_agent = Agent(
-    model='gemini-2.5-flash',
+    model='gemini-3-pro-preview',
     name='endpoint_agent',
     description=(
         """
@@ -47,7 +47,7 @@ endpoint_agent = Agent(
 )
 
 test_generation_agent = Agent(
-    model='gemini-2.5-flash',
+    model='gemini-3-pro-preview',
     name='test_generation_agent',
     description=(
         """
@@ -65,7 +65,7 @@ test_generation_agent = Agent(
 )
 
 test_execution_agent = Agent(
-    model='gemini-2.5-flash',
+    model='gemini-3-pro-preview',
     name='test_execution_agent',
     description=(
         """
