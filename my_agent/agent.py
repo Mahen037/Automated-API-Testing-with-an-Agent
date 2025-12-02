@@ -13,6 +13,7 @@ from .tools import (
     run_playwright_tests,
     store_playwright_tests,
     store_routes_snapshot,
+    extract_and_store_routes,
 )
 from .prompts.prompt_parser import PROMPTS
 load_dotenv()  # Make variables from .env available for MCP configuration.
@@ -43,7 +44,7 @@ endpoint_agent = Agent(
     ),
     instruction=PROMPTS["route_extraction"].prompt + "\n\n Reference the output format when structuring the response:\n\n" + PROMPTS["route_extraction"].output_format,
     before_model_callback=[enforce_gemini_rate_limit],
-    tools=[github_toolset, store_routes_snapshot],
+    tools=[github_toolset, store_routes_snapshot , extract_and_store_routes],
 )
 
 test_generation_agent = Agent(
