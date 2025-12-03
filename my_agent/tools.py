@@ -9,7 +9,7 @@ import subprocess
 import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-from .crawlers.code_parser import extract_routes_parallel, routes_to_json
+from .crawler.code_parser import extract_routes_parallel, routes_to_json
 
 ROUTES_DIR = Path(".api-tests") / "routes"
 TESTS_DIR = Path(".api-tests") / "tests"
