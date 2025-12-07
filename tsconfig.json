@@ -14,7 +14,7 @@
     "skipLibCheck": true
   },
   "include": [
-    ".api-tests/tests/**/*.ts",
+    "old/tests/**/*.ts",
     "playwright.config.ts"
   ]
 }
