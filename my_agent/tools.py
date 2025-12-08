@@ -10,8 +10,10 @@ import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-ROUTES_DIR = Path(".api-tests") / "routes"
-TESTS_DIR = Path(".api-tests") / "tests"
+# Resolve project root (parent of my_agent directory)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+ROUTES_DIR = PROJECT_ROOT / ".api-tests" / "routes"
+TESTS_DIR = PROJECT_ROOT / ".api-tests" / "tests"
 
 
 def store_routes_snapshot(
@@ -72,11 +74,7 @@ def store_playwright_tests(
 def run_playwright_tests() -> Dict[str, Any]:
     """Execute `npx playwright test` for the generated specs."""
 
-    base_dir = Path.cwd()
-    for parent in [base_dir] + list(base_dir.parents):
-        if (parent / "package.json").exists():
-            base_dir = parent
-            break
+    base_dir = PROJECT_ROOT
 
     spec_root = base_dir / ".api-tests" / "tests"
     if not spec_root.exists():

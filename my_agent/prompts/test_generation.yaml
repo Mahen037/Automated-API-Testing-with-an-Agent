@@ -71,5 +71,6 @@ prompt: |
      - Do **not** set global headers/content-type unless documented by the snapshot; choose headers per request.
      - Self-contained: imports from `@playwright/test` only, treating this repo as framework-agnostic.
      - Ready to run without manual edits.
+     - **IMPORTANT**: Ensure test descriptions using single quotes escape any internal single quotes (e.g., 'user\'s data'), or use double quotes for descriptions.
   6. Persist each suite with `store_playwright_tests`, passing the originating snapshot filename in `routes_source`.
   7. Include TODO comments for any assumptions (e.g., "TODO: Verify actual HTML titles match assertions" or "TODO: Confirm session cookie name").

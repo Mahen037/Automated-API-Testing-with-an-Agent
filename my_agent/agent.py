@@ -1,8 +1,11 @@
 import asyncio
 import os
 import time
+import warnings
+warnings.filterwarnings("ignore")
 
 from dotenv import load_dotenv
+from pathlib import Path
 from google.adk.agents import SequentialAgent
 from google.adk.agents.llm_agent import Agent
 
@@ -15,7 +18,8 @@ from .tools import (
     store_routes_snapshot,
 )
 from .prompts.prompt_parser import PROMPTS
-load_dotenv()  # Make variables from .env available for MCP configuration.
+env_path = Path(__file__).resolve().parent / ".env"
+load_dotenv(env_path)
 
 _RATE_LIMIT_SECONDS = float(os.getenv("GEMINI_MIN_REQUEST_INTERVAL", "7.0"))
 _last_request_time = 0.0
