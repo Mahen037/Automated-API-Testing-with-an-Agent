@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\playwright.config.ts",
-    "rootDir": "C:/Users/golde/Documents/UMD/CMSC473 - Capstone in Machine Learning/.api-tests/tests",
+    "configFile": "/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/playwright.config.ts",
+    "rootDir": "/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests",
     "forbidOnly": false,
     "fullyParallel": false,
     "globalSetup": null,
@@ -40,7 +40,7 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "C:/Users/golde/Documents/UMD/CMSC473 - Capstone in Machine Learning/.api-tests/reports",
+        "outputDir": "/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/reports",
         "repeatEach": 1,
         "retries": 2,
         "metadata": {
@@ -48,7 +48,7 @@
         },
         "id": "",
         "name": "",
-        "testDir": "C:/Users/golde/Documents/UMD/CMSC473 - Capstone in Machine Learning/.api-tests/tests",
+        "testDir": "/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.spec.ts"
@@ -72,357 +72,799 @@
       "specs": [],
       "suites": [
         {
-          "title": "pokemon-service",
+          "title": "Pokemon Service API Tests",
           "file": "pokemon-service.spec.ts",
-          "line": 15,
+          "line": 39,
           "column": 6,
-          "specs": [],
-          "suites": [
+          "specs": [
             {
-              "title": "GET /pokemon/",
-              "file": "pokemon-service.spec.ts",
-              "line": 17,
-              "column": 8,
-              "specs": [
+              "title": "GET /pokemon/{id}/ - should retrieve a single pokemon by ID",
+              "ok": false,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "should return list of pokemon",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
                     {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 32\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 32\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/pokemon-service.spec.ts:9:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/pokemon-service.spec.ts:44:24",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
                         {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 40,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:40.740Z",
-                          "annotations": [],
-                          "attachments": []
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 32\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/pokemon-service.spec.ts:9:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/pokemon-service.spec.ts:44:24"
                         }
                       ],
-                      "status": "expected"
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:34.857Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 32\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 32\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/pokemon-service.spec.ts:9:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/pokemon-service.spec.ts:44:24",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 32\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/pokemon-service.spec.ts:9:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/pokemon-service.spec.ts:44:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:35.589Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 32\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 32\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/pokemon-service.spec.ts:9:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/pokemon-service.spec.ts:44:24",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 32\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/pokemon-service.spec.ts:9:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/pokemon-service.spec.ts:44:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:36.297Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-6520bea9129ba2d797b7",
-                  "file": "pokemon-service.spec.ts",
-                  "line": 18,
-                  "column": 9
+                  "status": "unexpected"
                 }
-              ]
+              ],
+              "id": "da31bf3364aa9ea7eca5-c8825ea14a7726fbd2c8",
+              "file": "pokemon-service.spec.ts",
+              "line": 55,
+              "column": 9
             },
             {
-              "title": "POST /pokemon/",
-              "file": "pokemon-service.spec.ts",
-              "line": 25,
-              "column": 8,
-              "specs": [
+              "title": "GET /pokemon/{id}/ - should return 404 for a non-existent pokemon ID",
+              "ok": true,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "should create a new pokemon",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
                     {
-                      "timeout": 60000,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:35.229Z",
                       "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 152,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:40.795Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:35.944Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:36.656Z",
+                      "annotations": [],
+                      "attachments": []
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-ac07f2c0a01d6ccf81c3",
-                  "file": "pokemon-service.spec.ts",
-                  "line": 26,
-                  "column": 9
-                },
-                {
-                  "title": "should return 404 if team does not exist",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 102,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:40.952Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "da31bf3364aa9ea7eca5-4411665fcec89e519b66",
-                  "file": "pokemon-service.spec.ts",
-                  "line": 36,
-                  "column": 9
+                  "status": "skipped"
                 }
-              ]
+              ],
+              "id": "da31bf3364aa9ea7eca5-5f78d80635babaf9e202",
+              "file": "pokemon-service.spec.ts",
+              "line": 73,
+              "column": 9
             },
             {
-              "title": "GET /pokemon/{id}/",
-              "file": "pokemon-service.spec.ts",
-              "line": 43,
-              "column": 8,
-              "specs": [
+              "title": "GET /pokemon/ - should retrieve all pokemon",
+              "ok": true,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "should return pokemon details",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
                     {
-                      "timeout": 60000,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:35.229Z",
                       "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 154,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.061Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:35.944Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:36.656Z",
+                      "annotations": [],
+                      "attachments": []
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-5c4dc367ed2a6bd0430d",
-                  "file": "pokemon-service.spec.ts",
-                  "line": 44,
-                  "column": 9
-                },
-                {
-                  "title": "should return 404 for non-existent pokemon",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 47,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.224Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "da31bf3364aa9ea7eca5-01f2b1a70aaa771be08a",
-                  "file": "pokemon-service.spec.ts",
-                  "line": 57,
-                  "column": 9
+                  "status": "skipped"
                 }
-              ]
+              ],
+              "id": "da31bf3364aa9ea7eca5-c02b9945d88a8f7acf52",
+              "file": "pokemon-service.spec.ts",
+              "line": 80,
+              "column": 9
             },
             {
-              "title": "PUT /pokemon/{id}/",
-              "file": "pokemon-service.spec.ts",
-              "line": 63,
-              "column": 8,
-              "specs": [
+              "title": "POST /pokemon/ - should create a new pokemon",
+              "ok": true,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "should update pokemon details",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
                     {
-                      "timeout": 60000,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:35.229Z",
                       "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 203,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.276Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:35.944Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:36.656Z",
+                      "annotations": [],
+                      "attachments": []
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-c8e9677058888b8dd403",
-                  "file": "pokemon-service.spec.ts",
-                  "line": 64,
-                  "column": 9
-                },
-                {
-                  "title": "should return 404 for non-existent pokemon",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 104,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.485Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "da31bf3364aa9ea7eca5-d06264314b6191d25e05",
-                  "file": "pokemon-service.spec.ts",
-                  "line": 78,
-                  "column": 9
+                  "status": "skipped"
                 }
-              ]
+              ],
+              "id": "da31bf3364aa9ea7eca5-6717b68a100ddf655548",
+              "file": "pokemon-service.spec.ts",
+              "line": 98,
+              "column": 9
             },
             {
-              "title": "DELETE /pokemon/{id}/",
-              "file": "pokemon-service.spec.ts",
-              "line": 87,
-              "column": 8,
-              "specs": [
+              "title": "POST /pokemon/ - should return 404 for a non-existent team_id",
+              "ok": true,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "should delete pokemon",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
                     {
-                      "timeout": 60000,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:35.229Z",
                       "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 153,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.593Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:35.945Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:36.656Z",
+                      "annotations": [],
+                      "attachments": []
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-edb364f9d22db2595b6d",
-                  "file": "pokemon-service.spec.ts",
-                  "line": 88,
-                  "column": 9
-                },
-                {
-                  "title": "should return 404 for non-existent pokemon",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 51,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.753Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "da31bf3364aa9ea7eca5-83be4539a6867d1e1f0a",
-                  "file": "pokemon-service.spec.ts",
-                  "line": 101,
-                  "column": 9
+                  "status": "skipped"
                 }
-              ]
+              ],
+              "id": "da31bf3364aa9ea7eca5-fe11ddb20ae10c73be68",
+              "file": "pokemon-service.spec.ts",
+              "line": 119,
+              "column": 9
+            },
+            {
+              "title": "POST /pokemon/ - should return 422 for missing required fields",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:35.229Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:35.945Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:36.656Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "da31bf3364aa9ea7eca5-dafb25527b78b7c75614",
+              "file": "pokemon-service.spec.ts",
+              "line": 132,
+              "column": 9
+            },
+            {
+              "title": "DELETE /pokemon/{id}/ - should delete a pokemon by ID",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:35.229Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:35.945Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:36.656Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "da31bf3364aa9ea7eca5-995fdf88fb00b0a39fdd",
+              "file": "pokemon-service.spec.ts",
+              "line": 148,
+              "column": 9
+            },
+            {
+              "title": "DELETE /pokemon/{id}/ - should return 404 for a non-existent pokemon ID",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:35.229Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:35.945Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:36.656Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "da31bf3364aa9ea7eca5-ea6826251e3d6c5a698e",
+              "file": "pokemon-service.spec.ts",
+              "line": 161,
+              "column": 9
+            },
+            {
+              "title": "PUT /pokemon/{id}/ - should update an existing pokemon",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:35.229Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:35.945Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:36.656Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "da31bf3364aa9ea7eca5-3f3660072ecf04ee5ade",
+              "file": "pokemon-service.spec.ts",
+              "line": 168,
+              "column": 9
+            },
+            {
+              "title": "PUT /pokemon/{id}/ - should return 404 for a non-existent pokemon ID",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:35.229Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:35.945Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:36.656Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "da31bf3364aa9ea7eca5-303afb1078368840209b",
+              "file": "pokemon-service.spec.ts",
+              "line": 194,
+              "column": 9
+            },
+            {
+              "title": "PUT /pokemon/{id}/ - should return 404 for a non-existent team_id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:35.229Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:35.945Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:36.656Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "da31bf3364aa9ea7eca5-4d23a5d5008fd3fc3a2c",
+              "file": "pokemon-service.spec.ts",
+              "line": 207,
+              "column": 9
+            },
+            {
+              "title": "PUT /pokemon/{id}/ - should return 422 for missing required fields",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:35.229Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:35.945Z",
+                      "annotations": [],
+                      "attachments": []
+                    },
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:36.656Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "da31bf3364aa9ea7eca5-12a6314b8535a5a59a81",
+              "file": "pokemon-service.spec.ts",
+              "line": 226,
+              "column": 9
             }
           ]
         }
@@ -436,323 +878,1300 @@
       "specs": [],
       "suites": [
         {
-          "title": "team-service",
+          "title": "Team Service API Tests",
           "file": "team-service.spec.ts",
-          "line": 5,
+          "line": 21,
           "column": 6,
-          "specs": [],
-          "suites": [
+          "specs": [
             {
-              "title": "GET /teams/",
-              "file": "team-service.spec.ts",
-              "line": 7,
-              "column": 8,
-              "specs": [
+              "title": "GET /teams/{id}/ - should retrieve a single team by ID",
+              "ok": false,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "should return list of teams",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
                     {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 341,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:25:31",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
                         {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 41,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:40.740Z",
-                          "annotations": [],
-                          "attachments": []
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:25:31"
                         }
                       ],
-                      "status": "expected"
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:34.857Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 330,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:25:31",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:25:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:35.585Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 332,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:25:31",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:25:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:36.289Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
                     }
                   ],
-                  "id": "eaf358b89f316e1fed07-264c8bea88f1db928741",
-                  "file": "team-service.spec.ts",
-                  "line": 8,
-                  "column": 9
+                  "status": "unexpected"
                 }
-              ]
+              ],
+              "id": "eaf358b89f316e1fed07-35571e8f8f62244556e1",
+              "file": "team-service.spec.ts",
+              "line": 23,
+              "column": 9
             },
             {
-              "title": "POST /teams/",
-              "file": "team-service.spec.ts",
-              "line": 16,
-              "column": 8,
-              "specs": [
+              "title": "GET /teams/{id}/ - should return 404 for a non-existent team ID",
+              "ok": false,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "should create a new team",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
                     {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
+                      "workerIndex": 6,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 330,
+                      "error": {
+                        "message": "Error: apiRequestContext.get: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → GET http://localhost:8002/teams/99999/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.get: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → GET http://localhost:8002/teams/99999/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at apiRequestContext.get: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:41:40",
+                        "location": {
+                          "file": "apiRequestContext.get: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
                         {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 54,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:40.795Z",
-                          "annotations": [],
-                          "attachments": []
+                          "location": {
+                            "file": "apiRequestContext.get: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.get: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → GET http://localhost:8002/teams/99999/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at apiRequestContext.get: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:41:40"
                         }
                       ],
-                      "status": "expected"
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:37.044Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.get: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 329,
+                      "error": {
+                        "message": "Error: apiRequestContext.get: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → GET http://localhost:8002/teams/99999/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.get: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → GET http://localhost:8002/teams/99999/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at apiRequestContext.get: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:41:40",
+                        "location": {
+                          "file": "apiRequestContext.get: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.get: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.get: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → GET http://localhost:8002/teams/99999/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at apiRequestContext.get: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:41:40"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:37.722Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.get: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 330,
+                      "error": {
+                        "message": "Error: apiRequestContext.get: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → GET http://localhost:8002/teams/99999/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.get: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → GET http://localhost:8002/teams/99999/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at apiRequestContext.get: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:41:40",
+                        "location": {
+                          "file": "apiRequestContext.get: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.get: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.get: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → GET http://localhost:8002/teams/99999/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at apiRequestContext.get: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:41:40"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:38.399Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.get: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
                     }
                   ],
-                  "id": "eaf358b89f316e1fed07-9b0720a6da8319bfb6d5",
-                  "file": "team-service.spec.ts",
-                  "line": 17,
-                  "column": 9
+                  "status": "unexpected"
                 }
-              ]
+              ],
+              "id": "eaf358b89f316e1fed07-f44ff90fa14e903809b2",
+              "file": "team-service.spec.ts",
+              "line": 39,
+              "column": 9
             },
             {
-              "title": "GET /teams/{id}/",
-              "file": "team-service.spec.ts",
-              "line": 27,
-              "column": 8,
-              "specs": [
+              "title": "GET /teams/ - should retrieve all teams",
+              "ok": false,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "should return team details",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
                     {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 329,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:48:29",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
                         {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 93,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:40.855Z",
-                          "annotations": [],
-                          "attachments": []
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:48:29"
                         }
                       ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "eaf358b89f316e1fed07-73386531eca661ce63c1",
-                  "file": "team-service.spec.ts",
-                  "line": 28,
-                  "column": 9
-                },
-                {
-                  "title": "should return 404 for non-existent team",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:39.085Z",
                       "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 330,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:48:29",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
                         {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 52,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:40.956Z",
-                          "annotations": [],
-                          "attachments": []
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:48:29"
                         }
                       ],
-                      "status": "expected"
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:39.768Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 329,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:48:29",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:48:29"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:40.512Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
                     }
                   ],
-                  "id": "eaf358b89f316e1fed07-bea4ff31494f3117d3b5",
-                  "file": "team-service.spec.ts",
-                  "line": 40,
-                  "column": 9
+                  "status": "unexpected"
                 }
-              ]
-            },
-            {
-              "title": "PUT /teams/{id}/",
+              ],
+              "id": "eaf358b89f316e1fed07-bd1a13a4728a2add055e",
               "file": "team-service.spec.ts",
               "line": 46,
-              "column": 8,
-              "specs": [
-                {
-                  "title": "should update team details",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 97,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.016Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "eaf358b89f316e1fed07-3df61004f7ba6dd60fe9",
-                  "file": "team-service.spec.ts",
-                  "line": 47,
-                  "column": 9
-                },
-                {
-                  "title": "should return 404 for non-existent team",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 47,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.118Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "eaf358b89f316e1fed07-8cfd343563b01a2153a9",
-                  "file": "team-service.spec.ts",
-                  "line": 60,
-                  "column": 9
-                }
-              ]
+              "column": 9
             },
             {
-              "title": "DELETE /teams/{id}/",
-              "file": "team-service.spec.ts",
-              "line": 66,
-              "column": 8,
-              "specs": [
+              "title": "POST /teams/ - should create a new team",
+              "ok": false,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "should delete team",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
                     {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 328,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 24\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 24\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:65:40",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
                         {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 98,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.171Z",
-                          "annotations": [],
-                          "attachments": []
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 24\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:65:40"
                         }
                       ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "eaf358b89f316e1fed07-6f8c130f4ec100dda3ef",
-                  "file": "team-service.spec.ts",
-                  "line": 67,
-                  "column": 9
-                },
-                {
-                  "title": "should return 404 for non-existent team",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:41.187Z",
                       "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 330,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 24\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 24\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:65:40",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
                         {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 49,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.274Z",
-                          "annotations": [],
-                          "attachments": []
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 24\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:65:40"
                         }
                       ],
-                      "status": "expected"
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:41.862Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 328,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 24\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 24\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:65:40",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 24\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:65:40"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:42.540Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
                     }
                   ],
-                  "id": "eaf358b89f316e1fed07-6a8792e4ae6e0deff5ed",
-                  "file": "team-service.spec.ts",
-                  "line": 80,
-                  "column": 9
+                  "status": "unexpected"
                 }
-              ]
+              ],
+              "id": "eaf358b89f316e1fed07-8abc8b45b5075f03399f",
+              "file": "team-service.spec.ts",
+              "line": 64,
+              "column": 9
+            },
+            {
+              "title": "POST /teams/ - should return 422 for missing required fields",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 328,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 2\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 2\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:82:40",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 2\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:82:40"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:43.217Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 331,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 2\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 2\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:82:40",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 2\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:82:40"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:43.968Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 328,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 2\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 2\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:82:40",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 2\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:82:40"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:44.662Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-0a2fdf8358fb8abff8ee",
+              "file": "team-service.spec.ts",
+              "line": 81,
+              "column": 9
+            },
+            {
+              "title": "DELETE /teams/{id}/ - should delete a team by ID",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 329,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:97:36",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:97:36"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:45.341Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 328,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:97:36",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:97:36"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:46.018Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 328,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:97:36",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 22\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:97:36"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:46.698Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-09397e01e6a52dd4c15e",
+              "file": "team-service.spec.ts",
+              "line": 95,
+              "column": 9
+            },
+            {
+              "title": "DELETE /teams/{id}/ - should return 404 for a non-existent team ID",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 21,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 330,
+                      "error": {
+                        "message": "Error: apiRequestContext.delete: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → DELETE http://localhost:8002/teams/99998/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.delete: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → DELETE http://localhost:8002/teams/99998/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at apiRequestContext.delete: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:110:46",
+                        "location": {
+                          "file": "apiRequestContext.delete: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.delete: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.delete: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → DELETE http://localhost:8002/teams/99998/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at apiRequestContext.delete: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:110:46"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:47.374Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.delete: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 22,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 329,
+                      "error": {
+                        "message": "Error: apiRequestContext.delete: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → DELETE http://localhost:8002/teams/99998/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.delete: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → DELETE http://localhost:8002/teams/99998/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at apiRequestContext.delete: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:110:46",
+                        "location": {
+                          "file": "apiRequestContext.delete: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.delete: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.delete: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → DELETE http://localhost:8002/teams/99998/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at apiRequestContext.delete: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:110:46"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:48.056Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.delete: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 329,
+                      "error": {
+                        "message": "Error: apiRequestContext.delete: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → DELETE http://localhost:8002/teams/99998/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.delete: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → DELETE http://localhost:8002/teams/99998/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at apiRequestContext.delete: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:110:46",
+                        "location": {
+                          "file": "apiRequestContext.delete: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.delete: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.delete: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → DELETE http://localhost:8002/teams/99998/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at apiRequestContext.delete: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:110:46"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:48.770Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.delete: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-357418e1173c06f5a601",
+              "file": "team-service.spec.ts",
+              "line": 108,
+              "column": 9
+            },
+            {
+              "title": "PUT /teams/{id}/ - should update an existing team",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 24,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 340,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:117:36",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:117:36"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:49.457Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 25,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 328,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:117:36",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:117:36"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:50.159Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 26,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 328,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:117:36",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:117:36"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:50.843Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-fbee1182741d81d5e76c",
+              "file": "team-service.spec.ts",
+              "line": 115,
+              "column": 9
+            },
+            {
+              "title": "PUT /teams/{id}/ - should return 404 for a non-existent team ID",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 27,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 330,
+                      "error": {
+                        "message": "Error: apiRequestContext.put: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → PUT http://localhost:8002/teams/99997/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.put: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → PUT http://localhost:8002/teams/99997/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.put: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:138:40",
+                        "location": {
+                          "file": "apiRequestContext.put: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.put: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.put: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → PUT http://localhost:8002/teams/99997/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.put: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:138:40"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:51.529Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.put: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 28,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 330,
+                      "error": {
+                        "message": "Error: apiRequestContext.put: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → PUT http://localhost:8002/teams/99997/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.put: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → PUT http://localhost:8002/teams/99997/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.put: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:138:40",
+                        "location": {
+                          "file": "apiRequestContext.put: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.put: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.put: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → PUT http://localhost:8002/teams/99997/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.put: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:138:40"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:52.212Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.put: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 29,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 330,
+                      "error": {
+                        "message": "Error: apiRequestContext.put: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → PUT http://localhost:8002/teams/99997/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.put: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → PUT http://localhost:8002/teams/99997/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.put: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:138:40",
+                        "location": {
+                          "file": "apiRequestContext.put: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.put: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.put: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → PUT http://localhost:8002/teams/99997/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 21\u001b[22m\n\n    at apiRequestContext.put: connect ECONNREFUSED ::1:8002\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:138:40"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:52.963Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.put: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-250640fc43f47b642271",
+              "file": "team-service.spec.ts",
+              "line": 136,
+              "column": 9
+            },
+            {
+              "title": "PUT /teams/{id}/ - should return 422 for missing required fields",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 30,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 329,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 20\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 20\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:149:36",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 20\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:149:36"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T04:25:53.648Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 31,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 329,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 20\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 20\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:149:36",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 20\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:149:36"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-08T04:25:54.334Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    },
+                    {
+                      "workerIndex": 32,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 328,
+                      "error": {
+                        "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 20\u001b[22m\n",
+                        "stack": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 20\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:149:36",
+                        "location": {
+                          "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                          "column": 8002,
+                          "line": 1
+                        }
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                            "column": 8002,
+                            "line": 1
+                          },
+                          "message": "Error: apiRequestContext.post: connect ECONNREFUSED ::1:8002\nCall log:\n\u001b[2m  - → POST http://localhost:8002/teams/\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.56.1 (arm64; macOS 26.0) node/25.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 20\u001b[22m\n\n    at apiRequestContext.post: connect ECONNREFUSED ::1:8002\n    at createTeam (/Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:8:36)\n    at /Users/mahendrakumar/Projects/Automated-API-Testing-with-an-Agent/.api-tests/tests/team-service.spec.ts:149:36"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-08T04:25:55.021Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "apiRequestContext.post: connect ECONNREFUSED :",
+                        "column": 8002,
+                        "line": 1
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-19f9784c747996bc2be7",
+              "file": "team-service.spec.ts",
+              "line": 147,
+              "column": 9
             }
           ]
         }
@@ -761,11 +2180,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-15T14:53:40.099Z",
-    "duration": 1739.654,
-    "expected": 17,
-    "skipped": 0,
-    "unexpected": 0,
+    "startTime": "2025-12-08T04:25:34.329Z",
+    "duration": 21043.955,
+    "expected": 0,
+    "skipped": 11,
+    "unexpected": 11,
     "flaky": 0
   }
 }

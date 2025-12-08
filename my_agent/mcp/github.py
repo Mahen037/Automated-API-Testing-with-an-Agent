@@ -42,7 +42,13 @@ def _resolve_server_env() -> Dict[str, str]:
             " repo scope so the MCP server can authenticate."
         )
 
-    env: Dict[str, str] = {"GITHUB_TOKEN": token}
+    # Include PATH with nvm node at the front so npx finds correct node
+    nvm_bin = os.path.expanduser("~/.nvm/versions/node/v22.21.1/bin")
+    current_path = os.getenv("PATH", "")
+    env: Dict[str, str] = {
+        "GITHUB_TOKEN": token,
+        "PATH": f"{nvm_bin}:{current_path}",
+    }
 
     owner = os.getenv("GITHUB_MCP_OWNER")
     if owner:

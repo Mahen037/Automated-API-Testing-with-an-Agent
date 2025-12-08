@@ -35,7 +35,12 @@ def _resolve_args() -> List[str]:
 
 
 def _resolve_server_env() -> Dict[str, str]:
-    env: Dict[str, str] = {}
+    # Include PATH with nvm node at the front so npx finds correct node
+    nvm_bin = os.path.expanduser("~/.nvm/versions/node/v22.21.1/bin")
+    current_path = os.getenv("PATH", "")
+    env: Dict[str, str] = {
+        "PATH": f"{nvm_bin}:{current_path}",
+    }
 
     prefix = "PLAYWRIGHT_MCP_ENV_"
     for key, value in os.environ.items():

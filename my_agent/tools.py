@@ -11,8 +11,10 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 from .crawler.code_parser import extract_routes_parallel, routes_to_json
 
-ROUTES_DIR = Path(".api-tests") / "routes"
-TESTS_DIR = Path(".api-tests") / "tests"
+# Resolve project root (parent of my_agent directory)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+ROUTES_DIR = PROJECT_ROOT / ".api-tests" / "routes"
+TESTS_DIR = PROJECT_ROOT / ".api-tests" / "tests"
 
 
 def store_routes_snapshot(
@@ -94,11 +96,7 @@ def load_playwright_test(*, filename: str) -> Dict[str, Any]:
 def run_playwright_tests() -> Dict[str, Any]:
     """Execute `npx playwright test` for the generated specs."""
 
-    base_dir = Path.cwd()
-    for parent in [base_dir] + list(base_dir.parents):
-        if (parent / "package.json").exists():
-            base_dir = parent
-            break
+    base_dir = PROJECT_ROOT
 
     spec_root = base_dir / ".api-tests" / "tests"
     if not spec_root.exists():
