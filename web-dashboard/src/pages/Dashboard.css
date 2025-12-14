@@ -2,6 +2,11 @@
     margin-bottom: var(--spacing-xl);
 }
 
+/* Agent Activity Section */
+.agent-activity-section {
+    margin-bottom: var(--spacing-xl);
+}
+
 .error-banner {
     display: flex;
     align-items: center;

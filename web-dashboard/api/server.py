@@ -57,6 +57,33 @@ def extract_service_name(filename: str) -> str:
 
 
 # State for tracking test runs
+class PhaseState:
+    """State for an individual pipeline phase"""
+    def __init__(self, id: str, name: str, icon: str):
+        self.id = id
+        self.name = name
+        self.icon = icon
+        self.status = "pending"  # pending, running, completed, failed
+        self.summary = ""
+        self.details: List[str] = []
+        self.artifacts: List[dict] = []
+        self.start_time: Optional[datetime] = None
+        self.end_time: Optional[datetime] = None
+    
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "icon": self.icon,
+            "status": self.status,
+            "summary": self.summary,
+            "details": self.details,
+            "artifacts": self.artifacts,
+            "startTime": self.start_time.isoformat() if self.start_time else None,
+            "endTime": self.end_time.isoformat() if self.end_time else None,
+        }
+
+
 class RunState:
     status: str = "idle"  # idle, running, completed, failed
     message: str = ""
@@ -64,6 +91,46 @@ class RunState:
     repo_url: str = ""
     start_time: Optional[datetime] = None
     end_time: Optional[datetime] = None
+    
+    # Enhanced tracking
+    agent_narrative: str = ""  # Human-readable summary from agent
+    current_phase: str = ""
+    phases: List[PhaseState] = []
+    
+    # Execution details
+    exec_command: str = ""
+    exec_duration: str = ""
+    exec_exit_code: Optional[int] = None
+    exec_spec_directory: str = ""
+    exec_spec_files: List[str] = []
+    exec_report_path: str = ""
+    exec_stdout: str = ""
+    
+    # Route discovery results
+    routes_found: int = 0
+    services_found: List[str] = []
+    
+    def reset(self):
+        """Reset state for a new run"""
+        self.status = "running"
+        self.message = ""
+        self.output = ""
+        self.agent_narrative = ""
+        self.current_phase = ""
+        self.phases = [
+            PhaseState("discovery", "Endpoint Discovery", "search"),
+            PhaseState("generation", "Test Generation", "generate"),
+            PhaseState("execution", "Test Execution", "execute"),
+        ]
+        self.exec_command = ""
+        self.exec_duration = ""
+        self.exec_exit_code = None
+        self.exec_spec_directory = ""
+        self.exec_spec_files = []
+        self.exec_report_path = ""
+        self.exec_stdout = ""
+        self.routes_found = 0
+        self.services_found = []
 
 run_state = RunState()
 
@@ -96,6 +163,24 @@ class RunStatusResponse(BaseModel):
     repoUrl: Optional[str] = None
     startTime: Optional[str] = None
     endTime: Optional[str] = None
+    
+    # Enhanced tracking
+    agentNarrative: Optional[str] = None
+    currentPhase: Optional[str] = None
+    phases: Optional[List[dict]] = None
+    
+    # Execution details
+    execCommand: Optional[str] = None
+    execDuration: Optional[str] = None
+    execExitCode: Optional[int] = None
+    execSpecDirectory: Optional[str] = None
+    execSpecFiles: Optional[List[str]] = None
+    execReportPath: Optional[str] = None
+    execStdout: Optional[str] = None
+    
+    # Discovery results
+    routesFound: Optional[int] = None
+    servicesFound: Optional[List[str]] = None
 
 
 # API Endpoints
@@ -203,12 +288,23 @@ async def trigger_test_run(request: RunTestsRequest):
 
 
 async def run_agent_async(repo_url: str):
-    """Run the ADK agent asynchronously using Runner"""
+    """Run the ADK agent asynchronously using Runner with enhanced tracking"""
     global run_state
     
     try:
+        # Initialize enhanced state
+        run_state.reset()
+        run_state.repo_url = repo_url
+        run_state.start_time = datetime.now()
+        
         run_state.output += f"🚀 Starting ADK Agent\n"
         run_state.output += f"📦 Repository: {repo_url}\n\n"
+        
+        # Phase 1: Setup
+        run_state.current_phase = "discovery"
+        run_state.phases[0].status = "running"
+        run_state.phases[0].start_time = datetime.now()
+        run_state.phases[0].summary = f"Analyzing repository: {repo_url}"
         
         # Clean up previous tests to ensure isolation
         import shutil
@@ -267,32 +363,127 @@ async def run_agent_async(repo_url: str):
         # Flush stdout to ensure logs appear
         sys.stdout.flush()
         
+        # Track which agent is currently running
+        current_sub_agent = ""
+        narrative_parts = []
+        
         async for event in runner.run_async(
             user_id=user_id,
             session_id=session_id,
             new_message=SimpleMessage(repo_url)
         ):
-            # Log events
             event_type = type(event).__name__
-            # print(f"DEBUG: Event {event_type}") # Debug to console
             
+            # Detect agent transitions and update phase tracking
+            if hasattr(event, 'author') and event.author:
+                author = str(event.author)
+                if 'endpoint' in author.lower() and current_sub_agent != 'endpoint':
+                    current_sub_agent = 'endpoint'
+                    run_state.current_phase = "discovery"
+                    run_state.message = "Discovering API endpoints..."
+                    if run_state.phases[0].status != "completed":
+                        run_state.phases[0].status = "running"
+                elif 'generation' in author.lower() and current_sub_agent != 'generation':
+                    # Mark discovery as complete
+                    run_state.phases[0].status = "completed"
+                    run_state.phases[0].end_time = datetime.now()
+                    
+                    # Start generation phase
+                    current_sub_agent = 'generation'
+                    run_state.current_phase = "generation"
+                    run_state.phases[1].status = "running"
+                    run_state.phases[1].start_time = datetime.now()
+                    run_state.message = "Generating Playwright tests..."
+                    
+                    # Update discovery phase with artifacts
+                    route_files = list(ROUTES_DIR.glob("*.json"))
+                    if route_files:
+                        run_state.phases[0].artifacts = [
+                            {"name": f.name, "path": str(f.relative_to(PROJECT_ROOT)), "type": "routes"}
+                            for f in route_files
+                        ]
+                        run_state.routes_found = len(route_files)
+                        run_state.phases[0].details.append(f"Found {len(route_files)} route snapshot(s)")
+                        
+                elif 'execution' in author.lower() and current_sub_agent != 'execution':
+                    # Mark generation as complete
+                    run_state.phases[1].status = "completed"
+                    run_state.phases[1].end_time = datetime.now()
+                    
+                    # Start execution phase
+                    current_sub_agent = 'execution'
+                    run_state.current_phase = "execution"
+                    run_state.phases[2].status = "running"
+                    run_state.phases[2].start_time = datetime.now()
+                    run_state.message = "Executing Playwright tests..."
+                    
+                    # Update generation phase with artifacts
+                    test_files = list(TESTS_DIR.glob("*.spec.ts"))
+                    if test_files:
+                        run_state.phases[1].artifacts = [
+                            {"name": f.name, "path": str(f.relative_to(PROJECT_ROOT)), "type": "tests"}
+                            for f in test_files
+                        ]
+                        run_state.phases[1].details.append(f"Generated {len(test_files)} test file(s)")
+                        run_state.exec_spec_files = [f.name for f in test_files]
+            
+            # Capture narrative text from agent responses
             if hasattr(event, 'content') and event.content:
                 content = str(event.content)
-                run_state.output += f"[{event_type}] {content[:200]}\n"
+                # Check if this looks like narrative text (not just tool calls)
+                if len(content) > 50 and not content.startswith('[') and not content.startswith('{'):
+                    narrative_parts.append(content)
+                run_state.output += f"[{event_type}] {content[:500]}\n"
             elif hasattr(event, 'text') and event.text:
-                run_state.output += f"{event.text}\n"
+                text = str(event.text)
+                if len(text) > 20:
+                    narrative_parts.append(text)
+                run_state.output += f"{text}\n"
             else:
                 run_state.output += f"[{event_type}]\n"
             
             # Keep output manageable
             lines = run_state.output.split('\n')
-            if len(lines) > 500: # Increased buffer
+            if len(lines) > 500:
                 run_state.output = '\n'.join(lines[-500:])
+        
+        # Mark final phase as complete
+        run_state.phases[2].status = "completed"
+        run_state.phases[2].end_time = datetime.now()
+        
+        # Build agent narrative from collected parts
+        run_state.agent_narrative = "\n\n".join(narrative_parts[-5:]) if narrative_parts else "Agent completed processing."
+        
+        # Update execution phase with report info
+        report_path = PROJECT_ROOT / ".api-tests" / "reports" / "index.html"
+        if report_path.exists():
+            run_state.exec_report_path = str(report_path)
+            run_state.phases[2].artifacts = [
+                {"name": "index.html", "path": ".api-tests/reports/index.html", "type": "report"}
+            ]
+        
+        run_state.exec_spec_directory = str(TESTS_DIR)
+        
+        # Count final results
+        final_test_files = list(TESTS_DIR.glob("*.spec.ts"))
+        final_route_files = list(ROUTES_DIR.glob("*.json"))
+        run_state.exec_spec_files = [f.name for f in final_test_files]
+        run_state.routes_found = len(final_route_files)
+        
+        # Update phase summaries
+        run_state.phases[0].summary = f"Analyzed {repo_url} and found {len(final_route_files)} service(s)"
+        run_state.phases[1].summary = f"Generated {len(final_test_files)} Playwright test file(s)"
+        run_state.phases[2].summary = f"Executed tests, results saved to .api-tests/reports/"
         
         run_state.output += "\n--- Agent Complete ---\n"
         run_state.end_time = datetime.now()
         run_state.status = "completed"
         run_state.message = "Agent completed! Tests generated and executed."
+        
+        # Calculate duration
+        if run_state.start_time:
+            duration = datetime.now() - run_state.start_time
+            run_state.exec_duration = f"{duration.total_seconds():.2f}s"
         
     except ImportError as e:
         run_state.output += f"\n❌ Import Error: {e}\n"
@@ -300,12 +491,22 @@ async def run_agent_async(repo_url: str):
         run_state.status = "failed"
         run_state.message = f"Import error: {e}"
         run_state.end_time = datetime.now()
+        # Mark current phase as failed
+        for phase in run_state.phases:
+            if phase.status == "running":
+                phase.status = "failed"
+                phase.end_time = datetime.now()
         
     except Exception as e:
         run_state.output += f"\n❌ Error: {e}\n"
         run_state.status = "failed"
         run_state.message = f"Error: {str(e)}"
         run_state.end_time = datetime.now()
+        # Mark current phase as failed
+        for phase in run_state.phases:
+            if phase.status == "running":
+                phase.status = "failed"
+                phase.end_time = datetime.now()
 
 
 async def run_tests_async():
@@ -353,7 +554,8 @@ async def run_tests_async():
 
 @app.get("/api/run-tests/status", response_model=RunStatusResponse)
 async def get_run_status():
-
+    """Get the status of the current/last test run with enhanced tracking data"""
+    
     # If there were no test runs at all
     if not run_state.start_time:
         return RunStatusResponse(
@@ -362,10 +564,24 @@ async def get_run_status():
             output=None,
             repoUrl=None,
             startTime=None,
-            endTime=None
+            endTime=None,
+            agentNarrative=None,
+            currentPhase=None,
+            phases=None,
+            execCommand=None,
+            execDuration=None,
+            execExitCode=None,
+            execSpecDirectory=None,
+            execSpecFiles=None,
+            execReportPath=None,
+            execStdout=None,
+            routesFound=None,
+            servicesFound=None
         )
     
-    """Get the status of the current/last test run"""
+    # Convert phases to dict format
+    phases_data = [phase.to_dict() for phase in run_state.phases] if run_state.phases else None
+    
     return RunStatusResponse(
         status=run_state.status,
         message=run_state.message,
@@ -373,6 +589,24 @@ async def get_run_status():
         repoUrl=run_state.repo_url if run_state.repo_url else None,
         startTime=run_state.start_time.isoformat() if run_state.start_time else None,
         endTime=run_state.end_time.isoformat() if run_state.end_time else None,
+        
+        # Enhanced tracking
+        agentNarrative=run_state.agent_narrative if run_state.agent_narrative else None,
+        currentPhase=run_state.current_phase if run_state.current_phase else None,
+        phases=phases_data,
+        
+        # Execution details
+        execCommand=run_state.exec_command if run_state.exec_command else None,
+        execDuration=run_state.exec_duration if run_state.exec_duration else None,
+        execExitCode=run_state.exec_exit_code,
+        execSpecDirectory=run_state.exec_spec_directory if run_state.exec_spec_directory else None,
+        execSpecFiles=run_state.exec_spec_files if run_state.exec_spec_files else None,
+        execReportPath=run_state.exec_report_path if run_state.exec_report_path else None,
+        execStdout=run_state.exec_stdout if run_state.exec_stdout else None,
+        
+        # Discovery results
+        routesFound=run_state.routes_found if run_state.routes_found else None,
+        servicesFound=run_state.services_found if run_state.services_found else None
     )
 
 

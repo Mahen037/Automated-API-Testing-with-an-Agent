@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Play, RotateCw, Zap } from 'lucide-react';
+import { Play, RotateCw, Zap, Search, TestTube, CheckCircle2, XCircle } from 'lucide-react';
 import { triggerTestRun, waitForTestCompletion } from '../utils/api';
 import type { RunStatusResponse } from '../utils/api';
 import './Header.css';
@@ -53,15 +53,15 @@ export function Header({ onTestComplete }: HeaderProps) {
                 setStatus(newStatus);
             });
 
-            setStatus({ status: 'completed', message: 'Completed!' });
             onTestComplete?.();
 
+            // Keep modal open for 3 seconds to show completion
             setTimeout(() => {
                 setShowModal(false);
                 setIsRunning(false);
                 setStatus(null);
                 setRepoUrl('');
-            }, 2000);
+            }, 3000);
         } catch (err) {
             const message = err instanceof Error ? err.message : 'Unknown error';
             setStatus({ status: 'failed', message });
@@ -73,6 +73,22 @@ export function Header({ onTestComplete }: HeaderProps) {
         if (!isRunning) {
             setShowModal(false);
             setStatus(null);
+        }
+    };
+
+    const getPhaseIcon = (phaseId: string, status?: string) => {
+        const isActive = status === 'running';
+        const isComplete = status === 'completed';
+        const isFailed = status === 'failed';
+
+        const iconClass = `phase-step-icon ${isComplete ? 'complete' : ''} ${isActive ? 'active' : ''} ${isFailed ? 'failed' : ''}`;
+
+        if (phaseId === 'discovery') {
+            return <Search className={iconClass} size={16} />;
+        } else if (phaseId === 'generation') {
+            return <TestTube className={iconClass} size={16} />;
+        } else {
+            return <Play className={iconClass} size={16} />;
         }
     };
 
@@ -108,7 +124,7 @@ export function Header({ onTestComplete }: HeaderProps) {
 
             {showModal && (
                 <div className="modal-overlay" onClick={handleClose}>
-                    <div className="modal" onClick={(e) => e.stopPropagation()}>
+                    <div className="modal modal-large" onClick={(e) => e.stopPropagation()}>
                         <h2 className="modal-title">Run API Tests</h2>
 
                         <p className="modal-description">
@@ -140,14 +156,59 @@ export function Header({ onTestComplete }: HeaderProps) {
                             </small>
                         </div>
 
+                        {/* Phase Progress Indicator */}
+                        {status && status.phases && (
+                            <div className="phase-progress">
+                                {status.phases.map((phase, index) => (
+                                    <div key={phase.id} className={`phase-step ${phase.status}`}>
+                                        <div className="phase-step-indicator">
+                                            {phase.status === 'completed' ? (
+                                                <CheckCircle2 size={16} className="phase-step-icon complete" />
+                                            ) : phase.status === 'failed' ? (
+                                                <XCircle size={16} className="phase-step-icon failed" />
+                                            ) : (
+                                                getPhaseIcon(phase.id, phase.status)
+                                            )}
+                                        </div>
+                                        <div className="phase-step-content">
+                                            <span className="phase-step-name">{phase.name}</span>
+                                            {phase.summary && (
+                                                <span className="phase-step-summary">{phase.summary}</span>
+                                            )}
+                                        </div>
+                                        {index < status.phases!.length - 1 && (
+                                            <div className={`phase-connector ${phase.status === 'completed' ? 'complete' : ''}`} />
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        {/* Status Message */}
                         {status && (
                             <div className={`status-box status-${status.status}`}>
                                 <div className="status-header">
                                     {status.status === 'running' && <div className="spinner" />}
+                                    {status.status === 'completed' && <CheckCircle2 size={18} className="status-success-icon" />}
+                                    {status.status === 'failed' && <XCircle size={18} className="status-error-icon" />}
                                     <span className="status-text">{status.message}</span>
                                 </div>
+
+                                {/* Agent Narrative */}
+                                {status.agentNarrative && (
+                                    <div className="status-narrative">
+                                        {status.agentNarrative.split('\n').slice(0, 5).map((line, i) => (
+                                            <p key={i}>{line || '\u00A0'}</p>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {/* Output Log (collapsed view) */}
                                 {status.output && (
-                                    <pre className="status-output">{status.output}</pre>
+                                    <details className="status-output-details">
+                                        <summary>View Full Output</summary>
+                                        <pre className="status-output">{status.output}</pre>
+                                    </details>
                                 )}
                             </div>
                         )}
@@ -158,7 +219,7 @@ export function Header({ onTestComplete }: HeaderProps) {
                                 onClick={handleClose}
                                 disabled={isRunning}
                             >
-                                {isRunning ? 'Close' : 'Cancel'}
+                                {isRunning ? 'Running...' : 'Cancel'}
                             </button>
                             <button
                                 className="btn btn-primary"

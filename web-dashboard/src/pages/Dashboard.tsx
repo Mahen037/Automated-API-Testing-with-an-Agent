@@ -5,9 +5,12 @@ import { SummaryCard, SummaryCardSkeleton } from '../components/SummaryCard';
 import { TestList } from '../components/TestList';
 import { ErrorLog } from '../components/ErrorLog';
 import { TestFileList } from '../components/TestFileList';
+import { AgentActivityLog, AgentActivityEmpty, type AgentPhase } from '../components/AgentActivityLog';
+import { ExecutionDetails } from '../components/ExecutionDetails';
 import { formatDuration, parsePlaywrightReport } from '../utils/parser';
-import { fetchLatestResults, checkHealth, listTestFiles, triggerTestRun, waitForTestCompletion } from '../utils/api';
+import { fetchLatestResults, checkHealth, listTestFiles, triggerTestRun, waitForTestCompletion, getRunStatus } from '../utils/api';
 import type { ParsedReport } from '../utils/types';
+import type { RunStatusResponse } from '../utils/api';
 import './Dashboard.css';
 
 export function Dashboard() {
@@ -19,9 +22,23 @@ export function Dashboard() {
     const [isRunningTests, setIsRunningTests] = useState(false);
     const [selectedFile, setSelectedFile] = useState<string | null>(null);
 
+    // Enhanced state for verbose UI
+    const [lastRunStatus, setLastRunStatus] = useState<RunStatusResponse | null>(null);
+
     // Check backend health on mount
     useEffect(() => {
         checkHealth().then(setBackendHealthy);
+    }, []);
+
+    // Fetch last run status on mount
+    useEffect(() => {
+        getRunStatus()
+            .then(status => {
+                if (status.status !== 'no_test_run') {
+                    setLastRunStatus(status);
+                }
+            })
+            .catch(() => { });
     }, []);
 
     const fetchData = useCallback(async () => {
@@ -37,6 +54,12 @@ export function Dashboard() {
             const parsed = parsePlaywrightReport(report);
             setData(parsed);
             setTestFileCount(testFiles.length);
+
+            // Also refresh run status
+            const status = await getRunStatus().catch(() => null);
+            if (status && status.status !== 'no_test_run') {
+                setLastRunStatus(status);
+            }
         } catch (err) {
             const message = err instanceof Error ? err.message : 'Failed to load test data';
             setError(message);
@@ -51,7 +74,9 @@ export function Dashboard() {
         setIsRunningTests(true);
         try {
             await triggerTestRun(); // Run tests without repo URL = execute existing tests
-            await waitForTestCompletion(() => { });
+            await waitForTestCompletion((status) => {
+                setLastRunStatus(status);
+            });
             await fetchData(); // Refresh results
         } catch (err) {
             console.error('Failed to run tests:', err);
@@ -68,6 +93,28 @@ export function Dashboard() {
     const handleTestComplete = () => {
         fetchData();
     };
+
+    // Convert backend phases to component format
+    const convertPhases = (phases?: RunStatusResponse['phases']): AgentPhase[] => {
+        if (!phases) return [];
+        return phases.map(p => ({
+            id: p.id,
+            name: p.name,
+            status: p.status as 'pending' | 'running' | 'completed' | 'failed',
+            icon: p.icon as 'search' | 'generate' | 'execute',
+            summary: p.summary,
+            details: p.details,
+            artifacts: p.artifacts?.map(a => ({
+                name: a.name,
+                path: a.path,
+                type: a.type as 'routes' | 'tests' | 'report'
+            })),
+            startTime: p.startTime ? new Date(p.startTime) : undefined,
+            endTime: p.endTime ? new Date(p.endTime) : undefined,
+        }));
+    };
+
+    const hasActivityData = lastRunStatus && lastRunStatus.status !== 'no_test_run';
 
     return (
         <>
@@ -132,6 +179,43 @@ export function Dashboard() {
                             </>
                         ) : null}
                     </div>
+
+                    {/* Agent Activity Section - NEW */}
+                    <div className="section agent-activity-section">
+                        {hasActivityData ? (
+                            <AgentActivityLog
+                                phases={convertPhases(lastRunStatus?.phases)}
+                                currentPhase={lastRunStatus?.currentPhase}
+                                agentNarrative={lastRunStatus?.agentNarrative}
+                                isRunning={lastRunStatus?.status === 'running'}
+                                repoUrl={lastRunStatus?.repoUrl}
+                            />
+                        ) : (
+                            <AgentActivityEmpty />
+                        )}
+                    </div>
+
+                    {/* Execution Details Section - NEW */}
+                    {hasActivityData && (lastRunStatus?.execCommand || lastRunStatus?.execSpecFiles?.length) && (
+                        <div className="section">
+                            <ExecutionDetails
+                                command={lastRunStatus?.execCommand}
+                                duration={lastRunStatus?.execDuration}
+                                exitCode={lastRunStatus?.execExitCode}
+                                specDirectory={lastRunStatus?.execSpecDirectory}
+                                specFiles={lastRunStatus?.execSpecFiles}
+                                reportPath={lastRunStatus?.execReportPath}
+                                stdout={lastRunStatus?.execStdout}
+                                status={lastRunStatus?.status === 'completed'
+                                    ? (lastRunStatus?.execExitCode === 0 ? 'success' : 'failure')
+                                    : lastRunStatus?.status === 'running'
+                                        ? 'running'
+                                        : lastRunStatus?.status === 'failed'
+                                            ? 'error'
+                                            : 'idle'}
+                            />
+                        </div>
+                    )}
 
                     {/* Two-column layout */}
                     <div className="content-grid">

@@ -216,3 +216,160 @@
     font-size: 0.875rem;
     margin-bottom: var(--spacing-lg);
 }
+
+/* Large modal for verbose output */
+.modal-large {
+    max-width: 640px;
+}
+
+/* Phase Progress Indicator */
+.phase-progress {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: var(--color-bg-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+}
+
+.phase-step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+}
+
+.phase-step:last-child {
+    padding-bottom: 0;
+}
+
+.phase-step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--color-bg-secondary);
+    border: 2px solid var(--color-border);
+    flex-shrink: 0;
+}
+
+.phase-step.running .phase-step-indicator {
+    border-color: var(--color-accent-primary);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.phase-step.completed .phase-step-indicator {
+    border-color: var(--color-success);
+    background: var(--color-success-bg);
+}
+
+.phase-step.failed .phase-step-indicator {
+    border-color: var(--color-error);
+    background: var(--color-error-bg);
+}
+
+.phase-step-icon {
+    color: var(--color-text-muted);
+}
+
+.phase-step-icon.active {
+    color: var(--color-accent-primary);
+}
+
+.phase-step-icon.complete {
+    color: var(--color-success);
+}
+
+.phase-step-icon.failed {
+    color: var(--color-error);
+}
+
+.phase-step-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.phase-step-name {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.phase-step.pending .phase-step-name {
+    color: var(--color-text-muted);
+}
+
+.phase-step-summary {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    margin-top: 2px;
+}
+
+.phase-connector {
+    position: absolute;
+    left: 13px;
+    top: 32px;
+    width: 2px;
+    height: calc(100% - 24px);
+    background: var(--color-border);
+}
+
+.phase-connector.complete {
+    background: var(--color-success);
+}
+
+/* Enhanced Status Box */
+.status-success-icon {
+    color: var(--color-success);
+}
+
+.status-error-icon {
+    color: var(--color-error);
+}
+
+/* Agent Narrative */
+.status-narrative {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--color-accent-primary);
+}
+
+.status-narrative p {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.status-narrative p:last-child {
+    margin-bottom: 0;
+}
+
+/* Output Details */
+.status-output-details {
+    margin-top: var(--spacing-md);
+}
+
+.status-output-details summary {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: var(--spacing-xs) 0;
+}
+
+.status-output-details summary:hover {
+    color: var(--color-accent-primary);
+}
+
+.status-output-details .status-output {
+    margin-top: var(--spacing-sm);
+}

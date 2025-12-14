@@ -21,15 +21,29 @@ def store_routes_snapshot(
     *,
     repo: str,
     routes: List[Dict[str, Any]],
-    commit: Optional[str] = None,
-    filename: str = "routes.json",
+    commit: str = "",
+    filename: str = "",
 ) -> Dict[str, str]:
-    """Writes the collected routes to `.api-tests/routes/<filename>`."""
+    """Writes the collected routes to `.api-tests/routes/<filename>`.
+    
+    Args:
+        repo: Repository name or identifier
+        routes: List of route definitions
+        commit: Git commit hash (optional, empty string if unknown)
+        filename: Output filename (if empty, defaults to 'routes.json')
+    """
     ROUTES_DIR.mkdir(parents=True, exist_ok=True)
+    
+    # Default filename if not provided
+    if not filename:
+        filename = "routes.json"
+    
     payload = {"repo": repo, "commit": commit, "routes": routes}
 
     output_path = ROUTES_DIR / filename
     output_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    
+    print(f"✅ Stored route snapshot: {output_path} ({len(routes)} routes)")
 
     return {"status": "success", "path": str(output_path)}
 
@@ -58,13 +72,24 @@ def store_playwright_tests(
     *,
     filename: str,
     code: str,
-    routes_source: Optional[str] = None,
+    routes_source: str = "",
 ) -> Dict[str, str]:
-    """Persists generated Playwright test code under `.api-tests/tests`."""
+    """Persists generated Playwright test code under `.api-tests/tests`.
+    
+    Args:
+        filename: The name of the test file (e.g., 'service.spec.ts')
+        code: The Playwright test code to write
+        routes_source: The source route snapshot filename for provenance tracking (can be empty string if unknown)
+    
+    Returns:
+        Dict with status and path of the written file
+    """
     TESTS_DIR.mkdir(parents=True, exist_ok=True)
 
     output_path = TESTS_DIR / filename
     output_path.write_text(code, encoding="utf-8")
+    
+    print(f"✅ Stored Playwright tests: {output_path}")
 
     result: Dict[str, str] = {"status": "success", "path": str(output_path)}
     if routes_source:

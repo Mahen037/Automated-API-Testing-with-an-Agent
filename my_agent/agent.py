@@ -58,8 +58,19 @@ test_generation_agent = Agent(
         Generates Playwright-compatible API tests for the discovered HTTP endpoints.
         """
     ),
-    instruction=PROMPTS["test_generation"].prompt + "\n\n Reference the output format when structuring the response:\n\n" + PROMPTS["test_generation"].output_format,
+    instruction="""IMPORTANT: You MUST generate and save Playwright test files.
+
+Your task:
+1. FIRST: Call list_route_snapshots() to see available route files
+2. THEN: For EACH snapshot file, call load_route_snapshot(filename=<the_filename>)
+3. THEN: Generate Playwright test code for ALL routes in the snapshot
+4. FINALLY: Call store_playwright_tests(filename='<service>.spec.ts', code='<the_test_code>', routes_source='<snapshot_file>')
+
+You MUST call store_playwright_tests to save your generated tests. This is required.
+
+""" + PROMPTS["test_generation"].prompt + "\n\n Reference the output format when structuring the response:\n\n" + PROMPTS["test_generation"].output_format,
     before_model_callback=[enforce_gemini_rate_limit],
+    output_key="test_generation_result",
     tools=[
         github_toolset,
         list_route_snapshots,

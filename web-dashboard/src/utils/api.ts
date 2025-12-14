@@ -15,10 +15,40 @@ export interface RunTestsResponse {
 }
 
 export interface RunStatusResponse {
-    status: 'idle' | 'running' | 'completed' | 'failed';
+    status: 'idle' | 'running' | 'completed' | 'failed' | 'no_test_run';
     message: string;
     output?: string;
     repoUrl?: string;
+    startTime?: string;
+    endTime?: string;
+
+    // Enhanced tracking
+    agentNarrative?: string;
+    currentPhase?: string;
+    phases?: AgentPhase[];
+
+    // Execution details
+    execCommand?: string;
+    execDuration?: string;
+    execExitCode?: number;
+    execSpecDirectory?: string;
+    execSpecFiles?: string[];
+    execReportPath?: string;
+    execStdout?: string;
+
+    // Discovery results
+    routesFound?: number;
+    servicesFound?: string[];
+}
+
+export interface AgentPhase {
+    id: string;
+    name: string;
+    icon: string;
+    status: 'pending' | 'running' | 'completed' | 'failed';
+    summary?: string;
+    details?: string[];
+    artifacts?: { name: string; path: string; type: string }[];
     startTime?: string;
     endTime?: string;
 }
