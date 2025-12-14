@@ -9,6 +9,7 @@ import subprocess
 import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional
+from .crawler.code_parser import extract_routes_parallel, routes_to_json
 
 ROUTES_DIR = Path(".api-tests") / "routes"
 TESTS_DIR = Path(".api-tests") / "tests"
@@ -144,4 +145,35 @@ def run_playwright_tests() -> Dict[str, Any]:
         "report_path": str(base_dir / "playwright-report" / "index.html"),
         "spec_directory": str(spec_root),
         "spec_files": spec_files,
+    }
+def extract_and_store_routes(
+    *,
+    repo: str,
+    files_dict: Dict[str, str],  # {file_path: content}
+    commit: Optional[str] = None,
+) -> Dict[str, Any]:
+    """Extract routes efficiently and store snapshot."""
+    routes, metadata = extract_routes_parallel(
+        files=files_dict,
+        use_cache=True,
+        max_workers=4,
+    )
+    
+    payload = {
+        "repo": repo,
+        "commit": commit,
+        "routes": [r.to_dict() for r in routes],
+        "metadata": metadata,
+    }
+    
+    # Store using existing store_routes_snapshot
+    ROUTES_DIR.mkdir(parents=True, exist_ok=True)
+    output_path = ROUTES_DIR / f"{repo.replace('/', '_')}_routes.json"
+    output_path.write_text(json.dumps(payload, indent=2))
+    
+    return {
+        "status": "success",
+        "path": str(output_path),
+        "routes_found": len(routes),
+        **metadata,
     }
