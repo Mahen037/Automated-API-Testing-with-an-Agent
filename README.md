@@ -115,7 +115,7 @@ flowchart TD
 
 ## 🎥 Current Demo
 
-https://github.com/user-attachments/assets/ccfc0f9f-3acc-44e9-811a-5a85456990ca
+https://github.com/user-attachments/assets/65d16996-9d09-41bb-ab10-c06a5a3e821e
 
 ## TL;DR
 - **Discover** endpoints (code + Docker + README) → JSON snapshot of services, base URLs, and routes in `.api-tests/routes/`
