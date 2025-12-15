@@ -1,9 +1,0 @@
-{
-  "src/users_fastapi/model/auth.py": "c35511491e0a270d58ef7933927360af",
-  "src/users_fastapi/model/users.py": "32d04815cf8392e0c2aca3235644313a",
-  "src/users_fastapi/db/db.py": "c0884daff83236b6dccb9cf903968aca",
-  "src/users_fastapi/api/users.py": "c68d1b1404856ea381e96033a08f4da9",
-  "src/users_fastapi/api/auth.py": "e42572ca470f923aa3a95d31c2cdb9a5",
-  "src/users_fastapi/main.py": "cec806551ec461a91dc69a64c5038225",
-  "src/users_fastapi/api/dependencies.py": "d1954403c479f10e515176b1d68d2875"
-}

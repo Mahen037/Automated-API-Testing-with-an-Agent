@@ -1,0 +1,212 @@
+{
+  "repo": "fastapi-microservices",
+  "commit": null,
+  "routes": [
+    {
+      "base_url": "http://localhost:8002",
+      "path_params": [
+        {
+          "schema": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "required": true,
+          "name": "id"
+        }
+      ],
+      "method": "GET",
+      "service": "team-service",
+      "path": "/teams/{id}/",
+      "responses": [
+        {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "status_code": 200
+        },
+        {
+          "description": "Team not found",
+          "status_code": 404
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "responses": [
+        {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "status_code": 200
+        }
+      ],
+      "base_url": "http://localhost:8002",
+      "path": "/teams/",
+      "service": "team-service"
+    },
+    {
+      "request_body": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "name"
+              ],
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "service": "team-service",
+      "responses": [
+        {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "description": "Created",
+          "status_code": 201
+        }
+      ],
+      "path": "/teams/",
+      "base_url": "http://localhost:8002",
+      "method": "POST"
+    },
+    {
+      "service": "team-service",
+      "responses": [
+        {
+          "status_code": 200,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "integer"
+              }
+            }
+          },
+          "description": "Successful Response"
+        },
+        {
+          "description": "Team not found",
+          "status_code": 404
+        }
+      ],
+      "method": "DELETE",
+      "path_params": [
+        {
+          "schema": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "required": true,
+          "name": "id"
+        }
+      ],
+      "path": "/teams/{id}/",
+      "base_url": "http://localhost:8002"
+    },
+    {
+      "request_body": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        }
+      },
+      "path_params": [
+        {
+          "schema": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "required": true,
+          "name": "id"
+        }
+      ],
+      "responses": [
+        {
+          "status_code": 200,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "description": "Successful Response"
+        },
+        {
+          "description": "Team not found",
+          "status_code": 404
+        }
+      ],
+      "method": "PUT",
+      "path": "/teams/{id}/",
+      "base_url": "http://localhost:8002",
+      "service": "team-service"
+    }
+  ]
+}

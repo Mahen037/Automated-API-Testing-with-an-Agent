@@ -1,0 +1,256 @@
+{
+  "repo": "fastapi-microservices",
+  "commit": null,
+  "routes": [
+    {
+      "responses": [
+        {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "team_id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "status_code": 200
+        },
+        {
+          "description": "Pokemon not found",
+          "status_code": 404
+        }
+      ],
+      "path_params": [
+        {
+          "name": "id",
+          "schema": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "required": true
+        }
+      ],
+      "base_url": "http://localhost:8001",
+      "path": "/pokemon/{id}/",
+      "service": "pokemon-service",
+      "method": "GET"
+    },
+    {
+      "path": "/pokemon/",
+      "base_url": "http://localhost:8001",
+      "service": "pokemon-service",
+      "responses": [
+        {
+          "status_code": 200,
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "team_id": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            }
+          },
+          "description": "Successful Response"
+        }
+      ],
+      "method": "GET"
+    },
+    {
+      "path": "/pokemon/",
+      "method": "POST",
+      "responses": [
+        {
+          "status_code": 201,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "team_id": {
+                    "type": "integer"
+                  },
+                  "id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "description": "Created"
+        },
+        {
+          "description": "Team not found",
+          "status_code": 404
+        }
+      ],
+      "service": "pokemon-service",
+      "base_url": "http://localhost:8001",
+      "request_body": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "team_id": {
+                  "type": "integer"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "type",
+                "team_id"
+              ],
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    {
+      "path_params": [
+        {
+          "schema": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "required": true,
+          "name": "id"
+        }
+      ],
+      "responses": [
+        {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "integer"
+              }
+            }
+          },
+          "description": "Successful Response",
+          "status_code": 200
+        },
+        {
+          "status_code": 404,
+          "description": "Pokemon not found"
+        }
+      ],
+      "base_url": "http://localhost:8001",
+      "path": "/pokemon/{id}/",
+      "service": "pokemon-service",
+      "method": "DELETE"
+    },
+    {
+      "path_params": [
+        {
+          "schema": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "required": true,
+          "name": "id"
+        }
+      ],
+      "base_url": "http://localhost:8001",
+      "method": "PUT",
+      "service": "pokemon-service",
+      "request_body": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "team_id": {
+                  "type": "integer"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "type",
+                "team_id"
+              ],
+              "type": "object"
+            }
+          }
+        }
+      },
+      "responses": [
+        {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "team_id": {
+                    "type": "integer"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "description": "Successful Response",
+          "status_code": 200
+        },
+        {
+          "status_code": 404,
+          "description": "Pokemon or Team not found"
+        }
+      ],
+      "path": "/pokemon/{id}/"
+    }
+  ]
+}

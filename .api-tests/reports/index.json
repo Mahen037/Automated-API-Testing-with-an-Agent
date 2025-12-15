@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 1
+      "actualWorkers": 2
     },
     "preserveOutput": "always",
     "reporter": [
@@ -44,7 +44,7 @@
         "repeatEach": 1,
         "retries": 2,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 2
         },
         "id": "",
         "name": "",
@@ -65,27 +65,27 @@
   },
   "suites": [
     {
-      "title": "users-fastapi.spec.ts",
-      "file": "users-fastapi.spec.ts",
+      "title": "pokemon-service.spec.ts",
+      "file": "pokemon-service.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "users-fastapi",
-          "file": "users-fastapi.spec.ts",
-          "line": 42,
+          "title": "pokemon-service",
+          "file": "pokemon-service.spec.ts",
+          "line": 15,
           "column": 6,
           "specs": [],
           "suites": [
             {
-              "title": "GET /",
-              "file": "users-fastapi.spec.ts",
-              "line": 44,
+              "title": "GET /pokemon/",
+              "file": "pokemon-service.spec.ts",
+              "line": 17,
               "column": 8,
               "specs": [
                 {
-                  "title": "should return welcome message",
+                  "title": "should return list of pokemon",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -100,12 +100,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 38,
+                          "duration": 40,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-15T13:47:56.963Z",
+                          "startTime": "2025-12-15T14:53:40.740Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -113,22 +113,22 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "e30b39468c1cfe6da7e2-ca9dd0e2af62ce6791f6",
-                  "file": "users-fastapi.spec.ts",
-                  "line": 45,
+                  "id": "da31bf3364aa9ea7eca5-6520bea9129ba2d797b7",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 18,
                   "column": 9
                 }
               ]
             },
             {
-              "title": "POST /users (Create User)",
-              "file": "users-fastapi.spec.ts",
-              "line": 53,
+              "title": "POST /pokemon/",
+              "file": "pokemon-service.spec.ts",
+              "line": 25,
               "column": 8,
               "specs": [
                 {
-                  "title": "should create a new user successfully",
-                  "ok": false,
+                  "title": "should create a new pokemon",
+                  "ok": true,
                   "tags": [],
                   "tests": [
                     {
@@ -141,669 +141,357 @@
                         {
                           "workerIndex": 0,
                           "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 216,
-                          "error": {
-                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
-                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:65:33",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 33,
-                              "line": 65
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 63 |\u001b[39m       })\u001b[33m;\u001b[39m\n \u001b[90m 64 |\u001b[39m       \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 65 |\u001b[39m       expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m201\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 66 |\u001b[39m       \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 67 |\u001b[39m       expect(body\u001b[33m.\u001b[39memail)\u001b[33m.\u001b[39mtoBe(email)\u001b[33m;\u001b[39m\n \u001b[90m 68 |\u001b[39m       expect(body)\u001b[33m.\u001b[39mtoHaveProperty(\u001b[32m'id'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 33,
-                                "line": 65
-                              },
-                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n  63 |       });\n  64 |       \n> 65 |       expect(response.status()).toBe(201);\n     |                                 ^\n  66 |       const body = await response.json();\n  67 |       expect(body.email).toBe(email);\n  68 |       expect(body).toHaveProperty('id');\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:65:33"
-                            }
-                          ],
+                          "status": "passed",
+                          "duration": 152,
+                          "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-15T13:47:57.022Z",
+                          "startTime": "2025-12-15T14:53:40.795Z",
                           "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 33,
-                            "line": 65
-                          }
-                        },
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-ac07f2c0a01d6ccf81c3",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 26,
+                  "column": 9
+                },
+                {
+                  "title": "should return 404 if team does not exist",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 102,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-15T14:53:40.952Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-4411665fcec89e519b66",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 36,
+                  "column": 9
+                }
+              ]
+            },
+            {
+              "title": "GET /pokemon/{id}/",
+              "file": "pokemon-service.spec.ts",
+              "line": 43,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should return pokemon details",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 154,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-15T14:53:41.061Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-5c4dc367ed2a6bd0430d",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 44,
+                  "column": 9
+                },
+                {
+                  "title": "should return 404 for non-existent pokemon",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 47,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-15T14:53:41.224Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-01f2b1a70aaa771be08a",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 57,
+                  "column": 9
+                }
+              ]
+            },
+            {
+              "title": "PUT /pokemon/{id}/",
+              "file": "pokemon-service.spec.ts",
+              "line": 63,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should update pokemon details",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 203,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-15T14:53:41.276Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-c8e9677058888b8dd403",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 64,
+                  "column": 9
+                },
+                {
+                  "title": "should return 404 for non-existent pokemon",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 104,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-15T14:53:41.485Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-d06264314b6191d25e05",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 78,
+                  "column": 9
+                }
+              ]
+            },
+            {
+              "title": "DELETE /pokemon/{id}/",
+              "file": "pokemon-service.spec.ts",
+              "line": 87,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should delete pokemon",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 153,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-15T14:53:41.593Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-edb364f9d22db2595b6d",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 88,
+                  "column": 9
+                },
+                {
+                  "title": "should return 404 for non-existent pokemon",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 51,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-15T14:53:41.753Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-83be4539a6867d1e1f0a",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 101,
+                  "column": 9
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "team-service.spec.ts",
+      "file": "team-service.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "team-service",
+          "file": "team-service.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [],
+          "suites": [
+            {
+              "title": "GET /teams/",
+              "file": "team-service.spec.ts",
+              "line": 7,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should return list of teams",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
                         {
                           "workerIndex": 1,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 210,
-                          "error": {
-                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
-                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:65:33",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 33,
-                              "line": 65
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 63 |\u001b[39m       })\u001b[33m;\u001b[39m\n \u001b[90m 64 |\u001b[39m       \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 65 |\u001b[39m       expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m201\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 66 |\u001b[39m       \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 67 |\u001b[39m       expect(body\u001b[33m.\u001b[39memail)\u001b[33m.\u001b[39mtoBe(email)\u001b[33m;\u001b[39m\n \u001b[90m 68 |\u001b[39m       expect(body)\u001b[33m.\u001b[39mtoHaveProperty(\u001b[32m'id'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 33,
-                                "line": 65
-                              },
-                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n  63 |       });\n  64 |       \n> 65 |       expect(response.status()).toBe(201);\n     |                                 ^\n  66 |       const body = await response.json();\n  67 |       expect(body.email).toBe(email);\n  68 |       expect(body).toHaveProperty('id');\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:65:33"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 1,
-                          "startTime": "2025-12-15T13:47:58.366Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 33,
-                            "line": 65
-                          }
-                        },
-                        {
-                          "workerIndex": 2,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 207,
-                          "error": {
-                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
-                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:65:33",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 33,
-                              "line": 65
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 63 |\u001b[39m       })\u001b[33m;\u001b[39m\n \u001b[90m 64 |\u001b[39m       \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 65 |\u001b[39m       expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m201\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 66 |\u001b[39m       \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 67 |\u001b[39m       expect(body\u001b[33m.\u001b[39memail)\u001b[33m.\u001b[39mtoBe(email)\u001b[33m;\u001b[39m\n \u001b[90m 68 |\u001b[39m       expect(body)\u001b[33m.\u001b[39mtoHaveProperty(\u001b[32m'id'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 33,
-                                "line": 65
-                              },
-                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n  63 |       });\n  64 |       \n> 65 |       expect(response.status()).toBe(201);\n     |                                 ^\n  66 |       const body = await response.json();\n  67 |       expect(body.email).toBe(email);\n  68 |       expect(body).toHaveProperty('id');\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:65:33"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 2,
-                          "startTime": "2025-12-15T13:47:59.715Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 33,
-                            "line": 65
-                          }
-                        }
-                      ],
-                      "status": "unexpected"
-                    }
-                  ],
-                  "id": "e30b39468c1cfe6da7e2-1465db378ba9334bceca",
-                  "file": "users-fastapi.spec.ts",
-                  "line": 54,
-                  "column": 9
-                },
-                {
-                  "title": "should fail when creating a duplicate user",
-                  "ok": false,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 3,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 205,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:72:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:72:35"
-                            }
-                          ],
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 41,
+                          "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-15T13:48:01.071Z",
+                          "startTime": "2025-12-15T14:53:40.740Z",
                           "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        },
-                        {
-                          "workerIndex": 4,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 213,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:72:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:72:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 1,
-                          "startTime": "2025-12-15T13:48:02.398Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        },
-                        {
-                          "workerIndex": 5,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 209,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:72:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:72:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 2,
-                          "startTime": "2025-12-15T13:48:03.752Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
+                          "attachments": []
                         }
                       ],
-                      "status": "unexpected"
+                      "status": "expected"
                     }
                   ],
-                  "id": "e30b39468c1cfe6da7e2-047b3810053007205d0e",
-                  "file": "users-fastapi.spec.ts",
-                  "line": 71,
+                  "id": "eaf358b89f316e1fed07-264c8bea88f1db928741",
+                  "file": "team-service.spec.ts",
+                  "line": 8,
                   "column": 9
                 }
               ]
             },
             {
-              "title": "POST /token (Login)",
-              "file": "users-fastapi.spec.ts",
-              "line": 85,
+              "title": "POST /teams/",
+              "file": "team-service.spec.ts",
+              "line": 16,
               "column": 8,
               "specs": [
                 {
-                  "title": "should return token with valid credentials",
-                  "ok": false,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 6,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 200,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:87:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:87:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T13:48:05.134Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        },
-                        {
-                          "workerIndex": 7,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 215,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:87:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:87:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 1,
-                          "startTime": "2025-12-15T13:48:06.487Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        },
-                        {
-                          "workerIndex": 8,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 214,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:87:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:87:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 2,
-                          "startTime": "2025-12-15T13:48:07.866Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        }
-                      ],
-                      "status": "unexpected"
-                    }
-                  ],
-                  "id": "e30b39468c1cfe6da7e2-a2061f04c31410b43499",
-                  "file": "users-fastapi.spec.ts",
-                  "line": 86,
-                  "column": 9
-                },
-                {
-                  "title": "should fail with invalid credentials",
-                  "ok": false,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 9,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 51,
-                          "error": {
-                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
-                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:110:33",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 33,
-                              "line": 110
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 108 |\u001b[39m       })\u001b[33m;\u001b[39m\n \u001b[90m 109 |\u001b[39m       \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 110 |\u001b[39m       expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m401\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 111 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 112 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 113 |\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 33,
-                                "line": 110
-                              },
-                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n  108 |       });\n  109 |       \n> 110 |       expect(response.status()).toBe(401);\n      |                                 ^\n  111 |     });\n  112 |   });\n  113 |\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:110:33"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T13:48:09.168Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 33,
-                            "line": 110
-                          }
-                        },
-                        {
-                          "workerIndex": 10,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 44,
-                          "error": {
-                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
-                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:110:33",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 33,
-                              "line": 110
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 108 |\u001b[39m       })\u001b[33m;\u001b[39m\n \u001b[90m 109 |\u001b[39m       \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 110 |\u001b[39m       expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m401\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 111 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 112 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 113 |\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 33,
-                                "line": 110
-                              },
-                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n  108 |       });\n  109 |       \n> 110 |       expect(response.status()).toBe(401);\n      |                                 ^\n  111 |     });\n  112 |   });\n  113 |\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:110:33"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 1,
-                          "startTime": "2025-12-15T13:48:10.330Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 33,
-                            "line": 110
-                          }
-                        },
-                        {
-                          "workerIndex": 11,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 42,
-                          "error": {
-                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
-                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:110:33",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 33,
-                              "line": 110
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 108 |\u001b[39m       })\u001b[33m;\u001b[39m\n \u001b[90m 109 |\u001b[39m       \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 110 |\u001b[39m       expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m401\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 111 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 112 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 113 |\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 33,
-                                "line": 110
-                              },
-                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n  108 |       });\n  109 |       \n> 110 |       expect(response.status()).toBe(401);\n      |                                 ^\n  111 |     });\n  112 |   });\n  113 |\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:110:33"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 2,
-                          "startTime": "2025-12-15T13:48:11.532Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 33,
-                            "line": 110
-                          }
-                        }
-                      ],
-                      "status": "unexpected"
-                    }
-                  ],
-                  "id": "e30b39468c1cfe6da7e2-19299c5b48e2b927885d",
-                  "file": "users-fastapi.spec.ts",
-                  "line": 102,
-                  "column": 9
-                }
-              ]
-            },
-            {
-              "title": "GET /users/me",
-              "file": "users-fastapi.spec.ts",
-              "line": 114,
-              "column": 8,
-              "specs": [
-                {
-                  "title": "should return current user details when authenticated",
-                  "ok": false,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 12,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 206,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:116:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:116:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T13:48:12.749Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        },
-                        {
-                          "workerIndex": 13,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 211,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:116:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:116:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 1,
-                          "startTime": "2025-12-15T13:48:14.100Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        },
-                        {
-                          "workerIndex": 14,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 199,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:116:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:116:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 2,
-                          "startTime": "2025-12-15T13:48:15.435Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        }
-                      ],
-                      "status": "unexpected"
-                    }
-                  ],
-                  "id": "e30b39468c1cfe6da7e2-6fb321dc7efe61e2f667",
-                  "file": "users-fastapi.spec.ts",
-                  "line": 115,
-                  "column": 9
-                },
-                {
-                  "title": "should fail when not authenticated",
+                  "title": "should create a new team",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -815,15 +503,15 @@
                       "projectName": "",
                       "results": [
                         {
-                          "workerIndex": 15,
-                          "parallelIndex": 0,
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
                           "status": "passed",
-                          "duration": 44,
+                          "duration": 54,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-15T13:48:16.765Z",
+                          "startTime": "2025-12-15T14:53:40.795Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -831,153 +519,21 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "e30b39468c1cfe6da7e2-4cb6293335c429fb040a",
-                  "file": "users-fastapi.spec.ts",
-                  "line": 130,
+                  "id": "eaf358b89f316e1fed07-9b0720a6da8319bfb6d5",
+                  "file": "team-service.spec.ts",
+                  "line": 17,
                   "column": 9
                 }
               ]
             },
             {
-              "title": "PUT /users",
-              "file": "users-fastapi.spec.ts",
-              "line": 136,
+              "title": "GET /teams/{id}/",
+              "file": "team-service.spec.ts",
+              "line": 27,
               "column": 8,
               "specs": [
                 {
-                  "title": "should update user email successfully",
-                  "ok": false,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 15,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 172,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:138:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:138:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T13:48:16.839Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        },
-                        {
-                          "workerIndex": 16,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 214,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:138:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:138:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 1,
-                          "startTime": "2025-12-15T13:48:18.081Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        },
-                        {
-                          "workerIndex": 17,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 230,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:138:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:138:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 2,
-                          "startTime": "2025-12-15T13:48:19.430Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        }
-                      ],
-                      "status": "unexpected"
-                    }
-                  ],
-                  "id": "e30b39468c1cfe6da7e2-cbb3da10fd8b3a4a104c",
-                  "file": "users-fastapi.spec.ts",
-                  "line": 137,
-                  "column": 9
-                },
-                {
-                  "title": "should fail when not authenticated",
+                  "title": "should return team details",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -989,15 +545,15 @@
                       "projectName": "",
                       "results": [
                         {
-                          "workerIndex": 18,
-                          "parallelIndex": 0,
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
                           "status": "passed",
-                          "duration": 43,
+                          "duration": 93,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-15T13:48:20.938Z",
+                          "startTime": "2025-12-15T14:53:40.855Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -1005,153 +561,13 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "e30b39468c1cfe6da7e2-7f13fd701a7442338919",
-                  "file": "users-fastapi.spec.ts",
-                  "line": 158,
-                  "column": 9
-                }
-              ]
-            },
-            {
-              "title": "GET /users/all",
-              "file": "users-fastapi.spec.ts",
-              "line": 169,
-              "column": 8,
-              "specs": [
-                {
-                  "title": "should fail for non-admin user",
-                  "ok": false,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 18,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 223,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:171:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:171:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T13:48:21.007Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        },
-                        {
-                          "workerIndex": 19,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 223,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:171:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:171:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 1,
-                          "startTime": "2025-12-15T13:48:22.434Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        },
-                        {
-                          "workerIndex": 20,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 212,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:171:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:171:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 2,
-                          "startTime": "2025-12-15T13:48:23.776Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        }
-                      ],
-                      "status": "unexpected"
-                    }
-                  ],
-                  "id": "e30b39468c1cfe6da7e2-e5896ee8fd6c7fc066bf",
-                  "file": "users-fastapi.spec.ts",
-                  "line": 170,
+                  "id": "eaf358b89f316e1fed07-73386531eca661ce63c1",
+                  "file": "team-service.spec.ts",
+                  "line": 28,
                   "column": 9
                 },
                 {
-                  "title": "should fail when not authenticated",
+                  "title": "should return 404 for non-existent team",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -1163,15 +579,15 @@
                       "projectName": "",
                       "results": [
                         {
-                          "workerIndex": 21,
-                          "parallelIndex": 0,
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
                           "status": "passed",
-                          "duration": 45,
+                          "duration": 52,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-15T13:48:25.151Z",
+                          "startTime": "2025-12-15T14:53:40.956Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -1179,153 +595,21 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "e30b39468c1cfe6da7e2-541d2c91f056fe6a830d",
-                  "file": "users-fastapi.spec.ts",
-                  "line": 184,
+                  "id": "eaf358b89f316e1fed07-bea4ff31494f3117d3b5",
+                  "file": "team-service.spec.ts",
+                  "line": 40,
                   "column": 9
                 }
               ]
             },
             {
-              "title": "DELETE /users",
-              "file": "users-fastapi.spec.ts",
-              "line": 192,
+              "title": "PUT /teams/{id}/",
+              "file": "team-service.spec.ts",
+              "line": 46,
               "column": 8,
               "specs": [
                 {
-                  "title": "should delete the current user",
-                  "ok": false,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 21,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 185,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:194:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:194:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T13:48:25.223Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        },
-                        {
-                          "workerIndex": 22,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 208,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:194:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:194:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 1,
-                          "startTime": "2025-12-15T13:48:26.464Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        },
-                        {
-                          "workerIndex": 23,
-                          "parallelIndex": 0,
-                          "status": "failed",
-                          "duration": 211,
-                          "error": {
-                            "message": "Error: Failed to create user in setup: 500 Internal Server Error",
-                            "stack": "Error: Failed to create user in setup: 500 Internal Server Error\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:194:35",
-                            "location": {
-                              "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                              "column": 11,
-                              "line": 21
-                            },
-                            "snippet": "\u001b[0m \u001b[90m 19 |\u001b[39m   \n \u001b[90m 20 |\u001b[39m   \u001b[36mif\u001b[39m (response\u001b[33m.\u001b[39mstatus() \u001b[33m!==\u001b[39m \u001b[35m201\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m     \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Failed to create user in setup: ${response.status()} ${await response.text()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   }\n \u001b[90m 23 |\u001b[39m\n \u001b[90m 24 |\u001b[39m   \u001b[36mreturn\u001b[39m { email\u001b[33m,\u001b[39m password\u001b[33m,\u001b[39m response }\u001b[33m;\u001b[39m\u001b[0m"
-                          },
-                          "errors": [
-                            {
-                              "location": {
-                                "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                                "column": 11,
-                                "line": 21
-                              },
-                              "message": "Error: Failed to create user in setup: 500 Internal Server Error\n\n  19 |   \n  20 |   if (response.status() !== 201) {\n> 21 |     throw new Error(`Failed to create user in setup: ${response.status()} ${await response.text()}`);\n     |           ^\n  22 |   }\n  23 |\n  24 |   return { email, password, response };\n    at createUser (C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:21:11)\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts:194:35"
-                            }
-                          ],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 2,
-                          "startTime": "2025-12-15T13:48:27.827Z",
-                          "annotations": [],
-                          "attachments": [],
-                          "errorLocation": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\users-fastapi.spec.ts",
-                            "column": 11,
-                            "line": 21
-                          }
-                        }
-                      ],
-                      "status": "unexpected"
-                    }
-                  ],
-                  "id": "e30b39468c1cfe6da7e2-3c11d50fb53dbb537ce0",
-                  "file": "users-fastapi.spec.ts",
-                  "line": 193,
-                  "column": 9
-                },
-                {
-                  "title": "should fail when not authenticated",
+                  "title": "should update team details",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -1337,15 +621,15 @@
                       "projectName": "",
                       "results": [
                         {
-                          "workerIndex": 24,
-                          "parallelIndex": 0,
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
                           "status": "passed",
-                          "duration": 48,
+                          "duration": 97,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-15T13:48:29.208Z",
+                          "startTime": "2025-12-15T14:53:41.016Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -1353,9 +637,119 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "e30b39468c1cfe6da7e2-1fd690c09d427794e1b6",
-                  "file": "users-fastapi.spec.ts",
-                  "line": 215,
+                  "id": "eaf358b89f316e1fed07-3df61004f7ba6dd60fe9",
+                  "file": "team-service.spec.ts",
+                  "line": 47,
+                  "column": 9
+                },
+                {
+                  "title": "should return 404 for non-existent team",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 47,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-15T14:53:41.118Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "eaf358b89f316e1fed07-8cfd343563b01a2153a9",
+                  "file": "team-service.spec.ts",
+                  "line": 60,
+                  "column": 9
+                }
+              ]
+            },
+            {
+              "title": "DELETE /teams/{id}/",
+              "file": "team-service.spec.ts",
+              "line": 66,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should delete team",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 98,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-15T14:53:41.171Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "eaf358b89f316e1fed07-6f8c130f4ec100dda3ef",
+                  "file": "team-service.spec.ts",
+                  "line": 67,
+                  "column": 9
+                },
+                {
+                  "title": "should return 404 for non-existent team",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 49,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-15T14:53:41.274Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "eaf358b89f316e1fed07-6a8792e4ae6e0deff5ed",
+                  "file": "team-service.spec.ts",
+                  "line": 80,
                   "column": 9
                 }
               ]
@@ -1367,11 +761,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-15T13:47:55.711Z",
-    "duration": 33611.647000000004,
-    "expected": 5,
+    "startTime": "2025-12-15T14:53:40.099Z",
+    "duration": 1739.654,
+    "expected": 17,
     "skipped": 0,
-    "unexpected": 8,
+    "unexpected": 0,
     "flaky": 0
   }
 }
