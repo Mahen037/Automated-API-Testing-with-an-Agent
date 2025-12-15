@@ -1,0 +1,180 @@
+{
+  "repo": "vrgsdaniel/users-fastapi",
+  "commit": "d0c25fb389de05a8557a21d753d372561bfea4f9",
+  "routes": [
+    {
+      "path_params": [],
+      "query_params": [],
+      "path": "/",
+      "method": "GET",
+      "request_body": null,
+      "services": [
+        "users"
+      ],
+      "base_url": "http://localhost:8080",
+      "responses": {
+        "200": {
+          "description": "Successful Response"
+        }
+      }
+    },
+    {
+      "query_params": [],
+      "responses": {
+        "401": {
+          "description": "Unauthorized"
+        },
+        "200": {
+          "schema": "Token"
+        }
+      },
+      "path_params": [],
+      "request_body": {
+        "schema": "OAuth2PasswordRequestForm"
+      },
+      "services": [
+        "users"
+      ],
+      "base_url": "http://localhost:8080",
+      "path": "/token",
+      "method": "POST",
+      "auth": {
+        "bearer_required": true
+      }
+    },
+    {
+      "path": "/users/me",
+      "responses": {
+        "401": {
+          "description": "Unauthorized"
+        },
+        "200": {
+          "schema": "User"
+        }
+      },
+      "services": [
+        "users"
+      ],
+      "method": "GET",
+      "query_params": [],
+      "request_body": null,
+      "auth": {
+        "bearer_required": true
+      },
+      "base_url": "http://localhost:8080",
+      "path_params": []
+    },
+    {
+      "auth": {
+        "note": "Admin only",
+        "bearer_required": true
+      },
+      "path_params": [],
+      "method": "GET",
+      "request_body": null,
+      "path": "/users/all",
+      "services": [
+        "users"
+      ],
+      "responses": {
+        "401": {
+          "description": "Unauthorized"
+        },
+        "200": {
+          "schema": "Users"
+        }
+      },
+      "query_params": [
+        {
+          "name": "skip",
+          "type": "integer",
+          "default": 0,
+          "required": false
+        },
+        {
+          "required": false,
+          "name": "limit",
+          "type": "integer",
+          "default": 10
+        }
+      ],
+      "base_url": "http://localhost:8080"
+    },
+    {
+      "method": "POST",
+      "services": [
+        "users"
+      ],
+      "responses": {
+        "409": {
+          "description": "User already exists"
+        },
+        "201": {
+          "schema": "User"
+        }
+      },
+      "path": "/users",
+      "base_url": "http://localhost:8080",
+      "path_params": [],
+      "request_body": {
+        "fields": [
+          {
+            "name": "username",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "password",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "schema": "UserForm"
+      },
+      "query_params": []
+    },
+    {
+      "path_params": [],
+      "query_params": [],
+      "request_body": {
+        "schema": "UserUpdate"
+      },
+      "responses": {
+        "409": {
+          "description": "Email already exists"
+        },
+        "200": {
+          "schema": "User"
+        }
+      },
+      "base_url": "http://localhost:8080",
+      "path": "/users",
+      "method": "PUT",
+      "auth": {
+        "bearer_required": true
+      },
+      "services": [
+        "users"
+      ]
+    },
+    {
+      "path": "/users",
+      "base_url": "http://localhost:8080",
+      "method": "DELETE",
+      "query_params": [],
+      "request_body": null,
+      "path_params": [],
+      "responses": {
+        "204": {
+          "description": "No Content"
+        }
+      },
+      "services": [
+        "users"
+      ],
+      "auth": {
+        "bearer_required": true
+      }
+    }
+  ]
+}

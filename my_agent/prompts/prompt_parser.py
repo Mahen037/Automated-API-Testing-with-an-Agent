@@ -42,6 +42,7 @@ def _load_prompt_from_yaml(filename: str, *, prompt_key: str = "prompt") -> Prom
 
 PROMPTS: Dict[str, Prompt] = {
     "route_extraction": _load_prompt_from_yaml("route_extraction.yaml"),
-    "test_generation": _load_prompt_from_yaml("test_generation.yaml"),
+    "junior_test_generation": _load_prompt_from_yaml("junior_test_generation.yaml"),
+    "senior_test_review": _load_prompt_from_yaml("senior_test_review.yaml"),
     "test_execution": _load_prompt_from_yaml("test_execution.yaml"),
 }

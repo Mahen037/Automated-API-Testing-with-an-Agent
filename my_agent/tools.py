@@ -70,6 +70,27 @@ def store_playwright_tests(
     return result
 
 
+
+def list_playwright_tests() -> Dict[str, List[str]]:
+    """List generated Playwright spec files under `.api-tests/tests`."""
+    TESTS_DIR.mkdir(parents=True, exist_ok=True)
+    specs = sorted(
+        str(path.relative_to(TESTS_DIR))
+        for path in TESTS_DIR.rglob("*.spec.ts")
+        if path.is_file()
+    )
+    return {"specs": specs}
+
+
+def load_playwright_test(*, filename: str) -> Dict[str, Any]:
+    """Load a generated Playwright spec file from `.api-tests/tests`."""
+    TESTS_DIR.mkdir(parents=True, exist_ok=True)
+    target_path = TESTS_DIR / filename
+    if not target_path.exists():
+        raise FileNotFoundError(f"Spec file '{filename}' not found in {TESTS_DIR}.")
+    return {"filename": filename, "code": target_path.read_text(encoding="utf-8")}
+
+
 def run_playwright_tests() -> Dict[str, Any]:
     """Execute `npx playwright test` for the generated specs."""
 
@@ -146,7 +167,7 @@ def run_playwright_tests() -> Dict[str, Any]:
         "spec_directory": str(spec_root),
         "spec_files": spec_files,
     }
-def extract_and_store_routes(
+def crawl_routes_snapshot(
     *,
     repo: str,
     files_dict: Dict[str, str],  # {file_path: content}

@@ -426,7 +426,6 @@ def extract_routes_parallel(
     
     # Save cache and return
     if cache_mgr:
-        cache_mgr.remove_stale(set(files.keys()))
         cache_mgr.save_hashes()
     
     metadata = {
