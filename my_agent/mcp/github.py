@@ -35,14 +35,17 @@ def _resolve_args() -> List[str]:
 
 
 def _resolve_server_env() -> Dict[str, str]:
-    token = os.getenv("GITHUB_TOKEN")
+    # Prefer the env var commonly expected by GitHub MCP setups
+    token = (os.getenv("GITHUB_PERSONAL_ACCESS_TOKEN") or os.getenv("GITHUB_TOKEN") or "").strip()
     if not token:
         raise GithubMcpConfigError(
-            "Set GITHUB_TOKEN with a GitHub personal access token that has the"
-            " repo scope so the MCP server can authenticate."
+            "Set GITHUB_PERSONAL_ACCESS_TOKEN (preferred) or GITHUB_TOKEN with a GitHub PAT."
         )
 
-    env: Dict[str, str] = {"GITHUB_TOKEN": token}
+    env: Dict[str, str] = {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": token,
+        "GITHUB_TOKEN": token,  # keep for compatibility
+    }
 
     owner = os.getenv("GITHUB_MCP_OWNER")
     if owner:

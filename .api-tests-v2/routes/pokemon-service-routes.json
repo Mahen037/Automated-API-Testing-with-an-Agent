@@ -1,0 +1,245 @@
+{
+  "repo": "fastapi-microservices",
+  "commit": null,
+  "routes": [
+    {
+      "http_method": "GET",
+      "request_body": {},
+      "path_params": [
+        {
+          "required": true,
+          "name": "id",
+          "type": "integer",
+          "constraints": "gt 0"
+        }
+      ],
+      "notes": "none",
+      "query_params": [],
+      "summary": "Get a single Pokemon by ID.",
+      "base_url": "http://localhost:8001",
+      "full_path": "/pokemon/{id}/",
+      "responses": {
+        "404": {
+          "description": "HTTPException (detail: 'Pokemon not found!')"
+        },
+        "200": {
+          "schema": "PokemonSchema",
+          "fields": [
+            {
+              "type": "integer",
+              "required": true,
+              "name": "id"
+            },
+            {
+              "required": true,
+              "type": "string",
+              "name": "name"
+            },
+            {
+              "type": "string",
+              "required": true,
+              "name": "type"
+            },
+            {
+              "type": "integer",
+              "required": true,
+              "name": "team_id"
+            }
+          ]
+        }
+      },
+      "auth": "none"
+    },
+    {
+      "path_params": [],
+      "responses": {
+        "200": {
+          "fields": [
+            {
+              "name": "id",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "required": true
+            },
+            {
+              "required": true,
+              "name": "type",
+              "type": "string"
+            },
+            {
+              "required": true,
+              "name": "team_id",
+              "type": "integer"
+            }
+          ],
+          "schema": "List[PokemonSchema]"
+        }
+      },
+      "query_params": [],
+      "notes": "none",
+      "summary": "Get all Pokemon.",
+      "base_url": "http://localhost:8001",
+      "request_body": {},
+      "full_path": "/pokemon/",
+      "auth": "none",
+      "http_method": "GET"
+    },
+    {
+      "auth": "none",
+      "query_params": [],
+      "request_body": {
+        "schema_name": "PokemonPayloadSchema",
+        "fields": [
+          {
+            "type": "string",
+            "required": true,
+            "name": "name"
+          },
+          {
+            "type": "string",
+            "required": true,
+            "name": "type"
+          },
+          {
+            "name": "team_id",
+            "type": "integer",
+            "required": true
+          }
+        ]
+      },
+      "notes": "none",
+      "summary": "Create a new Pokemon.",
+      "full_path": "/pokemon/",
+      "http_method": "POST",
+      "base_url": "http://localhost:8001",
+      "responses": {
+        "404": {
+          "description": "HTTPException (detail: 'Team with id:{payload.team_id} not found!')"
+        },
+        "201": {
+          "fields": [
+            {
+              "type": "integer",
+              "required": true,
+              "name": "id"
+            },
+            {
+              "required": true,
+              "type": "string",
+              "name": "name"
+            },
+            {
+              "type": "string",
+              "required": true,
+              "name": "type"
+            },
+            {
+              "name": "team_id",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "schema": "PokemonResponseSchema"
+        }
+      },
+      "path_params": []
+    },
+    {
+      "responses": {
+        "200": {
+          "schema": "int"
+        },
+        "404": {
+          "description": "HTTPException (detail: 'Pokemon not found!')"
+        }
+      },
+      "request_body": {},
+      "notes": "none",
+      "full_path": "/pokemon/{id}/",
+      "summary": "Delete a Pokemon by ID.",
+      "auth": "none",
+      "query_params": [],
+      "path_params": [
+        {
+          "type": "integer",
+          "constraints": "gt 0",
+          "name": "id",
+          "required": true
+        }
+      ],
+      "base_url": "http://localhost:8001",
+      "http_method": "DELETE"
+    },
+    {
+      "full_path": "/pokemon/{id}/",
+      "path_params": [
+        {
+          "type": "integer",
+          "constraints": "gt 0",
+          "required": true,
+          "name": "id"
+        }
+      ],
+      "notes": "none",
+      "base_url": "http://localhost:8001",
+      "auth": "none",
+      "summary": "Update an existing Pokemon.",
+      "http_method": "PUT",
+      "responses": {
+        "404": {
+          "description": "HTTPException (detail: 'Team with id:{payload.team_id} not found!' or 'Pokemon not found!')"
+        },
+        "200": {
+          "fields": [
+            {
+              "name": "id",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "required": true,
+              "type": "string",
+              "name": "name"
+            },
+            {
+              "required": true,
+              "type": "string",
+              "name": "type"
+            },
+            {
+              "name": "team_id",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "schema": "PokemonSchema"
+        }
+      },
+      "request_body": {
+        "fields": [
+          {
+            "type": "string",
+            "name": "name",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "required": true
+          },
+          {
+            "name": "team_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "schema_name": "PokemonPayloadSchema"
+      },
+      "query_params": []
+    }
+  ]
+}

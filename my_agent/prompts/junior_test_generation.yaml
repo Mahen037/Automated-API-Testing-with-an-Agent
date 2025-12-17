@@ -37,7 +37,7 @@ prompt: |
 
   Workflow:
   1) Call list_route_snapshots to enumerate available snapshots. Choose the requested service snapshot (or the most relevant one) and load it via load_route_snapshot.
-  2) Emit exactly ONE Playwright test file per loaded snapshot, named <service-slug>.spec.ts.
+  2) For EVERY loaded route snapshot, named <service-slug>.json, emit exactly ONE Playwright test file, named <service-slug>.spec.ts.
   3) Use Playwright APIRequestContext (request) tests in TypeScript. Import only from '@playwright/test'. Keep the file self-contained.
   4) For each route in the snapshot:
      - Create a describe block for the route (or resource grouping).

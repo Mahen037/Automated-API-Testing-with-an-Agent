@@ -4,7 +4,8 @@ import time
 from dotenv import load_dotenv
 from google.adk.agents import SequentialAgent, LoopAgent
 from google.adk.agents.llm_agent import Agent
-
+from google.genai import types
+from .custom_agent import GenerationRevisionAgent
 from .mcp import create_github_mcp_toolset, create_playwright_mcp_toolset
 from .prompts.prompt_parser import PROMPTS
 from .tools import (
@@ -40,6 +41,9 @@ endpoint_agent = Agent(
         Scrapes GitHub repositories for HTTP endpoints and stores structured
         results for automated testing pipelines.
         """
+    ),
+    generate_content_config=types.GenerateContentConfig(
+        temperature=0.0,
     ),
     instruction=(
         PROMPTS["route_extraction"].prompt
@@ -100,15 +104,26 @@ senior_test_review_agent = Agent(
 # Loop Agent: Junior ↔ Senior refinement
 # -------------------------------------------------------------------
 
-test_generation_loop = LoopAgent(
+test_generation_loop = GenerationRevisionAgent(
     name="test_generation_loop",
     description="Iteratively generates and reviews Playwright tests until approved.",
     sub_agents=[
         junior_test_generation_agent,
         senior_test_review_agent,
     ],
-    max_iterations=2,   # CI-safe bound
 )
+
+# test_generation_loop = LoopAgent(
+#     name="test_generation_loop",
+#     description="Iteratively generates and reviews Playwright tests until approved.",
+#     sub_agents=[
+#         junior_test_generation_agent,
+#         senior_test_review_agent,
+#     ],
+#     max_iterations=2,   # CI-safe bound
+# )
+
+
 
 # -------------------------------------------------------------------
 # Test Execution Agent

@@ -1,182 +1,192 @@
-import { test, expect, APIResponse } from '@playwright/test';
+import { test, expect, APIRequestContext } from '@playwright/test';
 
-const BASE_URL = process.env.TEAM_SERVICE_BASE_URL || 'http://localhost:8002';
+const TEAM_BASE_URL = process.env.TEAM_BASE_URL || 'http://localhost:8080/teams';
 
-test.describe('GET /teams/{id}/', () => {
-  test('should return 200 and a team if team exists', async ({ request }) => {
-    // Assuming a team with ID 1 exists for a successful GET operation
-    // First, create a team to ensure it exists for the GET request
-    const createResponse = await request.post(`${BASE_URL}/teams/`, {
-      data: { name: 'Test Team' },
-    });
-    expect(createResponse.status()).toBe(201);
-    const createdTeam = await createResponse.json();
-    const teamId = createdTeam.id;
-
-    const response = await request.get(`${BASE_URL}/teams/${teamId}/`);
-    expect(response.status()).toBe(200);
-    const team = await response.json();
-    expect(team).toHaveProperty('id');
-    expect(team).toHaveProperty('name');
-    expect(team.id).toBe(teamId);
-    expect(team.name).toBe('Test Team');
-
-    // Clean up: Delete the created team
-    await request.delete(`${BASE_URL}/teams/${teamId}/`);
-  });
-
-  test('should return 404 if team does not exist', async ({ request }) => {
-    const nonExistentId = 99999; // Assuming this ID does not exist
-    const response = await request.get(`${BASE_URL}/teams/${nonExistentId}/`);
-    expect(response.status()).toBe(404);
-    expect(await response.json()).toEqual({ detail: 'Team not found!' });
-  });
-
-  test('should return 422 for invalid id (e.g., id <= 0)', async ({ request }) => {
-    const invalidId = 0;
-    const response = await request.get(`${BASE_URL}/teams/${invalidId}/`);
-    expect(response.status()).toBe(422); // FastAPI returns 422 for validation errors
-    // Optionally, assert on the error message structure if known
-  });
-});
-
-test.describe('GET /teams/', () => {
-  test('should return 200 and a list of teams', async ({ request }) => {
-    const response = await request.get(`${BASE_URL}/teams/`);
-    expect(response.status()).toBe(200);
-    const teams = await response.json();
-    expect(Array.isArray(teams)).toBe(true);
-  });
-});
-
-test.describe('POST /teams/', () => {
-  test('should return 201 and create a new team with valid payload', async ({ request }) => {
-    const teamName = 'New Playwright Team';
-    const response = await request.post(`${BASE_URL}/teams/`, {
-      data: { name: teamName },
+// Helper function to create a team for testing purposes
+async function createTeam(request: APIRequestContext, name: string): Promise<number> {
+    const response = await request.post(`${TEAM_BASE_URL}/`, {
+        data: { name },
     });
     expect(response.status()).toBe(201);
     const team = await response.json();
-    expect(team).toHaveProperty('id');
-    expect(team).toHaveProperty('name', teamName);
+    return team.id;
+}
 
-    // Clean up: Delete the created team
-    await request.delete(`${BASE_URL}/teams/${team.id}/`);
-  });
+// Helper function to delete a team
+async function deleteTeam(request: APIRequestContext, id: number) {
+    const response = await request.delete(`${TEAM_BASE_URL}/${id}/`);
+    expect(response.status()).toBe(200);
+}
 
-  test('should return 422 with invalid payload (missing name)', async ({ request }) => {
-    const response = await request.post(`${BASE_URL}/teams/`, {
-      data: {}, // Missing 'name' field
+test.describe('Team Service API Tests', () => {
+    test.describe('GET /teams/{id}/', () => {
+        let teamId: number;
+        test.beforeEach(async ({ request }) => {
+            // Create a team before each test that requires a valid team id
+            teamId = await createTeam(request, 'Test Team Get ID');
+        });
+
+        test.afterEach(async ({ request }) => {
+            // Clean up the created team after each test
+            if (teamId) {
+                await deleteTeam(request, teamId);
+            }
+        });
+
+        test('should return a team by ID (happy path)', async ({ request }) => {
+            const response = await request.get(`${TEAM_BASE_URL}/${teamId}/`);
+            expect(response.status()).toBe(200);
+            const team = await response.json();
+            expect(team).toHaveProperty('id', teamId);
+            expect(team).toHaveProperty('name', 'Test Team Get ID');
+        });
+
+        test('should return 404 for a non-existent team ID (negative path)', async ({ request }) => {
+            const response = await request.get(`${TEAM_BASE_URL}/99999/`);
+            expect(response.status()).toBe(404);
+            expect(await response.json()).toHaveProperty('detail', 'Team not found!');
+        });
+
+        test('should return 422 for invalid team ID (path param constraint violation)', async ({ request }) => {
+            // Path param 'id' has constraint 'gt 0'
+            const response = await request.get(`${TEAM_BASE_URL}/0/`);
+            expect(response.status()).toBe(422);
+        });
     });
-    expect(response.status()).toBe(422); // FastAPI returns 422 for validation errors
-    // Optionally, assert on the error message structure if known
-  });
 
-  test('should return 422 with invalid payload (name is not a string)', async ({ request }) => {
-    const response = await request.post(`${BASE_URL}/teams/`, {
-      data: { name: 123 }, // Name should be a string
+    test.describe('GET /teams/', () => {
+        test('should return all teams (happy path)', async ({ request }) => {
+            // Create a temporary team to ensure there's at least one
+            const tempTeamId = await createTeam(request, 'Temporary Team');
+
+            const response = await request.get(`${TEAM_BASE_URL}/`);
+            expect(response.status()).toBe(200);
+            const teamList = await response.json();
+            expect(Array.isArray(teamList)).toBeTruthy();
+            expect(teamList.length).toBeGreaterThanOrEqual(1);
+
+            // Clean up temporary team
+            await deleteTeam(request, tempTeamId);
+        });
     });
-    expect(response.status()).toBe(422); // FastAPI returns 422 for validation errors
-    // Optionally, assert on the error message structure if known
-  });
-});
 
-test.describe('DELETE /teams/{id}/', () => {
-  test('should return 200 and the deleted team ID if team exists', async ({ request }) => {
-    // First, create a team to ensure it exists for deletion
-    const createResponse = await request.post(`${BASE_URL}/teams/`, {
-      data: { name: 'Team to Delete' },
+    test.describe('POST /teams/', () => {
+        let teamId: number;
+        test.afterEach(async ({ request }) => {
+            // Clean up the created team if the test was successful
+            if (teamId) {
+                await deleteTeam(request, teamId);
+                teamId = 0; // Reset for next test
+            }
+        });
+
+        test('should create a new team (happy path)', async ({ request }) => {
+            const newTeam = {
+                name: 'New Team Name',
+            };
+            const response = await request.post(`${TEAM_BASE_URL}/`, {
+                data: newTeam,
+            });
+            expect(response.status()).toBe(201);
+            const createdTeam = await response.json();
+            expect(createdTeam).toHaveProperty('id');
+            expect(createdTeam).toMatchObject(newTeam);
+            teamId = createdTeam.id;
+        });
+
+        test('should return 422 for invalid payload (missing required field)', async ({ request }) => {
+            const invalidTeam = {
+                // name is missing
+            };
+            const response = await request.post(`${TEAM_BASE_URL}/`, {
+                data: invalidTeam,
+            });
+            expect(response.status()).toBe(422);
+        });
     });
-    expect(createResponse.status()).toBe(201);
-    const createdTeam = await createResponse.json();
-    const teamId = createdTeam.id;
 
-    const deleteResponse = await request.delete(`${BASE_URL}/teams/${teamId}/`);
-    expect(deleteResponse.status()).toBe(200);
-    expect(await deleteResponse.json()).toBe(teamId);
+    test.describe('DELETE /teams/{id}/', () => {
+        let teamIdToDelete: number;
+        test.beforeEach(async ({ request }) => {
+            teamIdToDelete = await createTeam(request, 'Team to Delete');
+        });
 
-    // Verify the team is actually deleted
-    const getResponse = await request.get(`${BASE_URL}/teams/${teamId}/`);
-    expect(getResponse.status()).toBe(404);
-  });
+        test('should delete a team by ID (happy path)', async ({ request }) => {
+            const response = await request.delete(`${TEAM_BASE_URL}/${teamIdToDelete}/`);
+            expect(response.status()).toBe(200);
+            expect(await response.json()).toBe(teamIdToDelete);
 
-  test('should return 404 if team does not exist', async ({ request }) => {
-    const nonExistentId = 99998; // Assuming this ID does not exist
-    const response = await request.delete(`${BASE_URL}/teams/${nonExistentId}/`);
-    expect(response.status()).toBe(404);
-    expect(await response.json()).toEqual({ detail: 'Team not found!' });
-  });
+            // Verify it's actually deleted
+            const getResponse = await request.get(`${TEAM_BASE_URL}/${teamIdToDelete}/`);
+            expect(getResponse.status()).toBe(404);
+        });
 
-  test('should return 422 for invalid id (e.g., id <= 0)', async ({ request }) => {
-    const invalidId = 0;
-    const response = await request.delete(`${BASE_URL}/teams/${invalidId}/`);
-    expect(response.status()).toBe(422); // FastAPI returns 422 for validation errors
-    // Optionally, assert on the error message structure if known
-  });
-});
+        test('should return 404 for a non-existent team ID (negative path)', async ({ request }) => {
+            const response = await request.delete(`${TEAM_BASE_URL}/99999/`);
+            expect(response.status()).toBe(404);
+            expect(await response.json()).toHaveProperty('detail', 'Team not found!');
+        });
 
-test.describe('PUT /teams/{id}/', () => {
-  test('should return 200 and update an existing team with valid payload', async ({ request }) => {
-    // First, create a team to ensure it exists for update
-    const createResponse = await request.post(`${BASE_URL}/teams/`, {
-      data: { name: 'Original Team Name' },
+        test('should return 422 for invalid team ID (path param constraint violation)', async ({ request }) => {
+            const response = await request.delete(`${TEAM_BASE_URL}/0/`);
+            expect(response.status()).toBe(422);
+        });
     });
-    expect(createResponse.status()).toBe(201);
-    const createdTeam = await createResponse.json();
-    const teamId = createdTeam.id;
 
-    const updatedName = 'Updated Team Name';
-    const putResponse = await request.put(`${BASE_URL}/teams/${teamId}/`, {
-      data: { name: updatedName },
+    test.describe('PUT /teams/{id}/', () => {
+        let teamIdToUpdate: number;
+        test.beforeEach(async ({ request }) => {
+            teamIdToUpdate = await createTeam(request, 'Team to Update');
+        });
+
+        test.afterEach(async ({ request }) => {
+            if (teamIdToUpdate) {
+                await deleteTeam(request, teamIdToUpdate);
+            }
+        });
+
+        test('should update an existing team by ID (happy path)', async ({ request }) => {
+            const updatedTeamData = {
+                name: 'Updated Team Name',
+            };
+            const response = await request.put(`${TEAM_BASE_URL}/${teamIdToUpdate}/`, {
+                data: updatedTeamData,
+            });
+            expect(response.status()).toBe(200);
+            const updatedTeam = await response.json();
+            expect(updatedTeam).toHaveProperty('id', teamIdToUpdate);
+            expect(updatedTeam).toMatchObject(updatedTeamData);
+        });
+
+        test('should return 404 for a non-existent team ID (negative path)', async ({ request }) => {
+            const updatedTeamData = {
+                name: 'Ghost Team',
+            };
+            const response = await request.put(`${TEAM_BASE_URL}/99999/`, {
+                data: updatedTeamData,
+            });
+            expect(response.status()).toBe(404);
+            expect(await response.json()).toHaveProperty('detail', 'Team not found!');
+        });
+
+        test('should return 422 for invalid team ID (path param constraint violation)', async ({ request }) => {
+            const updatedTeamData = {
+                name: 'Invalid ID Team',
+            };
+            const response = await request.put(`${TEAM_BASE_URL}/0/`, {
+                data: updatedTeamData,
+            });
+            expect(response.status()).toBe(422);
+        });
+
+        test('should return 422 for invalid payload (missing required field)', async ({ request }) => {
+            const invalidTeam = {
+                // name is missing
+            };
+            const response = await request.put(`${TEAM_BASE_URL}/${teamIdToUpdate}/`, {
+                data: invalidTeam,
+            });
+            expect(response.status()).toBe(422);
+        });
     });
-    expect(putResponse.status()).toBe(200);
-    const updatedTeam = await putResponse.json();
-    expect(updatedTeam).toHaveProperty('id', teamId);
-    expect(updatedTeam).toHaveProperty('name', updatedName);
-
-    // Verify the team is actually updated
-    const getResponse = await request.get(`${BASE_URL}/teams/${teamId}/`);
-    expect(getResponse.status()).toBe(200);
-    expect(await getResponse.json()).toHaveProperty('name', updatedName);
-
-    // Clean up: Delete the created team
-    await request.delete(`${BASE_URL}/teams/${teamId}/`);
-  });
-
-  test('should return 404 if team does not exist', async ({ request }) => {
-    const nonExistentId = 99997; // Assuming this ID does not exist
-    const response = await request.put(`${BASE_URL}/teams/${nonExistentId}/`, {
-      data: { name: 'Non Existent Team Update' },
-    });
-    expect(response.status()).toBe(404);
-    expect(await response.json()).toEqual({ detail: 'Team not found!' });
-  });
-
-  test('should return 422 with invalid payload (missing name)', async ({ request }) => {
-    // First, create a team to ensure it exists for the PUT request
-    const createResponse = await request.post(`${BASE_URL}/teams/`, {
-      data: { name: 'Team to update with invalid payload' },
-    });
-    expect(createResponse.status()).toBe(201);
-    const createdTeam = await createResponse.json();
-    const teamId = createdTeam.id;
-
-    const response = await request.put(`${BASE_URL}/teams/${teamId}/`, {
-      data: {}, // Missing 'name' field
-    });
-    expect(response.status()).toBe(422); // FastAPI returns 422 for validation errors
-    // Optionally, assert on the error message structure if known
-
-    // Clean up: Delete the created team
-    await request.delete(`${BASE_URL}/teams/${teamId}/`);
-  });
-
-  test('should return 422 for invalid id (e.g., id <= 0)', async ({ request }) => {
-    const invalidId = 0;
-    const response = await request.put(`${BASE_URL}/teams/${invalidId}/`, {
-      data: { name: 'Invalid ID Team Update' },
-    });
-    expect(response.status()).toBe(422); // FastAPI returns 422 for validation errors
-    // Optionally, assert on the error message structure if known
-  });
 });

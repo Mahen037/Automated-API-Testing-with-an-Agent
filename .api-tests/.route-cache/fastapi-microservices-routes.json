@@ -1,0 +1,12 @@
+{
+  "repo": "fastapi-microservices",
+  "commit": null,
+  "routes": [],
+  "metadata": {
+    "status": "success",
+    "routes_count": 0,
+    "files_scanned": 4,
+    "frameworks_detected": {},
+    "duration_seconds": "0.00"
+  }
+}

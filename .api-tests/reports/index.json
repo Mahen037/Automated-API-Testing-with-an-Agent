@@ -74,18 +74,18 @@
         {
           "title": "Pokemon Service API Tests",
           "file": "pokemon-service.spec.ts",
-          "line": 6,
+          "line": 38,
           "column": 6,
           "specs": [],
           "suites": [
             {
               "title": "GET /pokemon/{id}/",
               "file": "pokemon-service.spec.ts",
-              "line": 28,
-              "column": 8,
+              "line": 52,
+              "column": 10,
               "specs": [
                 {
-                  "title": "should return 200 and a pokemon if it exists",
+                  "title": "should return a pokemon by ID (happy path)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -100,12 +100,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 176,
+                          "duration": 117,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-17T21:02:58.609Z",
+                          "startTime": "2025-12-17T23:28:27.098Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -113,13 +113,13 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-478d43a5a831db707412",
+                  "id": "da31bf3364aa9ea7eca5-8e30c3fba1055625d5b1",
                   "file": "pokemon-service.spec.ts",
-                  "line": 48,
-                  "column": 9
+                  "line": 66,
+                  "column": 13
                 },
                 {
-                  "title": "should return 404 if pokemon does not exist",
+                  "title": "should return 404 for a non-existent pokemon ID (negative path)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -134,12 +134,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 205,
+                          "duration": 73,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-17T21:02:58.857Z",
+                          "startTime": "2025-12-17T23:28:27.310Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -147,13 +147,13 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-24f44d3ba90f962e9928",
+                  "id": "da31bf3364aa9ea7eca5-1fd4bb5dcd74ccbb00f0",
                   "file": "pokemon-service.spec.ts",
-                  "line": 58,
-                  "column": 9
+                  "line": 74,
+                  "column": 13
                 },
                 {
-                  "title": "should return 422 for invalid id (e.g., id <= 0)",
+                  "title": "should return 422 for invalid pokemon ID (path param constraint violation)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -168,12 +168,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 192,
+                          "duration": 69,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-17T21:02:59.070Z",
+                          "startTime": "2025-12-17T23:28:27.389Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -181,21 +181,21 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-8f221787c0826126ef7d",
+                  "id": "da31bf3364aa9ea7eca5-6f5604b74bdddb61cc69",
                   "file": "pokemon-service.spec.ts",
-                  "line": 65,
-                  "column": 9
+                  "line": 80,
+                  "column": 13
                 }
               ]
             },
             {
               "title": "GET /pokemon/",
               "file": "pokemon-service.spec.ts",
-              "line": 73,
-              "column": 8,
+              "line": 87,
+              "column": 10,
               "specs": [
                 {
-                  "title": "should return 200 and a list of pokemon",
+                  "title": "should return all pokemon (happy path)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -210,12 +210,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 49,
+                          "duration": 71,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-17T21:02:59.269Z",
+                          "startTime": "2025-12-17T23:28:27.465Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -223,21 +223,21 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-56bb8492e891b0d19da3",
+                  "id": "da31bf3364aa9ea7eca5-bb1d2ef4c5eec5125182",
                   "file": "pokemon-service.spec.ts",
-                  "line": 74,
-                  "column": 9
+                  "line": 88,
+                  "column": 13
                 }
               ]
             },
             {
               "title": "POST /pokemon/",
               "file": "pokemon-service.spec.ts",
-              "line": 82,
-              "column": 8,
+              "line": 103,
+              "column": 10,
               "specs": [
                 {
-                  "title": "should return 201 and create a new pokemon with valid payload",
+                  "title": "should create a new pokemon (happy path)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -252,12 +252,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 150,
+                          "duration": 65,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-17T21:02:59.323Z",
+                          "startTime": "2025-12-17T23:28:27.542Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -265,13 +265,13 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-25f93f7b4daf164872f8",
+                  "id": "da31bf3364aa9ea7eca5-934366229349abf853ea",
                   "file": "pokemon-service.spec.ts",
-                  "line": 83,
-                  "column": 9
+                  "line": 113,
+                  "column": 13
                 },
                 {
-                  "title": "should return 422 with invalid payload (missing name)",
+                  "title": "should return 404 if team_id does not exist (negative path)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -286,12 +286,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 49,
+                          "duration": 60,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-17T21:02:59.479Z",
+                          "startTime": "2025-12-17T23:28:27.613Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -299,13 +299,13 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-02b1106154ee4e7ab418",
+                  "id": "da31bf3364aa9ea7eca5-5097f813f6a945770d8f",
                   "file": "pokemon-service.spec.ts",
-                  "line": 100,
-                  "column": 9
+                  "line": 129,
+                  "column": 13
                 },
                 {
-                  "title": "should return 404 if team_id does not exist",
+                  "title": "should return 422 for invalid payload (missing required field)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -320,12 +320,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 101,
+                          "duration": 4,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-17T21:02:59.533Z",
+                          "startTime": "2025-12-17T23:28:27.678Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -333,21 +333,21 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-237667fa9c3557a050cc",
+                  "id": "da31bf3364aa9ea7eca5-2db14405f8ba677b47b2",
                   "file": "pokemon-service.spec.ts",
-                  "line": 108,
-                  "column": 9
+                  "line": 142,
+                  "column": 13
                 }
               ]
             },
             {
               "title": "DELETE /pokemon/{id}/",
               "file": "pokemon-service.spec.ts",
-              "line": 118,
-              "column": 8,
+              "line": 155,
+              "column": 10,
               "specs": [
                 {
-                  "title": "should return 200 and delete a pokemon if it exists",
+                  "title": "should delete a pokemon by ID (happy path)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -362,12 +362,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 204,
+                          "duration": 92,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-17T21:02:59.640Z",
+                          "startTime": "2025-12-17T23:28:27.687Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -375,13 +375,13 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-ddb586998c49c926ec19",
+                  "id": "da31bf3364aa9ea7eca5-1db27f9c1f1bfc8e6f25",
                   "file": "pokemon-service.spec.ts",
-                  "line": 131,
-                  "column": 9
+                  "line": 161,
+                  "column": 13
                 },
                 {
-                  "title": "should return 404 if pokemon does not exist",
+                  "title": "should return 404 for a non-existent pokemon ID (negative path)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -396,12 +396,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 159,
+                          "duration": 64,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-17T21:02:59.850Z",
+                          "startTime": "2025-12-17T23:28:27.786Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -409,13 +409,13 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-c1d01a4d16fee8ce9b34",
+                  "id": "da31bf3364aa9ea7eca5-6a4bdf70ec6ec25b48a2",
                   "file": "pokemon-service.spec.ts",
-                  "line": 142,
-                  "column": 9
+                  "line": 171,
+                  "column": 13
                 },
                 {
-                  "title": "should return 422 for invalid id (e.g., id <= 0)",
+                  "title": "should return 422 for invalid pokemon ID (path param constraint violation)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -430,12 +430,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 146,
+                          "duration": 60,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-17T21:03:00.015Z",
+                          "startTime": "2025-12-17T23:28:27.856Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -443,21 +443,21 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-e2b782137b10a1af5f42",
+                  "id": "da31bf3364aa9ea7eca5-1898916784afe13db498",
                   "file": "pokemon-service.spec.ts",
-                  "line": 149,
-                  "column": 9
+                  "line": 177,
+                  "column": 13
                 }
               ]
             },
             {
               "title": "PUT /pokemon/{id}/",
               "file": "pokemon-service.spec.ts",
-              "line": 157,
-              "column": 8,
+              "line": 183,
+              "column": 10,
               "specs": [
                 {
-                  "title": "should return 200 and update a pokemon with valid payload",
+                  "title": "should update an existing pokemon by ID (happy path)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -472,12 +472,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 302,
+                          "duration": 124,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-17T21:03:00.167Z",
+                          "startTime": "2025-12-17T23:28:27.922Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -485,13 +485,13 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-7435bb7384938f25dcf1",
+                  "id": "da31bf3364aa9ea7eca5-084dd73ab977bdd2418b",
                   "file": "pokemon-service.spec.ts",
-                  "line": 177,
-                  "column": 9
+                  "line": 195,
+                  "column": 13
                 },
                 {
-                  "title": "should return 404 if pokemon does not exist",
+                  "title": "should return 404 for a non-existent pokemon ID (negative path)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -506,12 +506,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 249,
+                          "duration": 123,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-17T21:03:00.475Z",
+                          "startTime": "2025-12-17T23:28:28.053Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -519,13 +519,13 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-417cd86a1d83abe846a6",
+                  "id": "da31bf3364aa9ea7eca5-d145d484495c023e6314",
                   "file": "pokemon-service.spec.ts",
-                  "line": 198,
-                  "column": 9
+                  "line": 210,
+                  "column": 13
                 },
                 {
-                  "title": "should return 422 with invalid payload (missing type)",
+                  "title": "should return 404 if team_id does not exist (negative path for team_id)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -540,12 +540,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 194,
+                          "duration": 123,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-17T21:03:00.731Z",
+                          "startTime": "2025-12-17T23:28:28.183Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -553,13 +553,13 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-db741f87c252886ff516",
+                  "id": "da31bf3364aa9ea7eca5-7e94c14cf03d3a94d91e",
                   "file": "pokemon-service.spec.ts",
-                  "line": 207,
-                  "column": 9
+                  "line": 223,
+                  "column": 13
                 },
                 {
-                  "title": "should return 404 if team_id in payload does not exist",
+                  "title": "should return 422 for invalid pokemon ID (path param constraint violation)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -574,12 +574,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 253,
+                          "duration": 62,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-17T21:03:00.933Z",
+                          "startTime": "2025-12-17T23:28:28.313Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -587,13 +587,13 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-631b57a2d184c81c8e08",
+                  "id": "da31bf3364aa9ea7eca5-4de09d196ef0a4a4757b",
                   "file": "pokemon-service.spec.ts",
-                  "line": 215,
-                  "column": 9
+                  "line": 236,
+                  "column": 13
                 },
                 {
-                  "title": "should return 422 for invalid id (e.g., id <= 0)",
+                  "title": "should return 422 for invalid payload (missing required field)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -608,12 +608,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 196,
+                          "duration": 65,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-17T21:03:01.192Z",
+                          "startTime": "2025-12-17T23:28:28.381Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -621,10 +621,10 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-0ead80494f6cad2a15ef",
+                  "id": "da31bf3364aa9ea7eca5-3b3fa05b81e3f745f343",
                   "file": "pokemon-service.spec.ts",
-                  "line": 224,
-                  "column": 9
+                  "line": 248,
+                  "column": 13
                 }
               ]
             }
@@ -640,616 +640,493 @@
       "specs": [],
       "suites": [
         {
-          "title": "GET /teams/{id}/",
+          "title": "Team Service API Tests",
           "file": "team-service.spec.ts",
-          "line": 5,
+          "line": 21,
           "column": 6,
-          "specs": [
+          "specs": [],
+          "suites": [
             {
-              "title": "should return 200 and a team if team exists",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 143,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-17T21:02:58.608Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "eaf358b89f316e1fed07-322e75e1401e497868f3",
+              "title": "GET /teams/{id}/",
               "file": "team-service.spec.ts",
-              "line": 6,
-              "column": 7
-            },
-            {
-              "title": "should return 404 if team does not exist",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "line": 22,
+              "column": 10,
+              "specs": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
+                  "title": "should return a team by ID (happy path)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 53,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-17T21:02:58.767Z",
+                      "timeout": 60000,
                       "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "eaf358b89f316e1fed07-080d60c29a733596301f",
-              "file": "team-service.spec.ts",
-              "line": 28,
-              "column": 7
-            },
-            {
-              "title": "should return 422 for invalid id (e.g., id <= 0)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 56,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-17T21:02:58.826Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "eaf358b89f316e1fed07-b79a27bf5e3c4d35469c",
-              "file": "team-service.spec.ts",
-              "line": 35,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "GET /teams/",
-          "file": "team-service.spec.ts",
-          "line": 43,
-          "column": 6,
-          "specs": [
-            {
-              "title": "should return 200 and a list of teams",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 101,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-17T21:02:58.889Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "eaf358b89f316e1fed07-0f0374fe10327f0b1395",
-              "file": "team-service.spec.ts",
-              "line": 44,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "POST /teams/",
-          "file": "team-service.spec.ts",
-          "line": 52,
-          "column": 6,
-          "specs": [
-            {
-              "title": "should return 201 and create a new team with valid payload",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 101,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-17T21:02:58.998Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "eaf358b89f316e1fed07-3e85c0fccfd8ef146132",
-              "file": "team-service.spec.ts",
-              "line": 53,
-              "column": 7
-            },
-            {
-              "title": "should return 422 with invalid payload (missing name)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 49,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-17T21:02:59.103Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "eaf358b89f316e1fed07-dd6ccff3994b3320fca2",
-              "file": "team-service.spec.ts",
-              "line": 67,
-              "column": 7
-            },
-            {
-              "title": "should return 422 with invalid payload (name is not a string)",
-              "ok": false,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 54,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts:79:31",
-                        "location": {
-                          "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
-                          "column": 31,
-                          "line": 79
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 77 |\u001b[39m       data\u001b[33m:\u001b[39m { name\u001b[33m:\u001b[39m \u001b[35m123\u001b[39m }\u001b[33m,\u001b[39m \u001b[90m// Name should be a string\u001b[39m\n \u001b[90m 78 |\u001b[39m     })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 79 |\u001b[39m     expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m422\u001b[39m)\u001b[33m;\u001b[39m \u001b[90m// FastAPI returns 422 for validation errors\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 80 |\u001b[39m     \u001b[90m// Optionally, assert on the error message structure if known\u001b[39m\n \u001b[90m 81 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 82 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
                         {
-                          "location": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
-                            "column": 31,
-                            "line": 79
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n\n  77 |       data: { name: 123 }, // Name should be a string\n  78 |     });\n> 79 |     expect(response.status()).toBe(422); // FastAPI returns 422 for validation errors\n     |                               ^\n  80 |     // Optionally, assert on the error message structure if known\n  81 |   });\n  82 | });\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts:79:31"
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 83,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T23:28:27.103Z",
+                          "annotations": [],
+                          "attachments": []
                         }
                       ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-17T21:02:59.158Z",
-                      "annotations": [],
-                      "attachments": [],
-                      "errorLocation": {
-                        "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
-                        "column": 31,
-                        "line": 79
-                      }
-                    },
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "eaf358b89f316e1fed07-e056fcb0161363fe5e56",
+                  "file": "team-service.spec.ts",
+                  "line": 36,
+                  "column": 13
+                },
+                {
+                  "title": "should return 404 for a non-existent team ID (negative path)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 25,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts:79:31",
-                        "location": {
-                          "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
-                          "column": 31,
-                          "line": 79
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 77 |\u001b[39m       data\u001b[33m:\u001b[39m { name\u001b[33m:\u001b[39m \u001b[35m123\u001b[39m }\u001b[33m,\u001b[39m \u001b[90m// Name should be a string\u001b[39m\n \u001b[90m 78 |\u001b[39m     })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 79 |\u001b[39m     expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m422\u001b[39m)\u001b[33m;\u001b[39m \u001b[90m// FastAPI returns 422 for validation errors\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 80 |\u001b[39m     \u001b[90m// Optionally, assert on the error message structure if known\u001b[39m\n \u001b[90m 81 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 82 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
                         {
-                          "location": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
-                            "column": 31,
-                            "line": 79
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n\n  77 |       data: { name: 123 }, // Name should be a string\n  78 |     });\n> 79 |     expect(response.status()).toBe(422); // FastAPI returns 422 for validation errors\n     |                               ^\n  80 |     // Optionally, assert on the error message structure if known\n  81 |   });\n  82 | });\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts:79:31"
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 19,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T23:28:27.204Z",
+                          "annotations": [],
+                          "attachments": []
                         }
                       ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2025-12-17T21:02:59.787Z",
-                      "annotations": [],
-                      "attachments": [],
-                      "errorLocation": {
-                        "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
-                        "column": 31,
-                        "line": 79
-                      }
-                    },
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "eaf358b89f316e1fed07-4cb4718af8364c5d070d",
+                  "file": "team-service.spec.ts",
+                  "line": 44,
+                  "column": 13
+                },
+                {
+                  "title": "should return 422 for invalid team ID (path param constraint violation)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 25,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts:79:31",
-                        "location": {
-                          "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
-                          "column": 31,
-                          "line": 79
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 77 |\u001b[39m       data\u001b[33m:\u001b[39m { name\u001b[33m:\u001b[39m \u001b[35m123\u001b[39m }\u001b[33m,\u001b[39m \u001b[90m// Name should be a string\u001b[39m\n \u001b[90m 78 |\u001b[39m     })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 79 |\u001b[39m     expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m422\u001b[39m)\u001b[33m;\u001b[39m \u001b[90m// FastAPI returns 422 for validation errors\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 80 |\u001b[39m     \u001b[90m// Optionally, assert on the error message structure if known\u001b[39m\n \u001b[90m 81 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 82 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
                         {
-                          "location": {
-                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
-                            "column": 31,
-                            "line": 79
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n\n  77 |       data: { name: 123 }, // Name should be a string\n  78 |     });\n> 79 |     expect(response.status()).toBe(422); // FastAPI returns 422 for validation errors\n     |                               ^\n  80 |     // Optionally, assert on the error message structure if known\n  81 |   });\n  82 | });\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts:79:31"
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 20,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T23:28:27.230Z",
+                          "annotations": [],
+                          "attachments": []
                         }
                       ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 2,
-                      "startTime": "2025-12-17T21:03:00.416Z",
-                      "annotations": [],
-                      "attachments": [],
-                      "errorLocation": {
-                        "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
-                        "column": 31,
-                        "line": 79
-                      }
+                      "status": "expected"
                     }
                   ],
-                  "status": "unexpected"
+                  "id": "eaf358b89f316e1fed07-07f0617810964f5f7186",
+                  "file": "team-service.spec.ts",
+                  "line": 50,
+                  "column": 13
                 }
-              ],
-              "id": "eaf358b89f316e1fed07-077af1a349e258674531",
-              "file": "team-service.spec.ts",
-              "line": 75,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "DELETE /teams/{id}/",
-          "file": "team-service.spec.ts",
-          "line": 84,
-          "column": 6,
-          "specs": [
-            {
-              "title": "should return 200 and the deleted team ID if team exists",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 4,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 126,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-17T21:03:01.026Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "eaf358b89f316e1fed07-5a907450ecf13c0162bb",
-              "file": "team-service.spec.ts",
-              "line": 85,
-              "column": 7
+              ]
             },
             {
-              "title": "should return 404 if team does not exist",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "title": "GET /teams/",
+              "file": "team-service.spec.ts",
+              "line": 57,
+              "column": 10,
+              "specs": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
+                  "title": "should return all teams (happy path)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 55,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-17T21:03:01.165Z",
+                      "timeout": 60000,
                       "annotations": [],
-                      "attachments": []
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 18,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T23:28:27.259Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
                     }
                   ],
-                  "status": "expected"
+                  "id": "eaf358b89f316e1fed07-8030089db243fa2c324f",
+                  "file": "team-service.spec.ts",
+                  "line": 58,
+                  "column": 13
                 }
-              ],
-              "id": "eaf358b89f316e1fed07-ba2bb26eecb4929b565e",
-              "file": "team-service.spec.ts",
-              "line": 103,
-              "column": 7
+              ]
             },
             {
-              "title": "should return 422 for invalid id (e.g., id <= 0)",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "title": "POST /teams/",
+              "file": "team-service.spec.ts",
+              "line": 73,
+              "column": 10,
+              "specs": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
+                  "title": "should create a new team (happy path)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 46,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-17T21:03:01.227Z",
+                      "timeout": 60000,
                       "annotations": [],
-                      "attachments": []
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 16,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T23:28:27.287Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
                     }
                   ],
-                  "status": "expected"
-                }
-              ],
-              "id": "eaf358b89f316e1fed07-2ed7c16dcbab82d9e7a3",
-              "file": "team-service.spec.ts",
-              "line": 110,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "PUT /teams/{id}/",
-          "file": "team-service.spec.ts",
-          "line": 118,
-          "column": 6,
-          "specs": [
-            {
-              "title": "should return 200 and update an existing team with valid payload",
-              "ok": true,
-              "tags": [],
-              "tests": [
+                  "id": "eaf358b89f316e1fed07-33f8b7105d62a6c5ac80",
+                  "file": "team-service.spec.ts",
+                  "line": 83,
+                  "column": 13
+                },
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
+                  "title": "should return 422 for invalid payload (missing required field)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 201,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-17T21:03:01.279Z",
+                      "timeout": 60000,
                       "annotations": [],
-                      "attachments": []
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 6,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T23:28:27.310Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
                     }
                   ],
-                  "status": "expected"
+                  "id": "eaf358b89f316e1fed07-3bda6c782307f3ce1e87",
+                  "file": "team-service.spec.ts",
+                  "line": 97,
+                  "column": 13
                 }
-              ],
-              "id": "eaf358b89f316e1fed07-0d9626fffcb8e06eff2a",
-              "file": "team-service.spec.ts",
-              "line": 119,
-              "column": 7
+              ]
             },
             {
-              "title": "should return 404 if team does not exist",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "title": "DELETE /teams/{id}/",
+              "file": "team-service.spec.ts",
+              "line": 108,
+              "column": 10,
+              "specs": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
+                  "title": "should delete a team by ID (happy path)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 50,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-17T21:03:01.489Z",
+                      "timeout": 60000,
                       "annotations": [],
-                      "attachments": []
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 19,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T23:28:27.322Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
                     }
                   ],
-                  "status": "expected"
+                  "id": "eaf358b89f316e1fed07-7d9f80e63b29859f6b66",
+                  "file": "team-service.spec.ts",
+                  "line": 114,
+                  "column": 13
+                },
+                {
+                  "title": "should return 404 for a non-existent team ID (negative path)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 9,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T23:28:27.352Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "eaf358b89f316e1fed07-61774441580d9d31c88d",
+                  "file": "team-service.spec.ts",
+                  "line": 124,
+                  "column": 13
+                },
+                {
+                  "title": "should return 422 for invalid team ID (path param constraint violation)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 15,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T23:28:27.367Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "eaf358b89f316e1fed07-7d8c414abf62234c68d1",
+                  "file": "team-service.spec.ts",
+                  "line": 130,
+                  "column": 13
                 }
-              ],
-              "id": "eaf358b89f316e1fed07-b21a16cceb17344928d3",
-              "file": "team-service.spec.ts",
-              "line": 146,
-              "column": 7
+              ]
             },
             {
-              "title": "should return 422 with invalid payload (missing name)",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "title": "PUT /teams/{id}/",
+              "file": "team-service.spec.ts",
+              "line": 136,
+              "column": 10,
+              "specs": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
+                  "title": "should update an existing team by ID (happy path)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 147,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-17T21:03:01.543Z",
+                      "timeout": 60000,
                       "annotations": [],
-                      "attachments": []
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 19,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T23:28:27.389Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
                     }
                   ],
-                  "status": "expected"
-                }
-              ],
-              "id": "eaf358b89f316e1fed07-0ce93cfa73c5b0fe3153",
-              "file": "team-service.spec.ts",
-              "line": 155,
-              "column": 7
-            },
-            {
-              "title": "should return 422 for invalid id (e.g., id <= 0)",
-              "ok": true,
-              "tags": [],
-              "tests": [
+                  "id": "eaf358b89f316e1fed07-b37002b78997e48c3827",
+                  "file": "team-service.spec.ts",
+                  "line": 148,
+                  "column": 13
+                },
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
+                  "title": "should return 404 for a non-existent team ID (negative path)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 49,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-17T21:03:01.696Z",
+                      "timeout": 60000,
                       "annotations": [],
-                      "attachments": []
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 14,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T23:28:27.415Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
                     }
                   ],
-                  "status": "expected"
+                  "id": "eaf358b89f316e1fed07-b280cdcd42425000db04",
+                  "file": "team-service.spec.ts",
+                  "line": 161,
+                  "column": 13
+                },
+                {
+                  "title": "should return 422 for invalid team ID (path param constraint violation)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 14,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T23:28:27.435Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "eaf358b89f316e1fed07-b6e4a92ff3fe19fcac83",
+                  "file": "team-service.spec.ts",
+                  "line": 172,
+                  "column": 13
+                },
+                {
+                  "title": "should return 422 for invalid payload (missing required field)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 15,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T23:28:27.456Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "eaf358b89f316e1fed07-031f92ee25208375d50b",
+                  "file": "team-service.spec.ts",
+                  "line": 182,
+                  "column": 13
                 }
-              ],
-              "id": "eaf358b89f316e1fed07-5e8565a24160c9ca9e0b",
-              "file": "team-service.spec.ts",
-              "line": 174,
-              "column": 7
+              ]
             }
           ]
         }
@@ -1258,11 +1135,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-17T21:02:57.935Z",
-    "duration": 3847.8140000000003,
+    "startTime": "2025-12-17T23:28:26.382Z",
+    "duration": 2122.621,
     "expected": 28,
     "skipped": 0,
-    "unexpected": 1,
+    "unexpected": 0,
     "flaky": 0
   }
 }

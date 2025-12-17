@@ -14,7 +14,7 @@ from .crawler.code_parser import extract_routes_parallel, routes_to_json
 
 ROUTES_DIR = Path(".api-tests") / "routes"
 TESTS_DIR = Path(".api-tests") / "tests"
-INTERNAL_DIR = Path(".api-tests") / ".atlas-internal" / "loop-state"
+INTERNAL_DIR = Path(".api-tests") / ".atlas-internal"
 
 def approve_generation(*, service: str) -> Dict[str, str]:
     INTERNAL_DIR.mkdir(parents=True, exist_ok=True)
@@ -215,8 +215,7 @@ def crawl_routes_snapshot(
     }
     
     # Store using existing store_routes_snapshot
-    ROUTES_DIR.mkdir(parents=True, exist_ok=True)
-    output_path = ROUTES_DIR / f"{repo.replace('/', '_')}_routes.json"
+    output_path = Path('.api-tests') / '.route-cache' / f"{repo.replace('/', '_')}-routes.json"
     output_path.write_text(json.dumps(payload, indent=2))
     
     return {

@@ -202,7 +202,7 @@ prompt: |
        - server/, src/, app/, api/, services/, controllers/, routes/
        - files referencing FastAPI, Flask, Express/Nest, Spring, Rails
 
-  2. Use GitHub MCP tools (e.g. get_file_contents, search_repositories, search_code, etc.) repeatedly to inspect route-defining files.
+  2. Use available GitHub MCP tools repeatedly to inspect route-defining files. 
      - Do NOT stop after inspecting a single file or directory.
      - Continue traversal until no new candidate route files remain.
 
