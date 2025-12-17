@@ -1,0 +1,375 @@
+.header {
+    background: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--spacing-lg) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.header-icon {
+    width: 36px;
+    height: 36px;
+    color: var(--color-accent-primary);
+    filter: drop-shadow(0 0 8px var(--color-accent-primary-glow));
+}
+
+.header-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(135deg, var(--color-text-primary), var(--color-accent-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header-subtitle {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+/* Spinning icon for loading state */
+.icon-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Modal styles */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    animation: fadeIn 0.2s ease;
+}
+
+.modal {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    width: 100%;
+    max-width: 480px;
+    margin: var(--spacing-lg);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.modal-description {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.modal-description code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    color: var(--color-accent-primary);
+}
+
+.modal-lg {
+    max-width: 560px;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.input {
+    width: 100%;
+    padding: var(--spacing-md);
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    transition: border-color var(--transition-fast);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 0 0 3px var(--color-accent-primary-glow);
+}
+
+.input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.input-hint {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-xs);
+}
+
+.status-box {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.status-running {
+    background: var(--color-info-bg);
+    border: 1px solid var(--color-info);
+}
+
+.status-completed {
+    background: var(--color-success-bg);
+    border: 1px solid var(--color-success);
+}
+
+.status-failed {
+    background: var(--color-error-bg);
+    border: 1px solid var(--color-error);
+}
+
+.status-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.status-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.status-output {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    max-height: 200px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.modal-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: flex-end;
+}
+
+.input-error {
+    border-color: var(--color-error);
+}
+
+.input-error:focus {
+    box-shadow: 0 0 0 3px var(--color-error-glow);
+}
+
+.modal-error {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-error-bg);
+    border: 1px solid var(--color-error);
+    border-radius: var(--radius-md);
+    color: var(--color-error);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Large modal for verbose output */
+.modal-large {
+    max-width: 640px;
+}
+
+/* Phase Progress Indicator */
+.phase-progress {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: var(--color-bg-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+}
+
+.phase-step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+}
+
+.phase-step:last-child {
+    padding-bottom: 0;
+}
+
+.phase-step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--color-bg-secondary);
+    border: 2px solid var(--color-border);
+    flex-shrink: 0;
+}
+
+.phase-step.running .phase-step-indicator {
+    border-color: var(--color-accent-primary);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.phase-step.completed .phase-step-indicator {
+    border-color: var(--color-success);
+    background: var(--color-success-bg);
+}
+
+.phase-step.failed .phase-step-indicator {
+    border-color: var(--color-error);
+    background: var(--color-error-bg);
+}
+
+.phase-step-icon {
+    color: var(--color-text-muted);
+}
+
+.phase-step-icon.active {
+    color: var(--color-accent-primary);
+}
+
+.phase-step-icon.complete {
+    color: var(--color-success);
+}
+
+.phase-step-icon.failed {
+    color: var(--color-error);
+}
+
+.phase-step-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.phase-step-name {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.phase-step.pending .phase-step-name {
+    color: var(--color-text-muted);
+}
+
+.phase-step-summary {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    margin-top: 2px;
+}
+
+.phase-connector {
+    position: absolute;
+    left: 13px;
+    top: 32px;
+    width: 2px;
+    height: calc(100% - 24px);
+    background: var(--color-border);
+}
+
+.phase-connector.complete {
+    background: var(--color-success);
+}
+
+/* Enhanced Status Box */
+.status-success-icon {
+    color: var(--color-success);
+}
+
+.status-error-icon {
+    color: var(--color-error);
+}
+
+/* Agent Narrative */
+.status-narrative {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--color-accent-primary);
+}
+
+.status-narrative p {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.status-narrative p:last-child {
+    margin-bottom: 0;
+}
+
+/* Output Details */
+.status-output-details {
+    margin-top: var(--spacing-md);
+}
+
+.status-output-details summary {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: var(--spacing-xs) 0;
+}
+
+.status-output-details summary:hover {
+    color: var(--color-accent-primary);
+}
+
+.status-output-details .status-output {
+    margin-top: var(--spacing-sm);
+}

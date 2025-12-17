@@ -1,0 +1,113 @@
+.section {
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Agent Activity Section */
+.agent-activity-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.error-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-error-bg);
+    border: 1px solid var(--color-error);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-error);
+}
+
+.error-banner p {
+    margin: 0;
+    color: var(--color-error);
+}
+
+.warning-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--color-warning-bg);
+    border: 1px solid var(--color-warning);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-warning);
+}
+
+.warning-banner strong {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.warning-banner p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+}
+
+.warning-banner code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+}
+
+.test-list-skeleton {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.dashboard-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-lg) 0;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    border-top: 1px solid var(--color-border);
+}
+
+.btn-text {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    cursor: pointer;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.btn-text:hover {
+    color: var(--color-accent-primary);
+    background: var(--color-bg-card);
+}
+
+/* Two-column layout */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+}
+
+@media (min-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr 300px;
+    }
+}
+
+.content-main {
+    min-width: 0;
+}
+
+.content-sidebar {
+    min-width: 0;
+}
