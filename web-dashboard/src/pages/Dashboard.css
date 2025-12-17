@@ -111,3 +111,8 @@
 .content-sidebar {
     min-width: 0;
 }
+
+/* Test Results Summary Section */
+.test-results-summary-section {
+    margin-bottom: var(--spacing-xl);
+}

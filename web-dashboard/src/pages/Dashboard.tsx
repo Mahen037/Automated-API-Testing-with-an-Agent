@@ -3,6 +3,7 @@ import { CheckCircle2, XCircle, Clock, Activity, RefreshCw, AlertCircle } from '
 import { Header } from '../components/Header';
 import { SummaryCard, SummaryCardSkeleton } from '../components/SummaryCard';
 import { TestList } from '../components/TestList';
+import { TestResultsSummary } from '../components/TestResultsSummary';
 import { ErrorLog } from '../components/ErrorLog';
 import { TestFileList } from '../components/TestFileList';
 import { AgentActivityLog, AgentActivityEmpty, type AgentPhase } from '../components/AgentActivityLog';
@@ -213,6 +214,16 @@ export function Dashboard() {
                                         : lastRunStatus?.status === 'failed'
                                             ? 'error'
                                             : 'idle'}
+                            />
+                        </div>
+                    )}
+
+                    {/* Test Results Summary - Prominent display of pass/fail */}
+                    {data && data.hasData && (
+                        <div className="section test-results-summary-section">
+                            <TestResultsSummary
+                                endpoints={data.endpoints}
+                                hasData={data.hasData}
                             />
                         </div>
                     )}

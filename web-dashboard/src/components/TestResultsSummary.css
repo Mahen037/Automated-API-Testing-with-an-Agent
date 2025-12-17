@@ -1,0 +1,215 @@
+.test-results-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Banner Styles */
+.summary-banner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    border-radius: 12px;
+    color: white;
+}
+
+.summary-banner.has-failures {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.summary-banner.all-passed {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+}
+
+.banner-icon {
+    flex-shrink: 0;
+    opacity: 0.9;
+}
+
+.banner-content {
+    flex: 1;
+}
+
+.banner-content h2 {
+    margin: 0 0 4px 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.banner-content p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.banner-stats {
+    display: flex;
+    gap: 16px;
+}
+
+.banner-stats .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Section Styles */
+.results-section {
+    background: var(--bg-secondary, #1e293b);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color, #334155);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 16px 20px;
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.section-header:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.section-title {
+    flex: 1;
+    text-align: left;
+}
+
+.failed-section .section-icon {
+    color: #ef4444;
+}
+
+.passed-section .section-icon {
+    color: #22c55e;
+}
+
+.section-content {
+    border-top: 1px solid var(--border-color, #334155);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Test Item Styles */
+.test-result-item {
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: var(--bg-primary, #0f172a);
+}
+
+.test-result-item.failed {
+    border-left: 3px solid #ef4444;
+}
+
+.test-result-item.passed {
+    border-left: 3px solid #22c55e;
+}
+
+.test-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.test-name {
+    flex: 1;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--text-primary, #f1f5f9);
+}
+
+.test-duration {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    color: var(--text-secondary, #94a3b8);
+}
+
+.test-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--text-secondary, #94a3b8);
+    margin-bottom: 8px;
+}
+
+.pass-icon {
+    color: #22c55e;
+}
+
+/* Failure Summary */
+.test-failure-summary {
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    margin-top: 8px;
+}
+
+.test-failure-summary .expected,
+.test-failure-summary .received {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.test-failure-summary .expected:last-child,
+.test-failure-summary .received:last-child {
+    margin-bottom: 0;
+}
+
+.test-failure-summary .label {
+    font-weight: 600;
+    color: var(--text-secondary, #94a3b8);
+    width: 70px;
+    flex-shrink: 0;
+}
+
+.test-failure-summary .expected .label {
+    color: #22c55e;
+}
+
+.test-failure-summary .received .label {
+    color: #ef4444;
+}
+
+.test-failure-summary code {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: var(--text-primary, #f1f5f9);
+    word-break: break-word;
+}
+
+.test-error-message {
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    color: #fca5a5;
+    margin-top: 8px;
+    word-break: break-word;
+}
