@@ -72,20 +72,20 @@
       "specs": [],
       "suites": [
         {
-          "title": "pokemon-service",
+          "title": "Pokemon Service API Tests",
           "file": "pokemon-service.spec.ts",
-          "line": 15,
+          "line": 6,
           "column": 6,
           "specs": [],
           "suites": [
             {
-              "title": "GET /pokemon/",
+              "title": "GET /pokemon/{id}/",
               "file": "pokemon-service.spec.ts",
-              "line": 17,
+              "line": 28,
               "column": 8,
               "specs": [
                 {
-                  "title": "should return list of pokemon",
+                  "title": "should return 200 and a pokemon if it exists",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -100,12 +100,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 40,
+                          "duration": 176,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-15T14:53:40.740Z",
+                          "startTime": "2025-12-17T21:02:58.609Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -113,9 +113,119 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-6520bea9129ba2d797b7",
+                  "id": "da31bf3364aa9ea7eca5-478d43a5a831db707412",
                   "file": "pokemon-service.spec.ts",
-                  "line": 18,
+                  "line": 48,
+                  "column": 9
+                },
+                {
+                  "title": "should return 404 if pokemon does not exist",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 205,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T21:02:58.857Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-24f44d3ba90f962e9928",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 58,
+                  "column": 9
+                },
+                {
+                  "title": "should return 422 for invalid id (e.g., id <= 0)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 192,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T21:02:59.070Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-8f221787c0826126ef7d",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 65,
+                  "column": 9
+                }
+              ]
+            },
+            {
+              "title": "GET /pokemon/",
+              "file": "pokemon-service.spec.ts",
+              "line": 73,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should return 200 and a list of pokemon",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 49,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T21:02:59.269Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-56bb8492e891b0d19da3",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 74,
                   "column": 9
                 }
               ]
@@ -123,11 +233,11 @@
             {
               "title": "POST /pokemon/",
               "file": "pokemon-service.spec.ts",
-              "line": 25,
+              "line": 82,
               "column": 8,
               "specs": [
                 {
-                  "title": "should create a new pokemon",
+                  "title": "should return 201 and create a new pokemon with valid payload",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -142,12 +252,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 152,
+                          "duration": 150,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-15T14:53:40.795Z",
+                          "startTime": "2025-12-17T21:02:59.323Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -155,13 +265,13 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-ac07f2c0a01d6ccf81c3",
+                  "id": "da31bf3364aa9ea7eca5-25f93f7b4daf164872f8",
                   "file": "pokemon-service.spec.ts",
-                  "line": 26,
+                  "line": 83,
                   "column": 9
                 },
                 {
-                  "title": "should return 404 if team does not exist",
+                  "title": "should return 422 with invalid payload (missing name)",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -176,12 +286,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 102,
+                          "duration": 49,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-15T14:53:40.952Z",
+                          "startTime": "2025-12-17T21:02:59.479Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -189,55 +299,13 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-4411665fcec89e519b66",
+                  "id": "da31bf3364aa9ea7eca5-02b1106154ee4e7ab418",
                   "file": "pokemon-service.spec.ts",
-                  "line": 36,
-                  "column": 9
-                }
-              ]
-            },
-            {
-              "title": "GET /pokemon/{id}/",
-              "file": "pokemon-service.spec.ts",
-              "line": 43,
-              "column": 8,
-              "specs": [
-                {
-                  "title": "should return pokemon details",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 154,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.061Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "da31bf3364aa9ea7eca5-5c4dc367ed2a6bd0430d",
-                  "file": "pokemon-service.spec.ts",
-                  "line": 44,
+                  "line": 100,
                   "column": 9
                 },
                 {
-                  "title": "should return 404 for non-existent pokemon",
+                  "title": "should return 404 if team_id does not exist",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -252,12 +320,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 47,
+                          "duration": 101,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.224Z",
+                          "startTime": "2025-12-17T21:02:59.533Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -265,85 +333,9 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-01f2b1a70aaa771be08a",
+                  "id": "da31bf3364aa9ea7eca5-237667fa9c3557a050cc",
                   "file": "pokemon-service.spec.ts",
-                  "line": 57,
-                  "column": 9
-                }
-              ]
-            },
-            {
-              "title": "PUT /pokemon/{id}/",
-              "file": "pokemon-service.spec.ts",
-              "line": 63,
-              "column": 8,
-              "specs": [
-                {
-                  "title": "should update pokemon details",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 203,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.276Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "da31bf3364aa9ea7eca5-c8e9677058888b8dd403",
-                  "file": "pokemon-service.spec.ts",
-                  "line": 64,
-                  "column": 9
-                },
-                {
-                  "title": "should return 404 for non-existent pokemon",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 0,
-                          "parallelIndex": 0,
-                          "status": "passed",
-                          "duration": 104,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.485Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "da31bf3364aa9ea7eca5-d06264314b6191d25e05",
-                  "file": "pokemon-service.spec.ts",
-                  "line": 78,
+                  "line": 108,
                   "column": 9
                 }
               ]
@@ -351,11 +343,11 @@
             {
               "title": "DELETE /pokemon/{id}/",
               "file": "pokemon-service.spec.ts",
-              "line": 87,
+              "line": 118,
               "column": 8,
               "specs": [
                 {
-                  "title": "should delete pokemon",
+                  "title": "should return 200 and delete a pokemon if it exists",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -370,12 +362,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 153,
+                          "duration": 204,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.593Z",
+                          "startTime": "2025-12-17T21:02:59.640Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -383,13 +375,13 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-edb364f9d22db2595b6d",
+                  "id": "da31bf3364aa9ea7eca5-ddb586998c49c926ec19",
                   "file": "pokemon-service.spec.ts",
-                  "line": 88,
+                  "line": 131,
                   "column": 9
                 },
                 {
-                  "title": "should return 404 for non-existent pokemon",
+                  "title": "should return 404 if pokemon does not exist",
                   "ok": true,
                   "tags": [],
                   "tests": [
@@ -404,12 +396,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 51,
+                          "duration": 159,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.753Z",
+                          "startTime": "2025-12-17T21:02:59.850Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -417,9 +409,221 @@
                       "status": "expected"
                     }
                   ],
-                  "id": "da31bf3364aa9ea7eca5-83be4539a6867d1e1f0a",
+                  "id": "da31bf3364aa9ea7eca5-c1d01a4d16fee8ce9b34",
                   "file": "pokemon-service.spec.ts",
-                  "line": 101,
+                  "line": 142,
+                  "column": 9
+                },
+                {
+                  "title": "should return 422 for invalid id (e.g., id <= 0)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 146,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T21:03:00.015Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-e2b782137b10a1af5f42",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 149,
+                  "column": 9
+                }
+              ]
+            },
+            {
+              "title": "PUT /pokemon/{id}/",
+              "file": "pokemon-service.spec.ts",
+              "line": 157,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should return 200 and update a pokemon with valid payload",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 302,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T21:03:00.167Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-7435bb7384938f25dcf1",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 177,
+                  "column": 9
+                },
+                {
+                  "title": "should return 404 if pokemon does not exist",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 249,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T21:03:00.475Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-417cd86a1d83abe846a6",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 198,
+                  "column": 9
+                },
+                {
+                  "title": "should return 422 with invalid payload (missing type)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 194,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T21:03:00.731Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-db741f87c252886ff516",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 207,
+                  "column": 9
+                },
+                {
+                  "title": "should return 404 if team_id in payload does not exist",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 253,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T21:03:00.933Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-631b57a2d184c81c8e08",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 215,
+                  "column": 9
+                },
+                {
+                  "title": "should return 422 for invalid id (e.g., id <= 0)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 60000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "",
+                      "projectName": "",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 196,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2025-12-17T21:03:01.192Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "da31bf3364aa9ea7eca5-0ead80494f6cad2a15ef",
+                  "file": "pokemon-service.spec.ts",
+                  "line": 224,
                   "column": 9
                 }
               ]
@@ -436,323 +640,616 @@
       "specs": [],
       "suites": [
         {
-          "title": "team-service",
+          "title": "GET /teams/{id}/",
           "file": "team-service.spec.ts",
           "line": 5,
           "column": 6,
-          "specs": [],
-          "suites": [
+          "specs": [
             {
-              "title": "GET /teams/",
-              "file": "team-service.spec.ts",
-              "line": 7,
-              "column": 8,
-              "specs": [
+              "title": "should return 200 and a team if team exists",
+              "ok": true,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "should return list of teams",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
                     {
-                      "timeout": 60000,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 143,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-17T21:02:58.608Z",
                       "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 41,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:40.740Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
+                      "attachments": []
                     }
                   ],
-                  "id": "eaf358b89f316e1fed07-264c8bea88f1db928741",
-                  "file": "team-service.spec.ts",
-                  "line": 8,
-                  "column": 9
+                  "status": "expected"
                 }
-              ]
+              ],
+              "id": "eaf358b89f316e1fed07-322e75e1401e497868f3",
+              "file": "team-service.spec.ts",
+              "line": 6,
+              "column": 7
             },
             {
-              "title": "POST /teams/",
-              "file": "team-service.spec.ts",
-              "line": 16,
-              "column": 8,
-              "specs": [
+              "title": "should return 404 if team does not exist",
+              "ok": true,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "should create a new team",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
                     {
-                      "timeout": 60000,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 53,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-17T21:02:58.767Z",
                       "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 54,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:40.795Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
+                      "attachments": []
                     }
                   ],
-                  "id": "eaf358b89f316e1fed07-9b0720a6da8319bfb6d5",
-                  "file": "team-service.spec.ts",
-                  "line": 17,
-                  "column": 9
+                  "status": "expected"
                 }
-              ]
+              ],
+              "id": "eaf358b89f316e1fed07-080d60c29a733596301f",
+              "file": "team-service.spec.ts",
+              "line": 28,
+              "column": 7
             },
             {
-              "title": "GET /teams/{id}/",
-              "file": "team-service.spec.ts",
-              "line": 27,
-              "column": 8,
-              "specs": [
+              "title": "should return 422 for invalid id (e.g., id <= 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "should return team details",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
                     {
-                      "timeout": 60000,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 56,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-17T21:02:58.826Z",
                       "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 93,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:40.855Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
+                      "attachments": []
                     }
                   ],
-                  "id": "eaf358b89f316e1fed07-73386531eca661ce63c1",
-                  "file": "team-service.spec.ts",
-                  "line": 28,
-                  "column": 9
-                },
-                {
-                  "title": "should return 404 for non-existent team",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 52,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:40.956Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "eaf358b89f316e1fed07-bea4ff31494f3117d3b5",
-                  "file": "team-service.spec.ts",
-                  "line": 40,
-                  "column": 9
+                  "status": "expected"
                 }
-              ]
+              ],
+              "id": "eaf358b89f316e1fed07-b79a27bf5e3c4d35469c",
+              "file": "team-service.spec.ts",
+              "line": 35,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "GET /teams/",
+          "file": "team-service.spec.ts",
+          "line": 43,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should return 200 and a list of teams",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 101,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-17T21:02:58.889Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-0f0374fe10327f0b1395",
+              "file": "team-service.spec.ts",
+              "line": 44,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "POST /teams/",
+          "file": "team-service.spec.ts",
+          "line": 52,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should return 201 and create a new team with valid payload",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 101,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-17T21:02:58.998Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-3e85c0fccfd8ef146132",
+              "file": "team-service.spec.ts",
+              "line": 53,
+              "column": 7
             },
             {
-              "title": "PUT /teams/{id}/",
-              "file": "team-service.spec.ts",
-              "line": 46,
-              "column": 8,
-              "specs": [
+              "title": "should return 422 with invalid payload (missing name)",
+              "ok": true,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "should update team details",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
                     {
-                      "timeout": 60000,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 49,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-17T21:02:59.103Z",
                       "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 97,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.016Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
+                      "attachments": []
                     }
                   ],
-                  "id": "eaf358b89f316e1fed07-3df61004f7ba6dd60fe9",
-                  "file": "team-service.spec.ts",
-                  "line": 47,
-                  "column": 9
-                },
-                {
-                  "title": "should return 404 for non-existent team",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
-                        {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 47,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.118Z",
-                          "annotations": [],
-                          "attachments": []
-                        }
-                      ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "eaf358b89f316e1fed07-8cfd343563b01a2153a9",
-                  "file": "team-service.spec.ts",
-                  "line": 60,
-                  "column": 9
+                  "status": "expected"
                 }
-              ]
+              ],
+              "id": "eaf358b89f316e1fed07-dd6ccff3994b3320fca2",
+              "file": "team-service.spec.ts",
+              "line": 67,
+              "column": 7
             },
             {
-              "title": "DELETE /teams/{id}/",
-              "file": "team-service.spec.ts",
-              "line": 66,
-              "column": 8,
-              "specs": [
+              "title": "should return 422 with invalid payload (name is not a string)",
+              "ok": false,
+              "tags": [],
+              "tests": [
                 {
-                  "title": "should delete team",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
                     {
-                      "timeout": 60000,
-                      "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 54,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts:79:31",
+                        "location": {
+                          "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
+                          "column": 31,
+                          "line": 79
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 77 |\u001b[39m       data\u001b[33m:\u001b[39m { name\u001b[33m:\u001b[39m \u001b[35m123\u001b[39m }\u001b[33m,\u001b[39m \u001b[90m// Name should be a string\u001b[39m\n \u001b[90m 78 |\u001b[39m     })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 79 |\u001b[39m     expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m422\u001b[39m)\u001b[33m;\u001b[39m \u001b[90m// FastAPI returns 422 for validation errors\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 80 |\u001b[39m     \u001b[90m// Optionally, assert on the error message structure if known\u001b[39m\n \u001b[90m 81 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 82 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
                         {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 98,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.171Z",
-                          "annotations": [],
-                          "attachments": []
+                          "location": {
+                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
+                            "column": 31,
+                            "line": 79
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n\n  77 |       data: { name: 123 }, // Name should be a string\n  78 |     });\n> 79 |     expect(response.status()).toBe(422); // FastAPI returns 422 for validation errors\n     |                               ^\n  80 |     // Optionally, assert on the error message structure if known\n  81 |   });\n  82 | });\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts:79:31"
                         }
                       ],
-                      "status": "expected"
-                    }
-                  ],
-                  "id": "eaf358b89f316e1fed07-6f8c130f4ec100dda3ef",
-                  "file": "team-service.spec.ts",
-                  "line": 67,
-                  "column": 9
-                },
-                {
-                  "title": "should return 404 for non-existent team",
-                  "ok": true,
-                  "tags": [],
-                  "tests": [
-                    {
-                      "timeout": 60000,
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-17T21:02:59.158Z",
                       "annotations": [],
-                      "expectedStatus": "passed",
-                      "projectId": "",
-                      "projectName": "",
-                      "results": [
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
+                        "column": 31,
+                        "line": 79
+                      }
+                    },
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 25,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts:79:31",
+                        "location": {
+                          "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
+                          "column": 31,
+                          "line": 79
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 77 |\u001b[39m       data\u001b[33m:\u001b[39m { name\u001b[33m:\u001b[39m \u001b[35m123\u001b[39m }\u001b[33m,\u001b[39m \u001b[90m// Name should be a string\u001b[39m\n \u001b[90m 78 |\u001b[39m     })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 79 |\u001b[39m     expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m422\u001b[39m)\u001b[33m;\u001b[39m \u001b[90m// FastAPI returns 422 for validation errors\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 80 |\u001b[39m     \u001b[90m// Optionally, assert on the error message structure if known\u001b[39m\n \u001b[90m 81 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 82 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
                         {
-                          "workerIndex": 1,
-                          "parallelIndex": 1,
-                          "status": "passed",
-                          "duration": 49,
-                          "errors": [],
-                          "stdout": [],
-                          "stderr": [],
-                          "retry": 0,
-                          "startTime": "2025-12-15T14:53:41.274Z",
-                          "annotations": [],
-                          "attachments": []
+                          "location": {
+                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
+                            "column": 31,
+                            "line": 79
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n\n  77 |       data: { name: 123 }, // Name should be a string\n  78 |     });\n> 79 |     expect(response.status()).toBe(422); // FastAPI returns 422 for validation errors\n     |                               ^\n  80 |     // Optionally, assert on the error message structure if known\n  81 |   });\n  82 | });\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts:79:31"
                         }
                       ],
-                      "status": "expected"
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-12-17T21:02:59.787Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
+                        "column": 31,
+                        "line": 79
+                      }
+                    },
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 25,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts:79:31",
+                        "location": {
+                          "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
+                          "column": 31,
+                          "line": 79
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 77 |\u001b[39m       data\u001b[33m:\u001b[39m { name\u001b[33m:\u001b[39m \u001b[35m123\u001b[39m }\u001b[33m,\u001b[39m \u001b[90m// Name should be a string\u001b[39m\n \u001b[90m 78 |\u001b[39m     })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 79 |\u001b[39m     expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m422\u001b[39m)\u001b[33m;\u001b[39m \u001b[90m// FastAPI returns 422 for validation errors\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 80 |\u001b[39m     \u001b[90m// Optionally, assert on the error message structure if known\u001b[39m\n \u001b[90m 81 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 82 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
+                            "column": 31,
+                            "line": 79
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n\n  77 |       data: { name: 123 }, // Name should be a string\n  78 |     });\n> 79 |     expect(response.status()).toBe(422); // FastAPI returns 422 for validation errors\n     |                               ^\n  80 |     // Optionally, assert on the error message structure if known\n  81 |   });\n  82 | });\n    at C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts:79:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-12-17T21:03:00.416Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "C:\\Users\\golde\\Documents\\UMD\\CMSC473 - Capstone in Machine Learning\\.api-tests\\tests\\team-service.spec.ts",
+                        "column": 31,
+                        "line": 79
+                      }
                     }
                   ],
-                  "id": "eaf358b89f316e1fed07-6a8792e4ae6e0deff5ed",
-                  "file": "team-service.spec.ts",
-                  "line": 80,
-                  "column": 9
+                  "status": "unexpected"
                 }
-              ]
+              ],
+              "id": "eaf358b89f316e1fed07-077af1a349e258674531",
+              "file": "team-service.spec.ts",
+              "line": 75,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "DELETE /teams/{id}/",
+          "file": "team-service.spec.ts",
+          "line": 84,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should return 200 and the deleted team ID if team exists",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 126,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-17T21:03:01.026Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-5a907450ecf13c0162bb",
+              "file": "team-service.spec.ts",
+              "line": 85,
+              "column": 7
+            },
+            {
+              "title": "should return 404 if team does not exist",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 55,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-17T21:03:01.165Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-ba2bb26eecb4929b565e",
+              "file": "team-service.spec.ts",
+              "line": 103,
+              "column": 7
+            },
+            {
+              "title": "should return 422 for invalid id (e.g., id <= 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 46,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-17T21:03:01.227Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-2ed7c16dcbab82d9e7a3",
+              "file": "team-service.spec.ts",
+              "line": 110,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "PUT /teams/{id}/",
+          "file": "team-service.spec.ts",
+          "line": 118,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should return 200 and update an existing team with valid payload",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 201,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-17T21:03:01.279Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-0d9626fffcb8e06eff2a",
+              "file": "team-service.spec.ts",
+              "line": 119,
+              "column": 7
+            },
+            {
+              "title": "should return 404 if team does not exist",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 50,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-17T21:03:01.489Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-b21a16cceb17344928d3",
+              "file": "team-service.spec.ts",
+              "line": 146,
+              "column": 7
+            },
+            {
+              "title": "should return 422 with invalid payload (missing name)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 147,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-17T21:03:01.543Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-0ce93cfa73c5b0fe3153",
+              "file": "team-service.spec.ts",
+              "line": 155,
+              "column": 7
+            },
+            {
+              "title": "should return 422 for invalid id (e.g., id <= 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 49,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-17T21:03:01.696Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eaf358b89f316e1fed07-5e8565a24160c9ca9e0b",
+              "file": "team-service.spec.ts",
+              "line": 174,
+              "column": 7
             }
           ]
         }
@@ -761,11 +1258,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-15T14:53:40.099Z",
-    "duration": 1739.654,
-    "expected": 17,
+    "startTime": "2025-12-17T21:02:57.935Z",
+    "duration": 3847.8140000000003,
+    "expected": 28,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }

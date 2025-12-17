@@ -51,6 +51,4 @@ prompt: |
      - If auth details are missing, add TODO comments and still generate the unauth test expecting 401/403 if those codes are documented.
   7) Persist the suite via store_playwright_tests with filename and routes_source=<snapshot filename>.
 
-Output requirements:
-  - Call store_playwright_tests exactly once per service snapshot with the generated code.
-  - Then output a short JSON matching the output_schema summarizing what you generated and any TODOs.
+  If this is not the first iteration, extend or refine existing tests conservatively rather than rewriting them entirely.

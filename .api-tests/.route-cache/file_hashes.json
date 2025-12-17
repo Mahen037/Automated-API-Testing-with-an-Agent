@@ -1,0 +1,12 @@
+{
+  "team-service/app/api/teams.py": "0f1931032f6a23290ab33dcf83adea5b",
+  "db-models/models/pokemon.py": "81cbeb27682ec39e18f1d5c1cd3ebe51",
+  "nginx_config.conf": "b89475a660e6e7eb98ceebf6b78c6a68",
+  "pokemon-service/app/models/pydantic.py": "d050134739d2d22d834deb03bbaf7287",
+  "team-service/app/main.py": "148f09587045d86457f0a1817b941e29",
+  "docker-compose.yml": "498eccf95c1c60f14077d578a1b43c75",
+  "team-service/app/models/pydantic.py": "dd9f9c31aed05be770514411ccd45590",
+  "pokemon-service/app/main.py": "02c07be34fcae98b823f827c02786b56",
+  "db-models/models/team.py": "b9ce374f4f5e5b3b1b71bec8b855c84f",
+  "pokemon-service/app/api/pokemon.py": "673d1344316b6f4d82ba1df60b49244f"
+}

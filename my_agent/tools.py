@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import os
 import shlex
+import shutil
 import subprocess
 import time
 from pathlib import Path
@@ -13,7 +14,33 @@ from .crawler.code_parser import extract_routes_parallel, routes_to_json
 
 ROUTES_DIR = Path(".api-tests") / "routes"
 TESTS_DIR = Path(".api-tests") / "tests"
+INTERNAL_DIR = Path(".api-tests") / ".atlas-internal" / "loop-state"
 
+def approve_generation(*, service: str) -> Dict[str, str]:
+    INTERNAL_DIR.mkdir(parents=True, exist_ok=True)
+    path = INTERNAL_DIR / f"{service}.approved.json"
+    path.write_text(json.dumps({"service": service, "status": "approved"}, indent=2))
+    return {"status": "approved", "service": service}
+
+def request_changes(*, service: str, reasons: List[str]) -> Dict[str, str]:
+    INTERNAL_DIR.mkdir(parents=True, exist_ok=True)
+    path = INTERNAL_DIR / f"{service}.changes_requested.json"
+    path.write_text(json.dumps({
+        "service": service,
+        "status": "changes_requested",
+        "reasons": reasons
+    }, indent=2))
+    return {"status": "changes_requested", "service": service}
+
+def cleanup_loop_state() -> Dict[str, str]:
+    """
+    Remove internal loop-control artifacts so .api-tests is clean for the user.
+    """
+    internal_root = Path(".api-tests/.atlas-internal")
+    if internal_root.exists():
+        shutil.rmtree(internal_root)
+        return {"status": "deleted", "path": str(internal_root)}
+    return {"status": "missing", "path": str(internal_root)}
 
 def store_routes_snapshot(
     *,

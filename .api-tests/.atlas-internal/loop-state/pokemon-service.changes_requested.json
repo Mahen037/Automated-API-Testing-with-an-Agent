@@ -1,0 +1,7 @@
+{
+  "service": "pokemon-service",
+  "status": "changes_requested",
+  "reasons": [
+    "Remove 'TODO: Optionally assert on the specific error message structure for 422' comments as the snapshot does not provide details for 422 error responses, making specific assertions difficult without assumptions. The current status code assertions are sufficient."
+  ]
+}

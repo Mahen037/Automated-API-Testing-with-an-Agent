@@ -17,34 +17,14 @@ from .tools import (
     store_playwright_tests,
     list_playwright_tests,
     load_playwright_test,
+    approve_generation,
+    request_changes,
+    cleanup_loop_state,
     # Execution
     run_playwright_tests,
 )
 
 load_dotenv()  # Make variables from .env available for MCP configuration.
-
-_RATE_LIMIT_SECONDS = float(os.getenv("GEMINI_MIN_REQUEST_INTERVAL", "15.0"))
-_last_request_time = 0.0
-
-def enforce_gemini_rate_limit(*_, **__):
-    """
-    Synchronously throttle Gemini calls. 
-    Using sync sleep ensures the thread actually pauses regardless of framework await behavior.
-    """
-    print("=== ENFORCING GEMINI RATE LIMIT ===")
-    global _last_request_time
-    now = time.monotonic()
-    
-    # Calculate how much time has passed since the last request
-    time_since_last = now - _last_request_time
-    
-    # If we haven't waited long enough, sleep for the remainder
-    if time_since_last < _RATE_LIMIT_SECONDS:
-        wait_time = _RATE_LIMIT_SECONDS - time_since_last
-        print(f"RATE LIMIT: Throttling for {wait_time:.2f}s to respect 5 RPM quota...")
-        time.sleep(wait_time)
-        
-    _last_request_time = time.monotonic()
 
 github_toolset = create_github_mcp_toolset()
 playwright_toolset = create_playwright_mcp_toolset()
@@ -53,7 +33,7 @@ playwright_toolset = create_playwright_mcp_toolset()
 # Endpoint Discovery Agent
 # ---------------------------------------------------------------------
 endpoint_agent = Agent(
-    model="gemini-3-pro-preview",
+    model="gemini-2.5-flash",
     name="endpoint_agent",
     description=(
         """
@@ -78,12 +58,12 @@ endpoint_agent = Agent(
 # -------------------------------------------------------------------
 
 junior_test_generation_agent = Agent(
-    model="gemini-3-pro-preview",
+    model="gemini-2.5-flash",
     name="junior_test_generation_agent",
     description="Generates initial Playwright API tests from stored route snapshots.",
     instruction=(
         PROMPTS["junior_test_generation"].prompt
-        + "\n\n"
+        + "\n\nReference the output format when structuring the response:\n\n"
         + PROMPTS["junior_test_generation"].output_format
     ),
     tools=[
@@ -98,12 +78,12 @@ junior_test_generation_agent = Agent(
 # -------------------------------------------------------------------
 
 senior_test_review_agent = Agent(
-    model="gemini-3-pro-preview",
+    model="gemini-2.5-flash",
     name="senior_test_review_agent",
     description="Reviews generated Playwright tests and approves or revises them.",
     instruction=(
-        PROMPTS["senior_test_review"].prompt
-        + "\n\n"
+        PROMPTS["senior_test_review"].prompt + 
+        "\n\nReference the output format when structuring the response:\n\n" 
         + PROMPTS["senior_test_review"].output_format
     ),
     tools=[
@@ -111,7 +91,8 @@ senior_test_review_agent = Agent(
         load_route_snapshot,
         list_playwright_tests,
         load_playwright_test,
-        store_playwright_tests,   # overwrite/fix if needed
+        approve_generation,
+        request_changes,
     ],
 )
 
@@ -129,8 +110,11 @@ test_generation_loop = LoopAgent(
     max_iterations=2,   # CI-safe bound
 )
 
+# -------------------------------------------------------------------
+# Test Execution Agent
+# -------------------------------------------------------------------
 test_execution_agent = Agent(
-    model='gemini-3-pro-preview',
+    model='gemini-2.5-flash',
     name='test_execution_agent',
     description=(
         """
@@ -139,13 +123,25 @@ test_execution_agent = Agent(
     ),
     instruction=(
         PROMPTS["test_execution"].prompt
-        + "\n\n Reference the output format when structuring the response:\n\n"
+        + "\n\nReference the output format when structuring the response:\n\n"
         + PROMPTS["test_execution"].output_format
     ),
     tools=[run_playwright_tests],
 )
 
+# -------------------------------------------------------------------
+# Cleanup Agent: Remove internal loop-control files
+# -------------------------------------------------------------------
+cleanup_agent = Agent(
+    name="cleanup_agent",
+    description="Cleans up internal loop-control artifacts.",
+    instruction="Remove internal loop-control files.",
+    tools=[cleanup_loop_state],
+)
 
+# -------------------------------------------------------------------
+# Root Agent: Orchestrate the entire process
+# -------------------------------------------------------------------
 root_agent = SequentialAgent(
     name='root_agent',
     description=(
@@ -156,23 +152,6 @@ root_agent = SequentialAgent(
     sub_agents=[
         endpoint_agent, 
         test_generation_loop, 
-        test_execution_agent
+        test_execution_agent,
     ]
 )
-
-# test_generation_agent = Agent(
-#     model='gemini-3-pro-preview',
-#     name='test_generation_agent',
-#     description=(
-#         """
-#         Generates Playwright-compatible API tests for the discovered HTTP endpoints.
-#         """
-#     ),
-#     instruction=PROMPTS["test_generation"].prompt + "\n\n Reference the output format when structuring the response:\n\n" + PROMPTS["test_generation"].output_format,
-#     tools=[
-#         github_toolset,
-#         list_route_snapshots,
-#         load_route_snapshot,
-#         store_playwright_tests,
-#     ],
-# )
