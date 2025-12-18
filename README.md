@@ -115,10 +115,11 @@ flowchart TD
 
 ## 🎥 Current Demo
 
-https://github.com/user-attachments/assets/65d16996-9d09-41bb-ab10-c06a5a3e821e
+https://github.com/user-attachments/assets/64fa0256-d8c2-4005-bfcc-cba4943bc8c5
 
 ## TL;DR
 - **Discover** endpoints (code + Docker + README) → JSON snapshot of services, base URLs, and routes in `.api-tests/routes/`
 - **Generate + Review (Loop)** → Junior drafts + Senior patches/approves → `.api-tests/tests/*.spec.ts`
 - **Execute** tests via Playwright CLI → HTML + JSON reports in `.api-tests/reports/<sha>/`
 - **Repeat** locally or in CI
+
