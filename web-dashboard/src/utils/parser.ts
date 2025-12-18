@@ -1,4 +1,4 @@
-import type { PlaywrightReport, ParsedReport, DashboardStats, EndpointResult } from './types';
+import type { PlaywrightReport, ParsedReport, DashboardStats, EndpointResult, ReportStatus } from './types';
 
 /**
  * Extract HTTP method from test title (e.g., "GET /users/" -> "GET")
@@ -74,6 +74,7 @@ function extractTestsFromSuites(
  */
 export function parsePlaywrightReport(report: PlaywrightReport): ParsedReport {
     const endpoints: EndpointResult[] = [];
+    const errorCount = report?.errors?.length || 0;
 
     // Extract tests from all suites
     if (report.suites && report.suites.length > 0) {
@@ -101,11 +102,21 @@ export function parsePlaywrightReport(report: PlaywrightReport): ParsedReport {
     // Determine if we have any real data
     const hasData = endpoints.length > 0 || report.errors.length > 0 || stats.totalTests > 0;
 
+    const deriveStatus = (): ReportStatus => {
+        if (errorCount > 0 && totalTests === 0) return 'compilation_error';
+        if (failed > 0 || errorCount > 0) return 'failed';
+        if (passed > 0) return 'passed';
+        if (totalTests === 0) return 'no_tests';
+        return 'unknown';
+    };
+
     return {
         stats,
         endpoints,
         errors: report.errors,
         hasData,
+        status: deriveStatus(),
+        errorCount,
     };
 }
 

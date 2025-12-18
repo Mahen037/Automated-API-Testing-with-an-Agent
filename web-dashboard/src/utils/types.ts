@@ -140,4 +140,13 @@ export interface ParsedReport {
     endpoints: EndpointResult[];
     errors: ReportError[];
     hasData: boolean;
+    status: ReportStatus;
+    errorCount: number;
 }
+
+export type ReportStatus =
+    | 'passed'
+    | 'failed'
+    | 'compilation_error'
+    | 'no_tests'
+    | 'unknown';

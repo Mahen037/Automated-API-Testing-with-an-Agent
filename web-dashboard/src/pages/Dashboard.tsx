@@ -69,6 +69,35 @@ export function Dashboard() {
         fetchData();
     };
 
+    const statusLabel = data ? (() => {
+        switch (data.status) {
+            case 'passed':
+                return 'Passed';
+            case 'failed':
+                return 'Failed';
+            case 'compilation_error':
+                return 'Compilation Error';
+            case 'no_tests':
+                return 'No Tests';
+            default:
+                return 'Unknown';
+        }
+    })() : '—';
+
+    const statusVariant = data ? (() => {
+        switch (data.status) {
+            case 'passed':
+                return 'success' as const;
+            case 'failed':
+            case 'compilation_error':
+                return 'error' as const;
+            case 'no_tests':
+                return 'warning' as const;
+            default:
+                return 'default' as const;
+        }
+    })() : 'default';
+
     return (
         <>
             <Header onTestComplete={handleTestComplete} />
@@ -100,9 +129,31 @@ export function Dashboard() {
                     {/* Summary Cards */}
                     <div className="summary-grid">
                         {loading ? (
-                            <SummaryCardSkeleton count={4} />
+                            <SummaryCardSkeleton count={6} />
                         ) : data ? (
                             <>
+                                <SummaryCard
+                                    title="Status"
+                                    value={statusLabel}
+                                    subtitle={
+                                        data.status === 'compilation_error'
+                                            ? 'Tests blocked by compilation errors'
+                                            : data.status === 'failed'
+                                                ? 'Some tests failed'
+                                                : data.status === 'no_tests'
+                                                    ? 'No tests executed yet'
+                                                    : 'Latest run status'
+                                    }
+                                    icon={<AlertCircle size={18} />}
+                                    variant={statusVariant}
+                                />
+                                <SummaryCard
+                                    title="Errors"
+                                    value={data.errorCount}
+                                    subtitle={data.errorCount > 0 ? 'Compilation/runner errors' : 'No compilation errors'}
+                                    icon={<XCircle size={18} />}
+                                    variant={data.errorCount > 0 ? 'error' : 'default'}
+                                />
                                 <SummaryCard
                                     title="Passed"
                                     value={data.stats.passed}
@@ -113,7 +164,13 @@ export function Dashboard() {
                                 <SummaryCard
                                     title="Failed"
                                     value={data.stats.failed}
-                                    subtitle={data.stats.failed > 0 ? 'Needs attention' : 'All tests passing'}
+                                    subtitle={
+                                        data.errorCount > 0
+                                            ? 'Compilation errors blocked run'
+                                            : data.stats.failed > 0
+                                                ? 'Needs attention'
+                                                : 'All tests passing'
+                                    }
                                     icon={<XCircle size={18} />}
                                     variant={data.stats.failed > 0 ? 'error' : 'default'}
                                 />
@@ -126,7 +183,11 @@ export function Dashboard() {
                                 <SummaryCard
                                     title="Total Tests"
                                     value={`${data.stats.totalTests}`}
-                                    subtitle="Endpoints tested"
+                                    subtitle={
+                                        data.status === 'compilation_error'
+                                            ? 'Blocked before execution'
+                                            : 'Endpoints tested'
+                                    }
                                     icon={<Activity size={18} />}
                                 />
                             </>
