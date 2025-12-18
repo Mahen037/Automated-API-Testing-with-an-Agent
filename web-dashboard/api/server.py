@@ -23,6 +23,43 @@ from pydantic import BaseModel
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
+# Suppress noisy ADK warnings
+import warnings
+import logging
+warnings.filterwarnings("ignore", message=".*auth_config.*")
+warnings.filterwarnings("ignore", message=".*FunctionTool.*")
+logging.getLogger("google.adk").setLevel(logging.ERROR)
+
+
+class StderrFilter:
+    """Filter to suppress noisy ADK messages from stderr."""
+    
+    SUPPRESS_PATTERNS = [
+        "auth_config or auth_config.auth_scheme is missing",
+        "Will skip authentication.Using FunctionTool",
+        "non-text parts in the response",
+    ]
+    
+    def __init__(self, original_stderr):
+        self._original = original_stderr
+        
+    def write(self, text):
+        # Suppress specific noisy messages
+        for pattern in self.SUPPRESS_PATTERNS:
+            if pattern in text:
+                return
+        self._original.write(text)
+        
+    def flush(self):
+        self._original.flush()
+        
+    def __getattr__(self, name):
+        return getattr(self._original, name)
+
+
+# Apply stderr filter
+sys.stderr = StderrFilter(sys.stderr)
+
 # Paths
 API_TESTS_DIR = PROJECT_ROOT / ".api-tests"
 REPORTS_DIR = API_TESTS_DIR / "reports"
@@ -397,6 +434,23 @@ async def run_agent_async(repo_url: str):
         have_specs = len(spec_files) > 0
         
         if have_specs:
+            # Fix syntax issues (apostrophes in single quotes, etc.) before running tests
+            run_state.output += "🔧 Fixing syntax issues in generated tests...\n"
+            fixes_applied = 0
+            for test_file in TESTS_DIR.glob("*.spec.ts"):
+                try:
+                    content = test_file.read_text(encoding="utf-8")
+                    fixed_content, fixes = fix_syntax_issues(content)
+                    if fixes:
+                        test_file.write_text(fixed_content, encoding="utf-8")
+                        fixes_applied += 1
+                        run_state.output += f"   ✅ Fixed {test_file.name}: {', '.join(fixes)}\n"
+                except Exception as fix_err:
+                    run_state.output += f"   ⚠️ Could not fix {test_file.name}: {fix_err}\n"
+            
+            if fixes_applied == 0:
+                run_state.output += "   No fixes needed.\n"
+            
             from my_agent.tools import run_playwright_tests  # Local import to avoid circular deps
             run_state.output += "🧪 Running Playwright tests...\n"
             try:
@@ -468,13 +522,20 @@ test.describe('{service_name} API tests', () => {{
     base_url = all_routes[0].get("_base_url", "http://localhost:3000")
     
     test_cases = []
+    seen_names = set()
     for route in all_routes:
         method = route.get("method", "GET").upper()
         path = route.get("path", "/")
         summary = route.get("summary", f"{method} {path}")
         
-        # Generate test for this route
-        test_name = f"{method} {path} should respond"
+        # Generate unique test name
+        base_name = f"{method} {path} should respond"
+        test_name = base_name
+        counter = 2
+        while test_name in seen_names:
+            test_name = f"{base_name} ({counter})"
+            counter += 1
+        seen_names.add(test_name)
         
         if method == "GET":
             test_cases.append(f"""
@@ -680,6 +741,17 @@ def fix_syntax_issues(content: str) -> tuple[str, list[str]]:
     
     if content != original_content:
         fixes.append("Fixed unescaped apostrophes in single-quoted strings")
+    
+    # Fix common Playwright API initialization bug
+    # "api = playwright.request" should be "api = await playwright.request.newContext()"
+    api_init_content = content
+    content = re.sub(
+        r'(\w+)\s*=\s*playwright\.request\s*;',
+        r'\1 = await playwright.request.newContext();',
+        content
+    )
+    if content != api_init_content:
+        fixes.append("Fixed Playwright API initialization (added newContext())")
     
     return content, fixes
 
