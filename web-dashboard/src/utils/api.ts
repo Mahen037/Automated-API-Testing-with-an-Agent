@@ -15,7 +15,7 @@ export interface RunTestsResponse {
 }
 
 export interface RunStatusResponse {
-    status: 'idle' | 'running' | 'completed' | 'failed';
+    status: 'idle' | 'running' | 'completed' | 'failed' | 'no_test_run';
     message: string;
     output?: string;
     repoUrl?: string;

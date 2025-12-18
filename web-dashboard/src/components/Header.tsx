@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Play, RotateCw, Zap } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Play, RotateCw, Zap, Github, X } from 'lucide-react';
 import { triggerTestRun, waitForTestCompletion } from '../utils/api';
 import type { RunStatusResponse } from '../utils/api';
 import './Header.css';
@@ -11,9 +11,10 @@ interface HeaderProps {
 export function Header({ onTestComplete }: HeaderProps) {
     const [isRunning, setIsRunning] = useState(false);
     const [status, setStatus] = useState<RunStatusResponse | null>(null);
-    const [showModal, setShowModal] = useState(false);
     const [repoUrl, setRepoUrl] = useState('');
     const [history, setHistory] = useState<string[]>([]);
+    const [showHistory, setShowHistory] = useState(false);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     // Load history on mount
     useEffect(() => {
@@ -25,6 +26,17 @@ export function Header({ onTestComplete }: HeaderProps) {
                 console.error('Failed to parse history', e);
             }
         }
+    }, []);
+
+    // Close history dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (inputRef.current && !inputRef.current.contains(e.target as Node)) {
+                setShowHistory(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
     const saveToHistory = (url: string) => {
@@ -53,15 +65,13 @@ export function Header({ onTestComplete }: HeaderProps) {
                 setStatus(newStatus);
             });
 
-            setStatus({ status: 'completed', message: 'Completed!' });
+            setStatus({ status: 'completed', message: 'Tests generated successfully!' });
             onTestComplete?.();
 
             setTimeout(() => {
-                setShowModal(false);
                 setIsRunning(false);
                 setStatus(null);
-                setRepoUrl('');
-            }, 2000);
+            }, 3000);
         } catch (err) {
             const message = err instanceof Error ? err.message : 'Unknown error';
             setStatus({ status: 'failed', message });
@@ -69,11 +79,20 @@ export function Header({ onTestComplete }: HeaderProps) {
         }
     };
 
-    const handleClose = () => {
-        if (!isRunning) {
-            setShowModal(false);
-            setStatus(null);
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter' && repoUrl.trim() && !isRunning) {
+            handleRunTests();
         }
+    };
+
+    const handleSelectHistory = (url: string) => {
+        setRepoUrl(url);
+        setShowHistory(false);
+    };
+
+    const clearInput = () => {
+        setRepoUrl('');
+        inputRef.current?.focus();
     };
 
     return (
@@ -87,87 +106,76 @@ export function Header({ onTestComplete }: HeaderProps) {
                     </div>
                 </div>
 
-                <button
-                    className="btn btn-primary"
-                    onClick={() => setShowModal(true)}
-                    disabled={isRunning}
-                >
-                    {isRunning ? (
-                        <>
-                            <RotateCw className="icon-spin" size={16} />
-                            <span>Running...</span>
-                        </>
-                    ) : (
-                        <>
-                            <Play size={16} />
-                            <span>Run Tests</span>
-                        </>
-                    )}
-                </button>
-            </div>
-
-            {showModal && (
-                <div className="modal-overlay" onClick={handleClose}>
-                    <div className="modal" onClick={(e) => e.stopPropagation()}>
-                        <h2 className="modal-title">Run API Tests</h2>
-
-                        <p className="modal-description">
-                            Enter a GitHub repository URL to analyze endpoints, generate tests, and execute them.
-                        </p>
-
-                        <div className="form-group">
-                            <label htmlFor="repoUrl">GitHub Repository URL</label>
-                            <div className="input-wrapper">
-                                <input
-                                    id="repoUrl"
-                                    type="text"
-                                    list="repo-history"
-                                    placeholder="https://github.com/owner/repo"
-                                    value={repoUrl}
-                                    onChange={(e) => setRepoUrl(e.target.value)}
-                                    disabled={isRunning}
-                                    className="input"
-                                    autoFocus
-                                />
-                                <datalist id="repo-history">
-                                    {history.map((url, i) => (
-                                        <option key={i} value={url} />
-                                    ))}
-                                </datalist>
-                            </div>
-                            <small className="input-hint">
-                                Select from history or enter a new URL.
-                            </small>
-                        </div>
-
-                        {status && (
-                            <div className={`status-box status-${status.status}`}>
-                                <div className="status-header">
-                                    {status.status === 'running' && <div className="spinner" />}
-                                    <span className="status-text">{status.message}</span>
-                                </div>
-                                {status.output && (
-                                    <pre className="status-output">{status.output}</pre>
-                                )}
-                            </div>
+                {/* Always visible input section */}
+                <div className="header-input-section">
+                    <div className="input-container" ref={inputRef}>
+                        <Github className="input-icon" size={18} />
+                        <input
+                            type="text"
+                            className="header-input"
+                            placeholder="Enter GitHub repo URL (e.g., https://github.com/owner/repo)"
+                            value={repoUrl}
+                            onChange={(e) => setRepoUrl(e.target.value)}
+                            onFocus={() => history.length > 0 && setShowHistory(true)}
+                            onKeyDown={handleKeyDown}
+                            disabled={isRunning}
+                        />
+                        {repoUrl && !isRunning && (
+                            <button className="input-clear" onClick={clearInput} title="Clear">
+                                <X size={16} />
+                            </button>
                         )}
 
-                        <div className="modal-actions">
-                            <button
-                                className="btn btn-secondary"
-                                onClick={handleClose}
-                                disabled={isRunning}
-                            >
-                                {isRunning ? 'Close' : 'Cancel'}
-                            </button>
-                            <button
-                                className="btn btn-primary"
-                                onClick={handleRunTests}
-                                disabled={isRunning || !repoUrl.trim()}
-                            >
-                                {isRunning ? 'Running...' : 'Start Agent'}
-                            </button>
-                        </div>
+                        {/* History dropdown */}
+                        {showHistory && history.length > 0 && !isRunning && (
+                            <div className="history-dropdown">
+                                <div className="history-label">Recent repositories</div>
+                                {history.map((url, i) => (
+                                    <button
+                                        key={i}
+                                        className="history-item"
+                                        onClick={() => handleSelectHistory(url)}
+                                    >
+                                        <Github size={14} />
+                                        <span>{url.replace('https://github.com/', '')}</span>
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+                    <button
+                        className="btn btn-primary"
+                        onClick={handleRunTests}
+                        disabled={isRunning || !repoUrl.trim()}
+                    >
+                        {isRunning ? (
+                            <>
+                                <RotateCw className="icon-spin" size={16} />
+                                <span>Running...</span>
+                            </>
+                        ) : (
+                            <>
+                                <Play size={16} />
+                                <span>Run Tests</span>
+                            </>
+                        )}
+                    </button>
+                </div>
+            </div>
+
+            {/* Status bar below header */}
+            {status && (
+                <div className={`status-bar status-bar-${status.status}`}>
+                    <div className="container status-bar-content">
+                        {status.status === 'running' && <div className="spinner-small" />}
+                        <span className="status-bar-message">{status.message}</span>
+                        {status.output && (
+                            <details className="status-bar-details">
+                                <summary>View output</summary>
+                                <pre className="status-bar-output">{status.output}</pre>
+                            </details>
+                        )}
                     </div>
                 </div>
             )}

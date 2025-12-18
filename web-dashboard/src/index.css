@@ -8,6 +8,7 @@
   --color-bg-secondary: #12121a;
   --color-bg-card: rgba(255, 255, 255, 0.03);
   --color-bg-card-hover: rgba(255, 255, 255, 0.06);
+  --color-bg-hover: rgba(255, 255, 255, 0.08);
   
   /* Accent Colors */
   --color-accent-primary: #6366f1;
