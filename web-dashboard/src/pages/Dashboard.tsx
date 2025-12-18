@@ -6,7 +6,7 @@ import { TestList } from '../components/TestList';
 import { ErrorLog } from '../components/ErrorLog';
 import { TestFileList } from '../components/TestFileList';
 import { formatDuration, parsePlaywrightReport } from '../utils/parser';
-import { fetchLatestResults, checkHealth, listTestFiles, triggerTestRun, waitForTestCompletion } from '../utils/api';
+import { fetchLatestResults, checkHealth, listTestFiles, triggerTestRun, waitForTestCompletion, fixAndRetryTests } from '../utils/api';
 import type { ParsedReport } from '../utils/types';
 import './Dashboard.css';
 
@@ -17,6 +17,7 @@ export function Dashboard() {
     const [backendHealthy, setBackendHealthy] = useState<boolean | null>(null);
     const [testFileCount, setTestFileCount] = useState(0);
     const [isRunningTests, setIsRunningTests] = useState(false);
+    const [isFixing, setIsFixing] = useState(false);
     const [selectedFile, setSelectedFile] = useState<string | null>(null);
 
     // Check backend health on mount
@@ -59,6 +60,21 @@ export function Dashboard() {
             setIsRunningTests(false);
         }
     }, [isRunningTests, fetchData]);
+
+    const handleFixAndRetry = useCallback(async () => {
+        if (isFixing || isRunningTests) return;
+
+        setIsFixing(true);
+        try {
+            await fixAndRetryTests();
+            await waitForTestCompletion(() => { });
+            await fetchData(); // Refresh results
+        } catch (err) {
+            console.error('Failed to fix and retry:', err);
+        } finally {
+            setIsFixing(false);
+        }
+    }, [isFixing, isRunningTests, fetchData]);
 
     // Fetch data on mount
     useEffect(() => {
@@ -201,7 +217,11 @@ export function Dashboard() {
                             {/* Error Log (if any compilation errors) */}
                             {data && data.errors.length > 0 && (
                                 <div className="section">
-                                    <ErrorLog errors={data.errors} />
+                                    <ErrorLog 
+                                        errors={data.errors} 
+                                        onFixAndRetry={handleFixAndRetry}
+                                        isFixing={isFixing}
+                                    />
                                 </div>
                             )}
 

@@ -145,3 +145,29 @@ export async function checkHealth(): Promise<boolean> {
         return false;
     }
 }
+
+export interface FixAndRetryResponse {
+    status: string;
+    fixes_applied: boolean;
+    fix_details: Array<{ file: string; fixes?: string[]; error?: string }>;
+    message: string;
+}
+
+/**
+ * Fix syntax issues in test files and retry running tests
+ */
+export async function fixAndRetryTests(): Promise<FixAndRetryResponse> {
+    const response = await fetch(`${API_BASE}/api/fix-and-retry`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    if (!response.ok) {
+        const error = await response.json().catch(() => ({ detail: response.statusText }));
+        throw new Error(error.detail || `Failed to fix and retry: ${response.statusText}`);
+    }
+
+    return response.json();
+}

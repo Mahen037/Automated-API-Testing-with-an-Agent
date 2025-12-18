@@ -395,6 +395,145 @@ async def delete_test_file(filename: str):
     return {"status": "deleted", "file": filename}
 
 
+def fix_syntax_issues(content: str) -> tuple[str, list[str]]:
+    """Fix common syntax issues in generated test files.
+    
+    Returns:
+        Tuple of (fixed_content, list_of_fixes_applied)
+    """
+    fixes = []
+    
+    # Define replacements using Unicode code points for reliability
+    replacements = [
+        # Smart/curly single quotes -> straight apostrophe
+        ('\u2018', "'", "left single quote"),   # '
+        ('\u2019', "'", "right single quote"),  # ' (also used as apostrophe)
+        ('\u201B', "'", "single high-reversed-9 quote"),
+        # Smart/curly double quotes -> straight double quote
+        ('\u201C', '"', "left double quote"),   # "
+        ('\u201D', '"', "right double quote"),  # "
+        ('\u201F', '"', "double high-reversed-9 quote"),
+        # Prime marks (sometimes confused with quotes)
+        ('\u2032', "'", "prime"),               # ′
+        ('\u2033', '"', "double prime"),        # ″
+        # Dashes -> hyphen-minus
+        ('\u2013', '-', "en-dash"),             # –
+        ('\u2014', '-', "em-dash"),             # —
+        ('\u2015', '-', "horizontal bar"),
+        # Ellipsis
+        ('\u2026', '...', "ellipsis"),          # …
+        # Other common problematic characters
+        ('\u00A0', ' ', "non-breaking space"),  # NBSP
+        ('\u200B', '', "zero-width space"),
+        ('\u200C', '', "zero-width non-joiner"),
+        ('\u200D', '', "zero-width joiner"),
+        ('\uFEFF', '', "byte order mark"),
+    ]
+    
+    chars_replaced = set()
+    for old_char, new_char, description in replacements:
+        if old_char in content:
+            content = content.replace(old_char, new_char)
+            chars_replaced.add(description)
+    
+    if chars_replaced:
+        fixes.append(f"Replaced special characters: {', '.join(sorted(chars_replaced))}")
+    
+    return content, fixes
+
+
+class FixTestsResponse(BaseModel):
+    status: str
+    files_fixed: int
+    total_fixes: int
+    details: list
+
+
+@app.post("/api/fix-tests", response_model=FixTestsResponse)
+async def fix_test_files():
+    """Fix common syntax issues in all test files (smart quotes, etc.)"""
+    
+    if not TESTS_DIR.exists():
+        return FixTestsResponse(
+            status="no_tests",
+            files_fixed=0,
+            total_fixes=0,
+            details=[]
+        )
+    
+    details = []
+    files_fixed = 0
+    total_fixes = 0
+    
+    for test_file in TESTS_DIR.glob("*.spec.ts"):
+        try:
+            content = test_file.read_text(encoding="utf-8")
+            fixed_content, fixes = fix_syntax_issues(content)
+            
+            if fixes:
+                test_file.write_text(fixed_content, encoding="utf-8")
+                files_fixed += 1
+                total_fixes += len(fixes)
+                details.append({
+                    "file": test_file.name,
+                    "fixes": fixes
+                })
+        except Exception as e:
+            details.append({
+                "file": test_file.name,
+                "error": str(e)
+            })
+    
+    return FixTestsResponse(
+        status="success" if files_fixed > 0 else "no_fixes_needed",
+        files_fixed=files_fixed,
+        total_fixes=total_fixes,
+        details=details
+    )
+
+
+@app.post("/api/fix-and-retry")
+async def fix_and_retry_tests():
+    """Fix syntax issues in test files and re-run the tests"""
+    global run_state
+    
+    if run_state.status == "running":
+        raise HTTPException(
+            status_code=409,
+            detail="A test run is already in progress"
+        )
+    
+    # First, fix any syntax issues
+    fix_result = await fix_test_files()
+    
+    # Reset state for new test run
+    run_state.status = "running"
+    run_state.output = ""
+    run_state.repo_url = ""
+    run_state.start_time = datetime.now()
+    run_state.end_time = None
+    
+    if fix_result.files_fixed > 0:
+        run_state.message = f"Fixed {fix_result.total_fixes} issue(s) in {fix_result.files_fixed} file(s). Running tests..."
+        run_state.output += f"🔧 Fixed {fix_result.total_fixes} syntax issue(s):\n"
+        for detail in fix_result.details:
+            if "fixes" in detail:
+                run_state.output += f"  - {detail['file']}: {', '.join(detail['fixes'])}\n"
+        run_state.output += "\n"
+    else:
+        run_state.message = "No fixes needed. Running tests..."
+    
+    # Run the tests
+    asyncio.create_task(run_tests_async())
+    
+    return {
+        "status": "started",
+        "fixes_applied": fix_result.files_fixed > 0,
+        "fix_details": fix_result.details,
+        "message": run_state.message
+    }
+
+
 @app.get("/health")
 async def health_check():
     """Health check endpoint"""
