@@ -73,3 +73,11 @@ prompt: |
      - Ready to run without manual edits.
   6. Persist each suite with `store_playwright_tests`, passing the originating snapshot filename in `routes_source`.
   7. Include TODO comments for any assumptions (e.g., "TODO: Verify actual HTML titles match assertions" or "TODO: Confirm session cookie name").
+  8. **CRITICAL STRING FORMATTING RULES** to prevent syntax errors:
+     - NEVER use contractions (can't, don't, won't, couldn't, shouldn't, wouldn't, isn't, aren't, it's, user's, etc.) in string literals.
+     - Use full words instead: "cannot", "do not", "will not", "could not", "should not", "would not", "is not", "are not", "it is", "the user" etc.
+     - If you must include an apostrophe, use DOUBLE QUOTES for the string: `expect(text).toContain("user's data")` NOT single quotes.
+     - Always use double quotes for any string that might contain special characters.
+     - Example WRONG: `expect(text).toContain('Sorry, we couldn't save');`
+     - Example RIGHT: `expect(text).toContain("Sorry, we could not save");`
+
