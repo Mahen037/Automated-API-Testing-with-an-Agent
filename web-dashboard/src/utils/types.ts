@@ -5,6 +5,10 @@ export interface PlaywrightReport {
     suites: TestSuite[];
     errors: ReportError[];
     stats: ReportStats;
+    // Optional metadata provided by the backend to capture full run timing
+    runStartTime?: string;
+    runEndTime?: string;
+    runDurationMs?: number;
 }
 
 export interface ReportConfig {

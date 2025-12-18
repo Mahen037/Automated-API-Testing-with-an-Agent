@@ -82,6 +82,16 @@ export function parsePlaywrightReport(report: PlaywrightReport): ParsedReport {
     }
 
     // Calculate stats
+    const runStartTime = report.runStartTime
+        ? new Date(report.runStartTime)
+        : new Date(report.stats.startTime);
+    const runEndTime = report.runEndTime ? new Date(report.runEndTime) : undefined;
+    const durationFromRun = report.runDurationMs ?? (
+        runEndTime
+            ? Math.max(0, runEndTime.getTime() - runStartTime.getTime())
+            : undefined
+    );
+
     const passed = endpoints.filter(e => e.status === 'passed').length;
     const failed = endpoints.filter(e => e.status === 'failed').length;
     const skipped = endpoints.filter(e => e.status === 'skipped').length;
@@ -94,9 +104,9 @@ export function parsePlaywrightReport(report: PlaywrightReport): ParsedReport {
         failed: failed || report.stats.unexpected,
         skipped: skipped || report.stats.skipped,
         flaky: report.stats.flaky,
-        duration: report.stats.duration,
+        duration: durationFromRun ?? report.stats.duration,
         passRate: totalTests > 0 ? (passed / totalTests) * 100 : 0,
-        startTime: new Date(report.stats.startTime),
+        startTime: runStartTime,
     };
 
     // Determine if we have any real data
