@@ -1,5 +1,6 @@
 # 🤖 A.T.L.A.S
 ### API Testing Leveraging an Agentic System
+[![Paper](https://img.shields.io/badge/Paper-PDF-red)](https://tinyurl.com/atlas-agent-paper)
 
 ## 📘 Overview
 **Repository-agnostic** starter for discovering API endpoints, generating Playwright tests, and executing them with rich reports—works across frameworks (FastAPI/Flask, Express/Nest, Spring, Rails, etc.).
@@ -122,4 +123,5 @@ https://github.com/user-attachments/assets/64fa0256-d8c2-4005-bfcc-cba4943bc8c5
 - **Generate + Review (Loop)** → Junior drafts + Senior patches/approves → `.api-tests/tests/*.spec.ts`
 - **Execute** tests via Playwright CLI → HTML + JSON reports in `.api-tests/reports/<sha>/`
 - **Repeat** locally or in CI
+
 
